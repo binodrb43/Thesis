@@ -22,7 +22,7 @@
 \usepackage{pdflscape}
 \usepackage{hhline}
 \usepackage{enumitem}
-\usepackage{amsmath,graphicx,bm,mathtools}
+\usepackage{amsmath,graphicx,bm,mathtools,cancel}
 \usepackage{acronym,setspace,natbib,float,blindtext,hyperref,caption,siunitx,tikz} 
 
 \newcommand{\colvec}[2][.8]{%
@@ -153,23 +153,25 @@ December 2020      %Edit
 %during the beginning phase, when I was completely struggling to
 %understand the research. 
 
+ 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %End of acknowledgements%
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \chapter{Statements}
-Chapter 4 and 6 consists of a work that has been or soon to be published in the 
-Physical Review Letter D. The idea on chapter 4 came during the beginning work
-of the thesis. The paper is written by Professor Benjamin Owen, I plotted the
-figure and verified the calculations and formulas. The data analysis on Chapter
-6 is performed by myself and I also wrote most part of the paper. Professor Owen
-edited the paper into the final updated form. 
-When I was a member of LIGO Scientific Collaboration, I made a significant
-contribution in one of the paper by locating a glitch in a Crab pulsar during
-the second observational run of Advanced LIGO. I found the glitch while reading
-the glitch catalogue  of Jodrell Bank Observatory. The member of the group had
-to rerun the search. 
+Chapters 4~\cite{PhysRevD.100.064013} is work that was published as Phys.\ Rev.\
+D \textbf{100}, 064013 (2019) and Chapter 6 is soon to be submitted for publication. The published version
+of Chapter 4 was mostly written by Professor Benjamin Owen; I gave comments on
+the presentation, corrected many formulae, and plotted the figure. It describes
+the capabilities of code that I wrote under the tutelage of Santiago Caride and
+Ra Inta. I wrote most of Chapter 6, with comments and small pieces from
+Professor Owen. It describes data analysis that I performed by myself. I made a
+significant contribution to another paper while I was a member of the LIGO
+Scientific Collaboration (LSC), the first search of O2 data for known pulsars
+[full reference]. I noticed that the Crab, the most important pulsar in that
+paper, had glitched halfway through the observation; and the LSC had to redo the
+analysis and rewrite the paper based on that.
 
 %%%%%%%%%%%%%%%%%%%
 %Table of Contents%
@@ -2316,8 +2318,8 @@ generate template bank. We will also talk about how we claim a detection of real
 signals and sensitivity of our search.
 
 \section{Signal Model} 
-We here try to derive the model of the waveform considering both Doppler and
-amplitude modulation of the signal. This will be a summary of the data analysis
+We here try to iderive the model of the waveform considering both Doppler and
+amplitude modutlation of the signal. This will be a summary of the data analysis
 paper by \citet{Jaranowski_1998}.
 
 If L is the length of the detector and $\lambda$ the wavelength of gravitational
@@ -2499,9 +2501,28 @@ x(t) = h(t)+n(t)
 \end{equation}
 The maximum likelihood ratio can be defined as ratio of the probability density function
 of when signal is present to when signal is absent.
-\begin{equation}
+\begin{equation}\label{eqn:lhood}
 \Lambda = \frac{p(x|h+n)}{p(x|n)}
 \end{equation}
+Assuming the noise is a zero mean, stationary, Gaussian random process and
+variance unity, the probability density function of noise will be:
+\begin{align*}
+p(x|n) & = \mathcal{N}exp(-(x-0)^2/(2*1))\\
+&= \mathcal{N}exp(-\frac{1}{2}(x|x))
+\end{align*}
+Similarly, if the data contains a signal h, now the mean will be h.
+\begin{equation}
+p(x|h+n)= \mathcal{N}exp(-\frac{1}{2}(x-h|x-h))
+\end{equation}
+Now, the likelihood ratio~\ref{eqn:lhood} can be written as:
+\begin{equation}
+\Lambda= \frac{exp(-\frac{1}{2}(x|x)}{exp(-\frac{1}{2}(x-h|x-h))}
+\end{equation}
+Taking, the log of likelihood ratio:
+\begin{align*}
+\ln{\Lambda} & =-\frac{1}{2}(x-h|x-h) + \frac{1}{2}(x|x)\\
+& = \cancel{-\frac{1}{2}(x|x)} +(x|h)-\frac{1}{2}(h|h)+\cancel{\frac{1}{2}(x|x)}
+\end{align*}
 The log likelihood function can be written as:
 \begin{equation}
 \ln{\Lambda}=(x|h)-\frac{1}{2}(h|h)
@@ -2629,6 +2650,71 @@ The expectation value of 2$\mathcal{F}$ is 4+$d^2$.
 four degrees of freedom. In presence of signal the pdf will be non central
 $\chi^2$ distribution where the non central parameter is the signal.}
 \end{figure}
+
+\subsection{Matched Filtering technique}
+Matched filter is a optimal technique of maximizing the signal to noise ratio by
+cotrrelating the detector data with a known waveform~\cite{Sathyaprakash_2009}.
+The detector output x(t) contains a signal h(t) and noise n(t), and let q(t) be
+a template of known shape. Let c be the correlation between the template and
+detector output:
+\begin{equation}\label{eq:matchfil1}
+c(\tau) = \int_{-\infty}^{\infty} x(t)q(t+\tau)dt
+\end{equation}
+where $\tau$ is the time delay between the template and the detector data.
+The time series data can be converted into frequency domain using the Fourier
+transform. 
+\begin{equation}\label{eq:matchfil2}
+\begin{split}
+x(t)=\int_{-\infty}^{\infty} x(f)e^{2\pi f t} df
+q(t+\tau)\\
+&=\int_{-\infty}^{\infty} q(f)e^{2\pi\tilde{f}(t+\tau)} d\tilde{f}
+\end{split}
+\end{equation}
+Substituting equation ~\ref{eq:matchfil2} into \ref{eq:matchfil1},
+
+\begin{align*}
+c(\tau) &= \int_{-\infty}^{\infty} dt \int_{-\infty}^{\infty}
+df\int_{-\infty}^{\infty} df^{'} \tilde{x}(f)\tilde{q}^*(f^{'}) e^{-i2\pi
+ft}e^{i2\pi f^{'}(t+\tau)}\\
+  & = \int_{-\infty}^{\infty} df \int_{-\infty}^{\infty} df^{'}
+\tilde{x}(f)\tilde{q}^*(f^{'})\underbrace{\int_{-\infty}^{\infty} dt e^{-i 2\pi
+(f-f^{'})t}}_{\delta(f-f^{'})}
+e^{i 2\pi f^{'}\tau}\\
+ & = \int_{-\infty}^{\infty}\tilde{x}(f)\tilde{q}(f)e^{i 2\pi f^{'}\tau}
+\int_{-\infty}^{\infty} df^{'}\delta(f-f^{'})\\
+ & = \int_{-\infty}^{\infty}\tilde{x}(f)\tilde{q}(f)e^{i 2\pi f^{'}\tau}
+\end{align*}
+The \ac{SNR} is defined as $\frac{\mu}{\sigma}$, where $\mu=<c>$ is a mean and
+$\sigma$ is a standard deviation of the correlation.
+
+\begin{align*}\label{eq:sign}
+\mu & = <\int_{-\infty}^{\infty}\tilde{q}^{*}(f)\tilde{x}(f)>\\
+&=\int_{-\infty}^{\infty}\tilde{q}^{*}(f)\tilde{h}(f)
+\end{align*}
+
+\begin{equation}\label{eq:noise1}
+\begin{split}
+\sigma^{2} & =<\int_{-\infty}^{\infty}\tilde{q}(f)\tilde{n}^{*}(f)df
+\int_{-\infty}^{\infty} \tilde{q}^{*}(f^{'}) \tilde{n}(f^{'})df^{'}>\\
+       &= \int_{-\infty}^{\infty}df|\tilde{q}(f)|^{2}
+\int_{-\infty}^{\infty}\underbrace{\tilde{n}^{*}(f)
+\tilde{n}(f^{'})}_{S_{n}(f)\delta(f - f^{'})}df^{'}\\
+      &=\int_{-\infty}^{\infty}df|\tilde{q}(f)|^{2} S_{n}(f)
+\end{split}
+\end{equation}
+From \ref{eq:sign} and \ref{eq:noise1}, we can get \ac{SNR}.
+\begin{equation}
+\rho=\frac{\int_{-\infty}^{\infty}\tilde{q}^{*}(f)\tilde{h}(f)}{(\int_{-\infty}^{\infty}df|\tilde{q}(f)|^2
+S_{h}(f))^{1/2}}
+\end{equation}
+The optimal signal to noise ratio is defined as:
+\begin{equation}
+\rho_{opt}^2 = <h,h> =2\left[\int_{0}^{\infty}\frac{|\tilde{h}(f)|^2}{S_{h}}(f){}df\right]
+\end{equation}
+So, the optimal \ac{SNR} is the total energy of the signal weighted down by the
+\ac{PSD} of noise. So, if the \ac{PSD} of noise at some frequency bin is higher,
+the \ac{SNR} will be lower.
+
 
 \subsection{Phases of gravitational waves}
 The pulsars are spinning down by the emission of particles, \ac{EM} and \ac{GW}.
@@ -2800,7 +2886,7 @@ pdf(2\mathcal{F}|H_o)d2\mathcal{F}
 \end{equation}
 And, the equation of False Dismissal Rate is given by:
 \begin{equation}
-P_{FDR}=P(2\mathcal{F}<2\mathcal{F}^*|H_a)=\int_0^{2\mathcal{F}^*}
+P_{FDR}=P(2\mathcal{F}<2\mathcal{F}^*|H_a)=\int_{-\infty}^{2\mathcal{F}^*}
 pdf(2\mathcal{F}|H_a)d2\mathcal{F}
 \end{equation}
 
@@ -2849,6 +2935,28 @@ that we found a source of non-Gaussian noise, like an instrumental line or a
 detector artifact. We would then have to do more detailed follow up on our
 individual outliers to figure out which of those is the case.
 
+\section{Veto process}
+The interferometer data are contaminated from different noise sources. Some of
+the noise sources are the instrument of interferometer(power supply, mirror
+suspension, blinking LEDs, fans..) itself. These noises occurs in a specific
+frequencies and might act as a signal for a continuous gravitational waves or
+they can even mask the signals.  These noises known as instrumental lines need
+to be properly identified and removed from the data searches. We will use a
+Fscan veto to remove the frequency bands with instrumental lines. A Fscan is a
+normalized spectogram form from the SFTs and normalize the SFTs by scaling the
+power to the running median over 50 frequency bins~\cite{Aasi_2015}. If the
+noise is stationary and Gaussian then the power is drawn from a $\chi^2$
+distribution. If the fscan power deviates from the $\chi^2$ distribution, then
+it is a non stationary Gaussian noise, spectral lines or both~\cite{Aasi_2015}.
+It also gives a line width to a frequency of spectral lines depending on the
+power of the lines. It looks for the frequency bins on either side that has
+power less than half of the power of lines, the line width is subtracting the
+below and above frequency vin of central frequency~\cite{Coughlin_2010}.
+
+The other veto process is the interferometer veto. If the $2\mathcal{F}$ value
+of any one of the detector is greater than the joint $2\mathcal{F}$ value of all
+the detector, then such a $2\mathcal{F}$ will be discarded. 
+
 \section{Upper limit}
 If we didn't detect any signal($2\mathcal{F}<2\mathcal{F}^*$) then we set up an
 upper limit on the intrinsic strain($h_0$) of the signal that we are trying to
@@ -2884,7 +2992,504 @@ discussed later in Chapter .
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{\textbf{Tables and Figures}}
+\chapter{\textbf{First searches for gravitational waves from $r$-modes of the
+Crab pulsar}}
+
+\section{Introduction}
+
+Rapidly rotating neutron stars might be detectable emitters of long lived
+quasi-monochromatic radiation known as continuous
+\acp{GW}~\cite{Glampedakis2018}. The emission mechanism for continuous waves
+could be a nonaxisymmetric mass quadrupole or a current-quadrupolar $r$-mode.
+Hence the detection of continuous \acp{GW} might help reveal the underlying
+properties of neutron star interiors. The \ac{GW} frequencies of many pulsars
+lie in the most sensitive band of the \ac{LIGO}, so these rapidly rotating
+neutron stars are attractive targets for continuous \ac{GW} searches.
+
+The $r$-modes, whose frequencies are mainly determined by the Coriolis force,
+are unstable to \ac{GW} emission~\cite{Andersson_1998,Friedman_1998} even
+allowing for various damping mechanisms. Hence they might amplify and sustain
+themselves, and might be the most interesting possibility for continuous
+\acp{GW}. $R$-modes might play an important role in the spin-downs of the
+fastest young neutron stars~\cite{Owen_1998} and in the regulation of spin
+periods of some older accreting neutron stars. Comparison of the \ac{GW}
+frequency to the spin frequency determined from timing radio or x-ray pulses
+could measure the compactness of a pulsar.
+
+Some \ac{GW} searches, starting with Ref.~\cite{Abadie_2010}, have set upper
+limits on $r$-mode \ac{GW} emission.
+However most of these have been broad band searches for neutron stars not
+previously known as pulsars.
+The searches themselves did not take any extra steps to account for $r$-mode
+rather than mass-quadrupole emission; rather the results could be interpreted in
+terms of $r$-modes~\cite{Owen_2010}.
+
+Caride \textit{et al.}~\cite{Caride2019} showed that dedicated searches for
+$r$-modes from known pulsars are feasible.
+The key is to search the right range of frequencies and frequency derivatives,
+which are significantly different from the more often considered case of
+mass-quadrupole emission.
+Not surprisingly, as with other \ac{GW} searches for pulsars, the Crab is the
+first prospect to beat the spin-down limit using \ac{LIGO} data. The spin-down
+limit assumes that all the rotational energy is
+lost in the form of \acp{GW}, and represents a milestone a search must beat to
+have a chance of detection.
+Recently Fesik and Papa~\cite{Fesik2020} first published an $r$-mode pulsar
+search similar to that proposed by Caride \textit{et al.}~\cite{Caride2019}, for another pulsar which is interesting for different reasons; but they
+did not beat its spin-down limit.
+The Crab is a relatively nearby pulsar with one of
+the fastest known spin-down rates, and thus it has one of the highest spin-down
+limits. Its rotational frequency changes at the rate
+$-3.69\times10^{-10}$\,Hz/s~\cite{JodrellBankObservatory}. The Crab's pulse timing is constantly
+measured by \ac{EM} observations, so the spin frequency evolution of the Crab is well known
+during the LIGO \ac{O1} and \ac{O2}.
+
+For various reasons we know that the Crab is not emitting \ac{GW} at or near the
+spin-down limit.
+Observations of the nebula indicate that most of the rotational energy is lost
+powering the nebula via synchrotron and inverse Compton radiation from the
+pulsar wind, and a few percent is lost in the narrow light
+beam~\cite{B_hler_2014}. Recent \ac{GW} searches~\cite{Abbott_2019, O3}
+have concluded that less than 0.01\% of the Crab's rotational energy loss is
+through mass-quadrupole gravitational radiation.
+The braking index $n$ of the Crab (the logarithmic derivative of its spin-down
+with respect to frequency) is 2.519.
+This is closer to the $n=3$ expected for magnetic dipole
+radiation~\cite{Lyne_2014} than to the $n=7$ expected for
+$r$-mode emission~\cite{Owen_1998}.
+Such a low braking index is another indicator that \ac{GW} emission is a small
+fraction of the spin-down limit.
+How small has not been quantified in a model-independent way or for $r$-modes.
+But Palomba~\cite{Palomba2000} found that, for a class of reasonable
+mass-quadrupole models, the measured braking index of the Crab means it is
+emitting \ac{GW} at least a factor of a few below the spin-down limit.
+We take this to suggest that any $r$-mode \ac{GW} signal from the Crab must be
+at least a factor of a few (in strain) below the spin-down limit.
+
+Nevertheless, Caride \textit{et al.}~\cite{Caride2019} showed that a search of
+the Crab with interesting sensitivity is feasible, and we confirm this.
+We performed searches for the Crab in  \ac{O1} and \ac{O2} data (the publicly
+available LIGO data sets) using the matched filtering-based technique known as
+the F-statistic.
+While we did not find any evidence of a \ac{GW} signal, we were able to set
+upper limits beating the spin-down limit by a significant amount over a wide
+parameter space.
+
+\section{R-modes search method} 
+
+Our search consists of a matched filtering technique to extract a signal from a
+detector noise known as $\mathcal{F}$-statistic. The $\mathcal{F}$-statistic
+developed by ~\citet{Jaranowski_1998} for single interferometer and by
+~\citet{PhysRevD.72.063006} for multi interferometer is a statistical procedure
+for the detection of the continuous gravitational waves. The
+$\mathcal{F}$-statistic accounts for the Doppler and amplitude modulation due
+to the daily rotation and orbital motion of Earth in a computationally efficient
+manner. In the presence of signal,
+the $2\mathcal{F}$ is a non-central chi squared distribution with four degrees
+of freedom and the non-central parameter is proportional to the signal. The
+$\mathcal{F}$-statistic is the log of the maximum likelihood function over the
+unknown parameter: amplitude strain, phase constant, inclination angle and
+polarization angle. 
+The main issue, as described by Caride \textit{et al.}~\cite{Caride2019}, is to
+find the ranges of frequencies and frequency derivatives to search.
+
+Pulsars are slowly spinning down due to \ac{GW} and other losses of rotational
+energy. The \ac{GW} frequency evolution of a spinning down neutron star in the
+frame of the solar system barycenter is approximated by: 
+\begin{equation}
+ \nu(t) = \nu\left( t_0 \right) + \dot{\nu}\left( t_0 \right) \left( t-t_0
+\right) + \frac{1}{2} \ddot{\nu}\left( t_0 \right) \left( t-t_0 \right)^2,
+\end{equation} 
+where $t_0$ is a reference time, often the start time of the observation.
+Generally $\dddot{\nu}$ is not needed for a less than a year of integration
+time~\cite{Caride2019}. The frequency evolution is precisely known from
+electromagnetic observations. It might depart from the above evolution due to
+timing noises or glitches. Glitches are sudden increases in spin frequency
+followed by exponential recovery to the pre-glitch
+frequency~\cite{Espinoza_2011}. Timing noise is residual phase wandering of
+pulses
+relative to the normal spin down model.
+Since the Crab glitched during O2, we divided the search into two roughly equal
+stretches. More on the Crab pulsar timing for our search will be discussed in
+section~\ref{timing}.
+
+For long duration searches the signals can be affected by timing noise. Timing
+noise will deviate \ac{GW} phases from Taylor series for time scales of 1 year
+and longer~\cite{Jones_2004}. Assuming, the \ac{GW} timing noise is similar to
+the one observed in EM pulses, the mismatch of the Crab ephemeris during LIGO S5
+run from the model with no timing noise is less than
+$1\%$~\cite{PhysRevD.91.062009}.  So, for all our searches (four months of
+data), timing noises should not significantly mismatch the templates from
+signal.
+
+For a Newtonian star with spin frequency $\nu$, the $r$-mode \ac{GW} frequency is approximately $f=\frac{4}{3}\nu$. The frequency ratio
+deviates from $4/3$ when corrections due to general relativity, rapid rotation,
+magnetic fields and core-crust coupling are considered~\cite{Idrisy:2014qca}.
+For fast rotating neutron stars, the elastic restoring force on the crust
+couples with the Coriolis restoring $r$-modes resulting in avoided
+crossings~\cite{Levin_2001}. These are small frequency bands where the simple
+relation between f and $\nu$ is drastically altered as modes change identities.
+Away from avoided crossings, the $r$-mode frequency as a function of spin
+frequency is approximately
+\begin{equation}
+f=A\nu-B\left(\frac{\nu}{\nu_K}\right)^2, 
+\end{equation} 
+where $\nu_K$ is the Kepler frequency. Here we neglect other effects so that A
+and B are the general relativistic and slow rotation corrections.  
+As the modes are retrograde in rotating frame but prograde in inertial frame,
+the General relativity correction decreases the mode frequency in a co-rotating
+frame but increases in an inertial frame.  Since,the modes restoring force is
+Coriolis force which is given by the fluid angular velocity relative to the
+local inertial frame $(\tilde\omega=\Omega - \omega)$, the modes oscillates less
+rapidly when frame dragging effect is
+significant~\cite{Lockitch:2000aa,1968ApJ...153..807H}. The effect of rapid
+rotation is to decrease the mode frequency in an inertial frame.  The
+gravitational redshift decreases the mode frequency as clock will be ticking
+slower in relativistic case as seen by the distant observer. 
+
+The range of A and B is chosen as follows: We consider a range of compactness of
+neutron stars ($0.11\leq M/R\leq 0.31$)~\cite{Idrisy:2014qca} which comes from
+the uncertainty in the equation of state. The range on compactness gives a range
+$1.39\leq A \leq 1.57$. The range on B are derived from the relation of $f/\nu$
+to the ratio of the rotational energy (T) to the gravitational potential energy
+(W)~\cite{Yoshida:2004gk}. For different polytropic index and the compactness,
+the range is 1.23-1.95 times the rotational parameter(T/W). \citet{Caride2019}
+converted T/W into a $(\nu/\nu_k)^2$ using a $M/R=0.1$ that gives a maximum
+value of B = 0.195. The minimum value of B is not well known so written as 0. 
+The range on A and B is
+\begin{equation}
+ A=(1.39-1.57) \quad \& \quad B=(0-0.195), 
+\end{equation}
+
+Our search consists of parameter $f$, $\dot{f}$, $\ddot{f}$ that makes a
+template of \ac{GW}. The distance between two templates is given by minimal
+match ($\mu$) which is the loss in signal to noise ratio when signal falls
+exactly between two theoretical waveforms~\cite{Owen:1995tm}.  
+The parameter space for our search is given by \citet{Caride2019}:
+\begin{eqnarray}
+\nu \left[ A_{\min} - B_{\max} \left( \nu/\nu_K \right)^2 \right] & \le & f
+\le \nu\, A_{\max},
+\\
+\dot\nu \left[ f/\nu - 2B_{\max} \left( \nu/\nu_K \right)^2 \right] & \le &
+\dot f \le \dot\nu f/\nu,
+\\
+0 & \le & \ddot f \le \ddot\nu f/\nu,
+\end{eqnarray}
+where, $f$ is spin frequency, $\dot{f}$ and $\ddot{f}$ is the first and second
+spin derivative.
+
+We use the parameter space metric $g_{ij}$ to control the computational
+cost of our search. 
+The parameter space metric is given by~\cite{Wette:2008hg,Owen:1995tm}:
+\begin{equation}
+g_{ij}=\frac{4\pi^2T^{i+j+2}(i+1)(j+1)}{(i+2)!(j+2)!(i+j+3)}
+\end{equation}\\
+where i, j stands for parameters $(f,\dot{f},\ddot{f})=(0,1,2)$ and T is the time spanned by the observation. 
+The template number is given by dividing the proper volume of the parameter
+space by the proper volume per template:~\cite{Caride2019}
+\begin{equation}\label{templatescalc}
+Templates = \frac{\sqrt{g} \nu \left| \dot\nu \right| \ddot\nu B_{\max} \left(
+\nu/\nu_K
+\right)^2 \left[ A_{\max}^2 - A_{\min}^2 \right]}{\left( 2 \sqrt{\mu/3}
+\right)^3}
+\end{equation}
+
+We look at the search jobs with the highest value of $\mathcal{F}$-statistic
+($2\mathcal{F}^*$) that survived the automated vetoes. The probability that the
+given value of $2\mathcal{F}^*$ will be observed when no signal are present is
+given by~\cite{Abadie_2010}: 
+\begin{equation} 
+p(N;2\mathcal{F}^*)= Np(\chi^2_4;2\mathcal{F}^*)[cdf(\chi^2_4;2\mathcal{F}^*)]^{N-1} 
+\end{equation} 
+where N is the number of templates and $p(\chi^2_4;2\mathcal{F}^*)$ is the
+central $\chi^2$ distribution with four degrees of freedom.  A high
+$2\mathcal{F}$ is not enough to claim the detection, as instrumental lines might
+act as a periodic signal. A search is followed by the F-scan veto and
+interferometer consistency veto that remove narrow band instrumental
+lines~\cite{Lindblom_2020}. F-scan looks for lines by normalizing the
+\acp{SFT}  using a running median of 51 frequency bins.  Then the interferometer
+veto is applied which discards the templates when the joined $2\mathcal{F}$
+value from the two interferometer is less than any of the single interferometer.
+
+%where i,j are the indices for frequency and its derivatives
+%labeled as
+%$(f,\dot{f},\ddot{f})=(0,1,2)$.~\cite{PhysRevD.100.064013}\cite{Wette:2008hg}
+%For the pulsars and integration time of interests, both $f$ and $\dot{f}$
+%parameters are 
+%necessary to build  the \ac{GW} template.  The requirement of $\ddot{f}$ depends
+%on the mismatch between the signals and waveform when the $\ddot{f}$ is ignored.
+%For the continuous \ac{GW} search the maximum mismatch between template and
+%signal is 0.2, i.e. we won't lose more than $20\%$ of signal to noise ratio
+%$\ddot{f}$ is necessary. If the mismatch  $g_{22}\ddot{f}^2 >0$ $\ddot{f}$ is
+%necessary. Using the maximum $\ddot{f}$ observed during our search,and with $T=
+%10^7s(O1)$ $g_{22}\ddot{f}$ = $5.5$, so $\ddot{f}$ is a requirement. 
+	
+
+\section{The Crab pulsar} \label{timing}
+The Crab pulsar is the remnant of a supernova explosion seen by
+Chinese astronomers in the year 1054 AD. This is our first target due to its
+high spin down limit which is  well above the LIGO \ac{O1} noise
+curve~\cite{Caride2019}. The rotational energy loss of the
+pulsar is given by $\dot{E}=4\pi^2I_{zz}\nu\dot{\nu}\approx 4.33\times10^{31}W$
+,where $(I_{zz}=10^{38}kg m^2)$ is the principal moment of inertia ~\cite{Abbott_2008}. The spin-down power of the Crab is high enough that, even if
+$r$-mode gravitational wave emission is only responsible for a small fraction of
+it, the \acp{GW} could be detectable.
+ 
+The sky location of Crab pulsar in J2000 coordinates is~\cite{1993MNRAS.265.1003L} 
+\begin{equation}
+\begin{aligned} 
+\alpha =05^h34^m31.94^s\\ 
+\delta=
++22^\circ00^\prime52.1^{\prime\prime} 
+\end{aligned} 
+\end{equation}
+ 
+The spin frequency and its derivative~\cite{1993MNRAS.265.1003L} were obtained
+from the Jodrell Bank observatory monthly ephemeris and interpolated to the
+start dates of the LIGO run from the nearest dates of 09/16/2015 (\ac{O1}),
+11/23/2016 (early O2) and 04/16/2017 (late O2). There were no glitches of the
+Crab during \ac{O1}, so the whole run can be coherently integrated. The Crab
+glitched at 2017-03-27 22:04:48.000 UTC~\cite{Espinoza_2011} during the \ac{O2}
+run, approximately halfway through. So we divided the \ac{O2} run into two
+roughly equal stretches.  The glitch was comparatively small
+($\frac{\Delta\nu}{\nu}= 2.14\times 10^{-9}$)~\cite{Espinoza_2011} and the
+relaxation time period for the glitches are not well known, so we started the
+search of late \ac{O2} a few hours afterwards.
+
+Fast spinning down pulsars are contaminated by timing
+noise~\cite{Lyne1992GlitchesAP} specially when $\ddot{\nu}$ is negative. During
+our observational time, the monthly $\ddot{\nu}$ measurement was fluctuating.
+This might be due to external torque from magnetosphere. So, we chose the
+maximum $\ddot{\nu}$ as maximum value observed during the observational time and
+minimum $\ddot{\nu}$ as zero. The extra number of templates required by
+including $\ddot{\nu}$ is factor of a few, so the searches will not be too
+expensive if we made $\ddot{\nu}$ from $0$ to a maximum seen value of
+$\ddot{\nu}$. 
+\begin{table*} 
+%\begin{ruledtabular}
+\begin{tabular}{ cccccc} 
+\textrm{Search} & \textrm{Start time(UTC)} & \textrm{End time(UTC)} &
+\textrm{Time span(days)} &  \textrm{Obs.Time(days)} & \textrm{SFTs}\\ 
+%\colrule
+\textrm{\ac{O1}} & 09/12/15(06:03:57) & 01/19/16(15:34:47) & 129.36 & 66.55 &6389\\ 
+\textrm{\ac{O2}(early)} & 11/30/16(18:01:57) & 03/27/17(16:28:25) &  116.93 &
+56.167 & 6186\\ 
+\textrm{\ac{O2}(late)} & 03/28/17(23:47:38) & 08/25/17(21:59:34) & 149.92 & 74.9 &
+8035 \\ 
+\end{tabular} 
+%\end{ruledtabular}
+\caption{The start and end times of the three searches.  The observational time
+is the total duration of \acp{SFT}(1800s each) divided by the number of
+interferometers (H1 \& L1).}
+\label{table:Time} 
+\end{table*} \\
+
+\begin{table} 
+%\begin{ruledtabular}
+\begin{tabular}{cccc } 
+\textrm{Search} & \textrm{$\nu$} &\textrm{$\dot{\nu}$} & \textrm{$\ddot{\nu}$}\\ 
+%\colrule
+\ac{O1} & $29.66181$ & $-3.69383\times10^{-10}$ &  $2.41\times10^{-20}$\\ 
+\ac{O2}(pre-glitch) & $29.64761$ & $-3.689673\times10^{-10}$ & $1.92\times10^{-20}$\\ 
+\ac{O2}(post-glitch) & $29.6438$ & $-3.688438\times10^{-10}$ &  $2.5\times10^{-20}$\\ 
+\end{tabular} 
+%\end{ruledtabular}
+\caption{Timing of Crab pulsar at the beginning of our three different searches.
+The timing is measured by Jodrell Bank Observatory~\cite{1993MNRAS.265.1003L}
+and interpolated to the start time of LIGO run. The recorded $\ddot{\nu}$ is the
+maximum value observed for the period of three different run.}
+\label{table:timing} 
+\end{table} 
+
+\section{Implementation} 
+We used data from the \ac{GWOSC}, starting with time-domain strain data sampled
+at 4\,kHz.  We downloaded all such \ac{O1} data for the official duration of the
+run (from GPS times 1126051217 to 1137254417) from both interferometers (H1 and
+L1), gating on only ``CBC CAT1'' vetoes.  These indicate disastrous conditions
+for the instruments, such as loss of laser power.  We ignored the other vetoes
+used in searches for binary black holes and neutron stars because they are aimed
+at short-duration disturbances which are not an issue for continuous wave
+searches.  We then used the code \texttt{lalapps\_MakeSFTDAG} from LALSuite to
+generate 1800\,s long \acp{SFT}, version\,2, high pass filtered with a knee
+frequency of 7\,Hz and windowed with the default Tukey window.  This produced
+6,389 \acp{SFT} for \ac{O1} (3,474 from H1 and 2,915 from L1).  A similar
+procedure for \ac{O2} produced 14,231 \acp{SFT} (7,242 from H1 and 6,989 from
+L1).  Our $r$-mode search used a modified version of Supernova remnant
+pipeline\cite{Aasi_2015} and ``Texas Tech University High Performance Computing
+Center'' for computational power.
+
+The frequency band of the search are 41.2 - 46.6 Hz (O1) and 41.1 -46.6 Hz (O2).
+The minimum and maximum frequencies are rounded down and up to the one decimal
+of place. This is because the frequency band needs to be a frequency resolution
+of 0.1 Hz. We use a bank of template with minimal match is 0.2. The ideal
+template number for Crab O1, early O2 and late O2 are $2.27\times 10^9$,
+$9.71\times 10^8$ and $4.02\times 10^9$ respectively. The actual search produced
+$1.72\times 10^{10}$, $1.17\times 10^{10}$ and $3.62 \times 10^{10}$ templates.
+The number of templates of search is around an order of magnitude greater than
+the ideal templates calculated. This is because the search uses extra templates
+to cover the boundaries outside the parameter space~\cite{Abadie_2010}. The
+O1, early O2 and late O2 used computational time of 1584, 944 and 3892 core
+hours. 
+
+%\begin{table}
+%\begin{ruledtabular}
+%\begin{tabular}{ccc} 
+% \textrm{Search} & \textrm{Template Density} & \textrm{Search Jobs (core hrs)} \\ 
+%\colrule
+%\ac{O1} & 3202057000 & 1584\\
+%\ac{O2}(pre-glitch)  & 2129421000 & 944\\ 
+%\ac{O2}(post-glitch) & 6587981400 & 3892 \\
+%\end{tabular} 
+%\end{ruledtabular}
+%\caption{Computational cost}\label{cost} 
+%\end{table} 
+
+
+\begin{table*} 
+%\begin{ruledtabular}
+\begin{tabular}{cccc} 
+  \textrm{Search} & \textrm{Search bands} & \textrm{Vetoed bands} & \textrm{Fraction of band searched}\\   
+%\colrule  
+\ac{O1} & 5.4 Hz & 1.286 Hz & 0.76\\ 
+\ac{O2}(pre-glitch)& 5.5 Hz  & 0.79 Hz & 0.85\\ 
+\ac{O2}(post-glitch) & 5.5 Hz & 1.33 Hz & 0.758\\  
+\end{tabular} 
+%\end{ruledtabular}
+\caption{Total vetoed frequency band of the search due to instrumental
+lines}\label{table:veto} 
+\end{table*} 
+ 
+The F-scan veto threshold was fixed to twenty standard
+deviations.  We set threshold of 33 for $2\mathcal{F}$, any $2\mathcal{F}$ below
+it will be discarded.  The total frequency band vetoed are 1.29 Hz (O1), 0.79 Hz
+(early O2) and 1.33 Hz (late O2). This is about $75\%$ (O1), $85\%$ (early O2)
+and $76\%$ (late O2) of the total frequency band searched. We set the false
+alarm probability as $5\%$. If the $2\mathcal{F}$
+value from the search has less than 5\% chance of being drawn from
+$p(2\mathcal{F}^*)$ then it is the first step to claim the \ac{GW} signal. None
+of the non-vetoed templates had a $2\mathcal{F}$ value that beat the 95\%
+significance level so no detection was made in all our search.
+
+\section{Upper limit}
+In the absence of a detection, we set an upper limit gravitational wave
+emission. The method is similar to ~\citet{Lindblom_2020}. Upper limit are the
+weakest signal that can be detected from our search with certain probability.
+The frequentist upper limit depends on the observed $2\mathcal{F}$ value and the
+choice of confidence level. For our case, the upper limit is $95\%$ confidence
+level, i.e. for a minimum $h_o$, $2\mathcal{F} > 2\mathcal{F}^*$ $95\%$ of the
+time~\cite{Romano_2017}. This means we set the false dismissal rate to $5\%$,
+and the loudest $2\mathcal{F}$ observed will set the false alrm
+rate~\cite{Aasi_2015}. The upper limit bands are chosen to be small enough for
+the interferometer noise to stay constant. The upper limit band for all the
+searches is 0.1 Hz. 
+
+First, we use a computationally inexpensive Monte Carlo to determine the loudest
+non-vetoed $2\mathcal{F}$ and find a $95\%$ confidence level intrinsic strain
+($h_o$) that gives such a $2\mathcal{F}$. Then we use computationally expensive
+($20- 30\%$ of the cost of search)~\cite{Aasi_2015} software injection searches
+to make the validation of the upper limit. 1000 fake signals with fixed $h_o$
+(that was determined in previous step) and variable $f,\dot{f},\ddot{f}$ and
+other unknown parameters are injected in each upper limit band to check the
+validity of $h_o$. The maximum value of $2\mathcal{F}$ obtained from the
+injection is compared to the $2\mathcal{F}^*$ from the search results. If
+$2\mathcal{F}> 2\mathcal{F}^*$ then this $h_o$ will be our upper limit.  The
+upper limit of intrinsic strain and $r$-mode amplitude for our three searches is
+shown in figure ~\ref{fig:UL}.  The best $95\%$ confidence level upper limits on
+intrinsic amplitude strain of our search are $1.61\times 10^{-25}$ (O1),
+$1.45\times 10^{-25}$ (early O2) and $1.20\times 10^{-25}$ (late O2). The upper
+limit for the searches beats the spin down limit by order of magnitude in
+amplitude strain and two orders of magnitude in luminosity. 
+
+We can also set upper limits on $r$-mode amplitude.  
+The derivation of $r$-mode amplitude ($\alpha$) is shown by \citet{Owen_2010},
+who took the fiducial value of moment of inertia $(I_{zz})=10^{38}kgm^2$
+and typical $M=1.4M_\odot$. We convert the upper limit on
+intrinsic strain ($h_o$) to a r-mode amplitude ($\alpha$).   
+\begin{equation} 
+\alpha
+=0.028\left(\frac{h_o}{10^{-24}}\right)\left(\frac{r}{1kpc}\right)\left(\frac{100Hz}{f}\right)^3
+\end{equation} 
+
+The best $r$-mode amplitude upper limits for our different searches are $0.0898$
+(O1), $0.082$ (early O2) and $0.067$ (late O2). 
+%The millisecond pulsar will have $\alpha$ from $10^{-6}$
+%- $10^{-4}$, some might have as high as 0.01~\cite{Owen_2010}. The saturation
+%  amplitude of unity spins down the pulsar to a one-tenth of its rotational
+%velocity in a year~\cite{Lindblom_2001}. And neutron star with low saturation
+%amplitude might not be spinning down due to $r$-modes.
+
+
+\begin{figure}[h!] 
+\includegraphics[width=3in]{Crabupper.png}
+\includegraphics[width=3in]{modeamplitude.png}
+
+\caption{Comparison of upper limits on intrinsic strain (left) and $r$-mode
+amplitude (right) for our three searches. The late search is the most sensitive one as it has the more observational
+time and detectors were more sensitive later.} 
+\label{fig:UL}
+\end{figure}
+
+%\begin{table*} 
+%\begin{center} 
+%\begin{ruledtabular}
+%\begin{tabular}{ ccc} 
+% \textrm{Search} & \textrm{$h_o$} & \textrm{$\alpha$}\\  
+%\colrule 
+%\ac{O1} & $1.61\times 10^{-25}$ & 0.0898\\ 
+%\ac{O2}(pre-glitch) & $1.45\times 10^{-25}$ & 0.082\\ 
+%\ac{O2}(post-glitch) & $1.20 \times 10^{-25}$ & 0.067\\  
+%\end{tabular} 
+%\end{ruledtabular}
+%\end{center} 
+%\caption{95\% confidence level upper limits on the intrinsic strain ($h_o$) and
+%$r$-mode amplitude ($\alpha$)}
+%\label{table:upperlimit} 
+%\end{table*}
+
+\section{Conclusion} 
+
+Our search for Crab pulsar didn't detect $r$-mode \acp{GW} from \ac{LIGO}
+\ac{O1} and \ac{O2} run. The second run of \ac{O2} has the better sensitivity
+mostly due to the longer observational time and both interferometer were taking
+data simultaneously. Although, the spin down limit of Crab is higher, the \ac{GW}
+amplitudes might not be high enough to beat the LIGO sensitivity. The longer
+observational time and better sensitivity might be able to detect continuous
+\ac{GW} in future LIGO run.  We will extend our search of Vela pulsar which
+beats the spin down limit for the LIGO \ac{O2} run.  
+
+J0537-6910 might be another interesting pulsar as the average inter-glitch
+braking index is closer to 7 when subtracting the exponential decay component of
+$\dot{nu}$ during the glitch recoveries~\cite{Andersson_2018,Ferdman_2018}, this
+means  it might be spinning down due to $r$-mode \ac{GW} emission. We do not
+have a timing of this pulsar during the \ac{O1} and \ac{O2} run and it glitches
+almost every 100 days, so longer observational time will mismatch the signal
+with the theoretical templates. The $r$-mode \ac{GW} from J0537-6910 pulsar has
+recently been searched by ~\citet{Fesik2020}, using the timing from Rossi
+X-ray Timing Explorer from Nov 2011 and interpolating to the LIGO \ac{O1} and
+\ac{O2} run. They have considered two scenarios where $r$-modes is active or
+shuts off just on the beginning of observation. The search didn't find any
+evidence of $r$-modes.  
+
+Some nearby pulsar J0437-4715 and J0711-6830 are important due to its proximity
+and its frequency lies where \ac{LIGO} is more sensitive. But its spin down
+frequency are very low $(10^{-15})$, so its spin down limit only beats LIGO A+
+noise curve. J0437-4715 is a billion years old pulsar but its temperature is
+more than expected for a old pulsar, so some astronomers thinks there might be
+some internal heating mechanism~\cite{Durant_2012} increasing the temperature of
+neutron star and $r$-modes heating might be one of the factor. Both J0437-4715
+and J0711-6830 spin down limits are well below the LIGO \ac{O1} and \ac{O2}
+noise curve so the search might only be important for the future LIGO run.  
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                                                     END OF SIXTH CHAPTER
+%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \chapter{\textbf{Conclusion}}
 This thesis presents the work on $r$-mode \ac{GW} searches from a Crab pulsar
 for the \ac{LIGO} \ac{O1}and \ac{O2} run. We also showed the right frequency
