@@ -197,18 +197,21 @@ terms of the star's measured spin-down parameter. We show for the first time how
 to construct searches over appropriate ranges of frequencies and spin-down
 parameters to target $r$-modes from known pulsars. 
 
-We present the first searches for gravitational waves from
-$r$-modes of the Crab pulsar, coherently and separately integrating data from
-three stretches of the first two observing runs of Advanced LIGO using the
-$\mathcal{F}$-statistic. The band of frequencies was 41.1--45.6\,Hz.  The
-frequency and derivatives searched were based on radio measurements of the
-pulsar's spin-down parameters  as described in \citet{PhysRevD.100.064013}.  We
-did not find any evidence of gravitational waves. The best upper limits on the
-gravitational wave amplitude  were $1.61\times10^{-25}$(O1), $1.45\times10^{-25}
-$(first half of O2) and $1.20\times10^{-25} $(second half of O2). These are the
-first upper  limits on gravitational waves from $r$-modes of a known pulsar to
-beat the spin-down limit, and they do so by more than an order of magnitude
-in amplitude or two orders of magnitude in luminosity.  
+We present the first searches for gravitational waves from $r$-modes of the Crab
+pulsar, coherently and separately integrating data from three stretches of the  
+first two observing runs of Advanced LIGO using the $\mathcal{F}$-statistic.    
+The second run was divided in two by a glitch of the pulsar roughly halfway     
+through.  The frequencies and derivatives searched were based on radio          
+measurements of the pulsar's spin-down parameters as described in Caride        
+\textit{et al.,} Phys.\ Rev.\ D \textbf{100}, 064013 (2019).  We did not find   
+any evidence of gravitational waves. The best 95\% confidence upper limits on   
+the gravitational wave intrinsic strain were $1.6\times10^{-25}$ for the first  
+run, $1.5\times10^{-25}$ for the first stretch of the second run, and           
+$1.2\times10^{-25}$ for the second stretch of the second run. These are the     
+first upper limits on gravitational waves from $r$-modes of a known pulsar to   
+beat its spin-down limit, and they do so by more than an order of magnitude in  
+amplitude or two orders of magnitude in luminosity.                             
+                                          
 %%%%%%%%%%%%%%%%%
 %End of abstract%
 %%%%%%%%%%%%%%%%%
@@ -254,76 +257,53 @@ in amplitude or two orders of magnitude in luminosity.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{\textbf{Introduction}}
-    On September 14 2015, two detector of Laser Interferometer Gravitational
-Observatory detected a chirp signal with 10 ms apart ~\cite{Abbott_2016}. The
-signal frequency went from 35 Hz to 250 Hz with a peak amplitude of $10^{-21}$.
-The signal matches the waveform of two binary black hole of mass 36 $M_\odot$
-and 29 $M_\odot$ spiraling each other at 410 $Mpc$(1.4 billion light years) to
-form a remnant of 62 $M_\odot$ and the remaining 3 $M_\odot$ is released as
+    On September 14 2015, the two detectors of the \ac{LIGO} detected a chirp signal with 10 ms apart ~\cite{Abbott_2016}. The
+signal frequency went from 35 Hz to 250 Hz in 200\,ms with a peak strain amplitude of $10^{-21}$.
+The signal matched the waveform of two binary black holes of mass 36 $M_\odot$
+and 29 $M_\odot$ spiraling into each other at 410\,Mpc (1.4 billion light years) to
+form a remnant of 62 $M_\odot$. The remaining 3 $M_\odot$ was released as
 gravitational waves.  The false alarm rate of this event is 1 per 203,000 years
-which is of significance level 5.1$\sigma$ which makes it of astrophysical
-origin.  After,some complicated data analysis to invalid any terrestrial origin
-of signal, the event was announced in 11 February 2016 to the world. This
-discovery led to a 2017 Nobel prize in Physics award to Kip Thorne, Rai Weiss and
-Barry Barish.
+ which makes it of astrophysical
+origin.  After, some complicated data analysis to rule out any terrestrial origin
+of the signal, the event was announced on 11 February 2016 to the world. This
+discovery led to the 2017 Nobel Prize in Physics being awarded to Kip Thorne,
+Rai Weiss, and Barry Barish.
 \begin{figure}[bht!]                                                              
         \includegraphics[width=\textwidth]{figure/BBH.png}                          
 	\caption{The first detection of \ac{GW} from a binary black hole
-merger by two \ac{LIGO} detector~\cite{Abbott_2016}.}
+merger by two \ac{LIGO} detectors~\cite{Abbott_2016}.}
 \end{figure}      
 
-During the second observation run of Advanced LIGO and Virgo(August 17, 2017),
-the network of three detector observed a gravitational wave from two binary
-neutron star merger~\cite{Abbott_2017}. The signal was first detected in Virgo
-detector and in Livingston after 22 ms and later in Hanford in another 3 ms
+During the second observation run of Advanced LIGO and Virgo on August 17, 2017,
+the network of three detectors observed a \ac{GW} signal from a binary
+neutron star merger~\cite{Abbott_2017}. The signal was first detected marginally in the Virgo
+detector and in Livingston after 22\,ms and later in Hanford in another 3 ms,
 limiting the sky localization to 28 square degrees. The signal frequency went
-form 30 Hz to 2048 Hz within a minute. The total mass of combined neutron star
+from 30\,Hz to 2048\,Hz within a minute. The total mass of merger remnant
 is $2.74_\odot$ where $0.025 M_\odot$ were radiated as \ac{GW} energy at a
-luminosity distance of 40 Mpc(130 million light years). After 1.7 s a associated
-burst of gamma rays was detected by Fermi telescope from a same  location. Other
-spectrum of \ac{EM} waves were discovered ranging from few hours for optical
-light to a few weeks for radio waves.  This brings the first cosmic event that
-were seen in both gravitational waves and electromagnetic spectrum starting the
-multi-messenger astronomy. 
+luminosity distance of 40\,Mpc (130 million light years). After 1.7 s a
+burst of gamma rays was detected by the Fermi telescope from a same  location. Other
+spectrum of \ac{EM} waves were discovered with delays ranging from few hours for optical
+light to a few weeks for radio waves.  This makes the first cosmic event that
+was seen in both gravitational waves and electromagnetic waves starting the era
+of multi-messenger astronomy. 
 \begin{figure}[bhtp!] 
         \includegraphics[width=\textwidth]{figure/GW170817.png}
 	\caption{The first detection of binary neutron star merger (GW170817) by
 the \ac{LIGO} detector~\cite{Abbott_2017}. The figure shows a spectrogram of the \ac{GW} event
-GW170817. The signal direction was on the blind side of the VIRGO detector, this
+GW170817. The signal direction was on the blind side of the VIRGO detector. This
 was important to predict the sky location of GW170817.  }
         \label{GW170817}                                                             
 \end{figure}      
 
-The third observation of LIGO made 56 \ac{GW} detection of which $GW190412$ was
-a significant due to its asymmetric mass. The $30M_\odot$ merged with
-$8M_\odot$ companion at 2 billion light-years distance that made a final remnant 
- of  $37M_\odot$ and $1M_\odot$ was lost in \ac{GW}
-energy.~\cite{collaboration2020gw190412} The asymmetric
-mass black hole can radiate \acp{GW} at higher multipole other than quadrupole.
-The \ac{GW} frequencies are related to the orbital frequency by the relation, 
-$f_{lm}=mf_{orb}$. For this event, the interferometer detected both
-$(l,m)=(2,\pm 2)$ with $f_{GW}=2f_{orb}$ and higher harmonics $(l,m)=(3,\pm 3)$ with
-$f_{GW}=3f_{orb}$, so the \ac{GW} frequencies were in ratio of 3:2 as in musical
-fifth.
-
 The detection of \ac{GW} opened a new way to understand the universe. This not
-only proved the Einstein Theory of General Relativity but this is the first
-detection of binary blackhole merger with a  mass of blackhole never been
-observed before. The neutron star collision was seen not only in \ac{GW} but also
-in all \ac{EM} spectrum. This event showed the heavier elements like uranium and
-gold are formed through a r-process nucleosynthesis where a nuclei gets absorbed
-by heavier elements nucleus such as iron and the nucleus decays into proton and
+only supported the Einstein Theory of General Relativity but was the first
+detection of such a high mass of black hole. The neutron star collision was seen not only in \ac{GW} but also
+across the \ac{EM} spectrum. This event showed the heavier elements like uranium and
+gold are formed through a $r$-process nucleosynthesis, where a nucleus gets absorbed
+by a heavier nucleus such as iron and the nucleus decays into proton and
 electron increasing the proton number of nucleus and forming new elements. 
 
-Recently, during the third observation run of Advanced \ac{LIGO}, the
-three network of interferometer detected a two black hole of mass $85M_\odot$ and $65M_\odot$
-merged into a black hole of mass $142M_\odot$~\cite{Abbott_2020}. This is the first detection of
-Intermediate mass black hole. This 142 solar mass black hole fills up the gap
-between the stellar mass black hole (less than $100M_\odot$) and super massive
-black hole ($10^6-10^9 M_\odot$). Since, this is the heaviest black hole
-detected by \ac{LIGO}, the frequency of the signal is less than the other
-binary black hole merger. The signal lasted for 100 milliseconds with peak
-frequency of 60 Hz.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -332,59 +312,63 @@ frequency of 60 Hz.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Gravitational Waves}
-Compact objects such as black hole warps the space-time, when these bulk objects
-moves at relativistic speed, the changing warpage in space-time propagates at
-speed of light known as gravitational waves~\cite{thorne1995gravitational}. The
-detection of gravitational wave has created the new era in astronomy. This
-brought the same excitement in astronomy community as the discovery of pulsars,
-observation of jets from super-massive black hole from the radio telescopes.
-\acp{GW} can travel a long distances without getting absorbed or scatter whereas
-\acp{EM} get absorbs or scatter easily. So, the universe that can be observed
-through \acp{GW} are opaque to \ac{EM}. 
+Compact objects such as black holes or neutron stars warp the space-time. When these objects
+move at relativistic speed, the changing warpage in space-time propagating at
+the
+speed of light is known as gravitational waves~\cite{thorne1995gravitational}. The
+detection of \acp{GW} has created a new era in astronomy.
+\acp{GW} can travel long distances without getting absorbed or scattering whereas
+\acp{EM} get absorbed or scatter easily. So, the universe that can be observed
+through \acp{GW} is invisible to \ac{EM}. 
 
 \section{Theory of Gravitational Waves}
-The Principle of Equivalence describes an equation of motion of freely
+The General Theory of Relativity describes the equation of motion of a freely
 falling particle as:
 \begin{equation}
-\frac{d^2x_\lambda}{d\tau^2}+\Gamma^\lambda_{\mu\nu}\frac{dx_\mu}{d\tau}\frac{dx_\nu}{d\tau}=0
+\frac{d^2x_\lambda}{d\tau^2}+\Gamma^\lambda_{\mu\nu}\frac{dx_\mu}{d\tau}\frac{dx_\nu}{d\tau}=0,
 \end{equation}
-where $\mu$ and $\nu$ are the space-time coordinates, the indices goes from 0-3.
-$\tau$ is the proper time and $\lambda$ is a parametrization.\\
-and $\Gamma^\lambda_{\mu\nu}$ is the affine connection:
+where $\mu$ and $\nu$ are the space-time coordinates, the indices go from 0--3
+and
+$\tau$ is the proper time and  $\Gamma^\lambda_{\mu\nu}$ is the affine connection:
 \begin{equation}
-\Gamma^\mu_{\mu\nu} =\frac{\partial x^\lambda}{\partial
-\xi^\alpha}\frac{\partial^2\xi^\alpha}{\partial x_\mu \partial x_\nu}
+\Gamma^\lambda_{\mu\nu} =\frac{\partial x^\lambda}{\partial
+x^\alpha}\frac{\partial^2x^\alpha}{\partial x_\mu \partial x_\nu},
 \end{equation}
+
 \begin{equation}
-d\tau^2=dt^2 - dx^2 = -g_{\mu\nu}dx_\mu dx_\nu
+d\tau^2=dt^2 - dx^2 = -g_{\mu\nu}dx_\mu dx_\nu,
 \end{equation}
 where $g_{\mu\nu}$ is a metric tensor that describes space-time curvature.
 \subsection{Newtonian Limit}
 	For a slowly moving particle 
 \begin{equation}
-\frac{dx^i}{d\tau}<< \frac{dt}{d\tau}
+\frac{dx^i}{d\tau}<< \frac{dt}{d\tau},
 \end{equation}
+and thus,
 \begin{equation}
-\frac{d^2x_\mu}{d\tau^2}+\Gamma^\lambda_{00}\left(\frac{dt}{d\tau}\right)^2=0
+\frac{d^2x_\mu}{d\tau^2}+\Gamma^\lambda_{00}\left(\frac{dt}{d\tau}\right)^2
+\cong 0,
 \end{equation}
-For a stationary field, $\Gamma^\lambda_{00}$ can be written as:
+For a stationary gravitational field, $\Gamma^\lambda_{00}$ can be written as:
 \begin{equation}
-\Gamma^\lambda_{00}= -1/2 g^{\mu \nu} \frac{\partial g_{00}}{\partial x^\nu}
+\Gamma^\lambda_{00}= -1/2 g^{\mu \nu} \frac{\partial g_{00}}{\partial x^\nu},
 \end{equation}	
-For a weak gravitational field, we can write the metric in Minkwoski plus small
+For a weak gravitational field, we can write the metric as Minkwoski plus a small
 perturbation:
 \begin{equation}
-g_{\mu \nu}= \eta_{\mu \nu} + h_{\mu \nu}
+g_{\mu \nu}= \eta_{\mu \nu} + h_{\mu \nu},
 \end{equation}
 \begin{equation}
-\Gamma^\lambda_{00}= -1/2 g^{\mu \nu} \frac{\partial h_{00}}{\partial x^\nu}
+\Gamma^\lambda_{00}= -1/2 g^{\mu \nu} \frac{\partial h_{00}}{\partial x^\nu},
 \end{equation}	
 \begin{equation}
-\frac{d^2x_\mu}{d\tau^2}=1/2 g^{\mu \nu} \frac{\partial h_{00}}{\partial x^\nu} \left(\frac{dt}{d\tau}\right)^2
+\frac{d^2x_\mu}{d\tau^2}=1/2 g^{\mu \nu} \frac{\partial h_{00}}{\partial x^\nu}
+\left(\frac{dt}{d\tau}\right)^2,
 \end{equation}
-For $\partial_0h_{00}=0$ and $\mu=0$ component becomes:
+For a stationary $\partial_0h_{00}=0$ and the perturbation $\mu=0$ component of
+the last equation becomes:
 \begin{equation}
-\frac{d^2t}{d\tau^2}=0
+\frac{d^2t}{d\tau^2}=0,
 \end{equation}
 This means $dt/d\tau$ is constant. And
 \begin{equation*}
@@ -398,7 +382,7 @@ This means $dt/d\tau$ is constant. And
 \end{equation*}
 
 \begin{equation}                                                                
-\frac{d^2x^i}{d\tau ^2}=1/2 \left(\frac{dt}{d\tau}\right)^2 \partial _i h_{00}
+\frac{d^2x^i}{d\tau ^2}=1/2 \left(\frac{dt}{d\tau}\right)^2 \partial _i h_{00},
 \end{equation} 
 
 Dividing both sides by $\left(\frac{dt}{d\tau}\right)^2$, we get,
@@ -406,30 +390,30 @@ Dividing both sides by $\left(\frac{dt}{d\tau}\right)^2$, we get,
 \frac{d^2x^i}{dt^2}=1/2 \partial _i h_{00}
 \end{equation} 
 
-On Newtonian case,
+This gives us the Newtonian case,
 \begin{equation} \label{Newton}
-\frac{d^2x}{dt^2}=-\nabla \Phi
+\frac{d^2x}{dt^2}=-\nabla \Phi,
 \end{equation}
 
 Comparing \ref{GR} and \ref{Newton},we get,
 \begin{equation} \label{eq:14}
-h_{00}=2\Phi
+h_{00}=2\Phi,
 \end{equation}
-And, comparing with the metric $g_{\mu \nu}= \eta_{\mu \nu} + h_{\mu \nu}$
+And, comparing with the metric $g_{\mu \nu}= \eta_{\mu \nu} + h_{\mu \nu}$,
 \begin{equation}\label{eq:15}
-g_{00}=-(1+2\Phi)
+g_{00}=-(1+2\Phi),
 \end{equation}
-In Newtonian theory, gravitational potential can be written in Poisson
+In Newtonian theory,the  gravitational potential obeys Poisson's
 equation:
 \begin{equation} \label{eq:16}
-\nabla ^ 2\Phi = 4\pi G\rho
+\nabla ^ 2\Phi = 4\pi G\rho,
 \end{equation}
-where, $\Phi=-\frac{GM}{R}$ for a point mass like distribution and $\rho$ is a
+where $\Phi=-\frac{GM}{R}$ for a point mass like distribution and $\rho$ is a
 mass density. In Newtonian mechanics mass is the only source of gravitational
-field but in general relativity we need a quantity known as stress energy
-density($T_{\mu\nu}$). And, the gravitational potential can be written as a metric
+field but in general relativity we need a quantity known as the stress energy
+density ($T_{\mu\nu}$). And the gravitational potential can be generalized to a metric
 tensor ($h_{\mu\nu}$).
-In weak field limit, the rest energy can be written as:
+In the weak field limit, the rest energy can be written as:
 \begin{equation}\label{eq:17}
 T_{00}=\rho
 \end{equation}
@@ -438,42 +422,10 @@ From \ref{eq:14}, \ref{eq:16} and \ref{eq:17}
 \nabla ^2h_{00}=-8\pi GT_{00}
 \end{equation}
 	
-	For a vacuum field equation the Ricci tensor $R_{\mu \nu} = 0$ since
+	For a vacuum the Ricci tensor $R_{\mu \nu} = 0$ since
 there is no gravitational field. But the equation with matter will be:
 \begin{equation} \label{eq:19}
-R_{\mu \nu} = 8 \pi GT_{\mu \nu}
-\end{equation}
-In a local inertial frame, the stress-energy tensor is conserved in curved
-space-time.
-\begin{equation} \label{eq:20}
-\nabla _\mu T_{\mu \nu} =0
-\end{equation}
-from \ref{eq:19} and \ref{eq:20},
-\begin{equation}
-\nabla _\mu R_{\mu \nu} =0
-\end{equation}
-light. In GR, Einstein field equation is written as:
-\begin{equation}
-R_{\mu\nu} -\frac{1}{2}g_{\mu\nu}=-\kappa T_{\mu\nu}
-\end{equation}	
-where $R_{\mu\nu}$ is a Ricci tensor,$g_{\mu\nu}$ is a metric tensor, R is a scalar
-curvature and $T_{\mu\nu}$ is a stress energy tensor. The LHS describes the
-curvature of space-time and RHS defines the energy density.\\
-Compact object such as black hole and neutron star warps the
-space-time, and when such masses accelerates it changes the stress-energy on the
-space-time. Such a disturbance propagation known as GW travels at a speed of
-
-\subsection{Linearized Theory of Gravity}
-	In the weak field limit, i.e when space-time curvature is small,
-Einstein field equation can be written as:
-\begin{equation} \label{eq:23}
-g_{\mu \nu}= \eta_{\mu \nu} + h_{\mu \nu}
-\end{equation}
-When $h_{\mu \nu}$ is very small we can expand $h_{\mu \nu}$ to first order
-approximation. 
-	In vacuum $T_{\mu \nu} =0$ so, the Einstein filed equation becomes:
-\begin{equation}\label{eq:21}
-R_{\mu \nu} =0
+R_{\mu \nu} = 8 \pi GT_{\mu \nu},
 \end{equation}
 where,
 \begin{equation} \label{eq:22}
@@ -482,30 +434,49 @@ R_{\mu \nu} = \frac{\partial \Gamma ^\gamma _{\mu \nu}}{\partial x^\gamma} -
 _{\mu \nu}\Gamma ^\delta _{\gamma \delta}-\Gamma ^\gamma _{\mu \delta}\Gamma
 ^\delta_{\nu \gamma}
 \end{equation}
+
+In a local inertial frame, the stress-energy is conserved in curved
+space-time.
+\begin{equation} \label{eq:20}
+\nabla ^\mu T_{\mu \nu} =0,
+\end{equation}
+from \ref{eq:19} and \ref{eq:20},
+\begin{equation}
+\nabla ^\mu R_{\mu \nu} =0,
+\end{equation}
+light. In \ac{GR}, Einstein field equation is written as:
+\begin{equation}
+R_{\mu\nu} -\frac{1}{2}g_{\mu\nu}=-\kappa T_{\mu\nu},
+\end{equation}	
+where $R_{\mu\nu}$ is the Ricci tensor, $g_{\mu\nu}$ is the metric tensor, R is a scalar
+curvature and $T_{\mu\nu}$ is the stress energy tensor. The LHS describes the
+curvature of space-time and the RHS defines the energy density.\\
+
+\subsection{Linearized Theory of Gravity}
 The last two terms in \ref{eq:22} are quadratic in $h_{\mu \nu}$ so are negligible
 in linear approximation.The perturbation in Ricci tensor is given by:
 \begin{equation} \label{eq:23}
 \delta R_{\mu \nu} = \frac{\partial \delta \Gamma ^\gamma _{\mu \nu}}{\partial 
 x^\gamma} - \frac{\partial \delta \Gamma ^\gamma _{\mu \gamma}}{\partial x^\nu}
 \end{equation}
-The first order perturbation in Christoffel symbol:
+The first order perturbations in Christoffel symbols are:
 \begin{equation} \label{eq:24}
 \delta \Gamma ^\gamma _{\mu \nu}= 1/2 \eta^{\gamma \delta}\left(\frac{\partial
 h_{\delta \mu }}{\partial x^\nu} + \frac{\partial h_{\delta \nu }}{\partial
-x^\mu} -\frac{\partial  h_{\mu \nu }}{\partial x^\delta}\right)
+x^\mu} -\frac{\partial  h_{\mu \nu }}{\partial x^\delta}\right),
 \end{equation}
 \begin{equation} \label{eq:25}
 \delta R_{\mu \nu} = \frac{1}{2}\left[ -\left(-\frac{\partial^2}{\partial
 t^2}+\nabla ^2\right)\tilde h_{\mu\nu} + \delta_\mu V_\nu + \delta_\nu V_\mu
-\right]
+\right],
 \end{equation}
 \begin{equation} \label{eq:26}
-V_\mu = \delta_\gamma h^\gamma_\mu - \frac{1}{2}\delta_\mu h^\gamma_\gamma
+V_\mu = \delta_\gamma h^\gamma_\mu - \frac{1}{2}\delta_\mu h^\gamma_\gamma,
 \end{equation}
-	If we choose $V_\mu=0$ similar to Lorentz condition in electromagnetism,
- the linearized equation becomes:
+	If we choose $V_\mu=0$ similar to the Lorentz gauge condition in
+electromagnetism, the linearized Einstein equation becomes:
 \begin{equation} \label{eq:27}
-\left(-\frac{\partial^2}{\partial t^2}+\nabla ^2\right)\tilde h_{\mu\nu} =0 
+\left(-\frac{\partial^2}{\partial t^2}+\nabla ^2\right)\tilde h_{\mu\nu} = 0, 
 \end{equation}
 
 %We can define a transverse reverse of $h_{\mu \nu} 
@@ -514,7 +485,7 @@ V_\mu = \delta_\gamma h^\gamma_\mu - \frac{1}{2}\delta_\mu h^\gamma_\gamma
 %\end{equation}
 Now, the gauge condition becomes:
 \begin{equation}\label{eq:28}
-\partial _\mu \tilde h^\mu _\lambda = 0
+\partial _\mu \tilde h^\mu _\lambda = 0,
 \end{equation}
 The Einstein field equation in vacuum becomes:
 \begin{equation}\label{eq:29}
@@ -523,30 +494,30 @@ The Einstein field equation in vacuum becomes:
 
 
 \subsection{Gravitational wave radiation}
-The eqn \ref{eq:27} is the plane wave solution given by:
+The equation \ref{eq:27} has a plane wave solution given by:
 \begin{equation} \label{eq:30}
 h^{\mu \nu} = A^{\mu \nu}e^{ik_\sigma x^\sigma}
 \end{equation}
-$A^{\mu \nu}$ is a polarization tensor where it has an information of
-polarization and amplitudes of the gravitational waves.  Apart from gauge
-transformation we cam use the coordinate transformation to simplify the $A_{\mu
-\nu}$
-\begin{equation}
-x^{'\mu}= x^\mu +x_i ^\mu(x)
-\end{equation}
-\begin{equation}
-\left(-\frac{\partial^2}{\partial t^2}+\nabla ^2\right)\xi_\mu(x) =0
-\end{equation}
+Here $A^{\mu \nu}$ is a tensor which has information on
+polarization and amplitudes of the gravitational waves.
+%  Apart from gauge
+%transformation we cam use the coordinate transformation to simplify the $A_{\mu
+%\nu}$
+%\begin{equation}
+%x^{'\mu}= x^\mu +x_i ^\mu(x)
+%\end{equation}
+%\begin{equation}
+%\left(-\frac{\partial^2}{\partial t^2}+\nabla ^2\right)\xi_\mu(x) =0
+%\end{equation}
 Since $A_{\mu \nu}$ also satisfies the wave equation, the transformation will
-eliminate any of the four components of $A_{\mu \nu}$.
+eliminate any four components of $A_{\mu \nu}$.
 \begin{equation}
 \begin{aligned}
 h_{ti}=0, \\
 h^\nu_\nu =0,
 \end{aligned}
 \end{equation}
-or $A_{ti}=0$ and $A_\nu ^\nu=0$
-Using the gauge condition $V_\mu =0$
+or $A_{ti}=0$ and $A_\nu ^\nu=0$. Using the gauge condition $V_\mu =0$
 \begin{equation}
 \begin{aligned}
 V_t=\frac{\partial h^t _t}{\partial t}=0,\\
@@ -560,13 +531,13 @@ A_{tt}=0, \\
 k_j A_{ij}=0,
 \end{aligned}                                                                   
 \end{equation} 
-This means that the gravitational waves are transverse and the wave vector k
+This means the gravitational waves are transverse and the vector k
 determines the direction of wave propagation. The time component vanishes and
-since the wave are transverse $A_{zi}=0$ assuming $\vec{k}=(0,0,\omega)$. Now,
-we are left with $2 \times 2$ symmetric matrix in xy-plane with trace equals to
-zero. With coordinate transformation and gauge conditions, the linearized
+since the waves are transverse $A_{zi}=0$ assuming $\vec{k}=(0,0,\omega)$. Now,
+we are left with a $2 \times 2$ symmetric matrix in the xy-plane with zero trace. With coordinate transformation and gauge conditions, the linearized
 Einstein equation can be written in terms of two dimensionless amplitudes
-$h_+$ and $h_\times$ and two polarization vectors $\hat e_+$ and $\hat e_\times$.
+$h_+$ and $h_\times$ and two polarization vectors $\hat e_+$ and $\hat
+e_\times$. Defining
 
 \begin{equation*}                                                               
 h_{\mu\nu}=                                                                  
@@ -577,18 +548,18 @@ h_{\mu\nu}=
     0 & 0 & 0 & 1                                                               
  \end{pmatrix}                                                                  
 \end{equation*} 
-The metric$h_\mu\nu$ can be written as sum of two polarization components.   
+The metric $h_{\mu\nu}$ can be written as the sum of two polarization components.   
 \begin{equation}
-h_{\mu\nu}=h_+\hat e_+ +h_\times \hat e_\times
+h_{\mu\nu}=h_+\hat e_+ +h_\times \hat e_\times,
 \end{equation}
-The polarization tensor are defined as:
+The polarization tensors are defined as:
 \begin{equation}
 \begin{aligned}
-\hat e_+ = \hat e_x \otimes \hat e_x - \hat e_y \otimes \hat e_y \\
-\hat e_\times = \hat e_x \otimes \hat e_y + \hat e_y \otimes \hat e_x
+\hat e_+ = \hat e_x \otimes \hat e_x - \hat e_y \otimes \hat e_y, \\
+\hat e_\times = \hat e_x \otimes \hat e_y + \hat e_y \otimes \hat e_x,
 \end{aligned}
 \end{equation}
-Or we can write the metric in matrix form:
+Or we can write the metric perturbation in matrix form:
 \begin{equation*}                                                               
 h_{\mu\nu}=     
  \begin{pmatrix}                                                                
@@ -610,81 +581,84 @@ h_\times
 
 \begin{figure}[h!]                                                              
 	\includegraphics[width=\textwidth]{figure/polarization.png}
-	\caption{The figure shows the effect of passing gravitational wave
-through a ring of particle. The top figure shows the plus polarization and the
+	\caption{The figure shows the effect of passing a gravitational wave
+through a ring of particles. The top figure shows the plus polarization and the
 bottom shows cross polarization. Figure from ~\citet{Schutz}}                                                     
         \label{fig:polarization}
 \end{figure}
 
-	The effect of passing gravitational wave is to compress and stretch
-alternately in transverse direction. Let us assume a ring of particle in a xy
-plane and a gravitational wave travelling on a z-direction. This will cause the
-particle to contract in x-axis at the same time expand on y-axis. These
-contraction and expansion will oscillate on passing of gravitational waves. 
+	The effect of a passing gravitational wave is to compress and stretch
+alternately in the transverse directions. Let us assume a ring of particles in
+the xy
+plane and a \ac{GW} traveling in the  z-direction. This will cause the
+ring to contract along the x-axis at the same time it expands along the y-axis. These
+contractions and expansions will oscillate as  gravitational waves pass. 
 
 \subsection{Gravitational Wave Luminosity}
-	\ac{GW} must carry energy which was famously described by Feynman
-sticky bead argument. \ac{GW} energy cannot be localized for a certain region,
-however we can say a certain amount of energy is contained in a macroscopic
-region. The stress energy of \acp{GW} is given by:
+\ac{GW} energy cannot be localized perfectly,
+however we can say a certain amount of energy is contained in a region of
+several wavelength extent. The stress energy of \acp{GW} is given by:
 \begin{equation}
-T_{\mu\nu}^{GW} = \frac{1}{32\pi}<h_{jk,\mu}^{TT}h_{jk,\nu}^{TT}>
+T_{\mu\nu}^{GW} = \frac{1}{32\pi}\left\rangle
+h_{jk,\mu}^{TT}h_{jk,\nu}^{TT}\right\rangle
 \end{equation}
 where <> means averaging over several wavelength and TT means Transverse
-Traceless.\\
-For a wave propagating in z-direction, it has three non-zero components.
+Traceless.
+For a wave propagating in the z-direction, 
+%it has three non-zero components.
 \begin{equation}
-T_{00}^{GW}=\frac{1}{16\pi}<\dot{h}_+^2+\dot{h}_\times ^2>
+T_{00}^{GW}=\frac{1}{16\pi}<\dot{h}_+^2+\dot{h}_\times ^2>,
 \end{equation}
-If we suppose \acp{GW} has a frequency f and the amplitude $h_+ = h+\times = h$,
-then, $\dot{h_+} = \dot{h_\times} = \frac{1}{2}(2\pi fh)^2$
-S, the energy density of the \acp{GW} is:
+If we suppose \acp{GW} has a frequency $f$ and the amplitude $h_+ = h_\times = h$,
+then, $\dot{h}_+ = \dot{h}_\times = \frac{1}{2}(2\pi fh)^2$
+S, and the energy density of the \acp{GW} is:
 \begin{equation}
 T_{00}^{GW} = \frac{\pi}{4}\frac{c^3}{G}f^2 h^2=0.3\left(\frac{f}{1kHz}\right )^2
 \left(\frac{h}{10^{-21}}\right )^2\frac{W}{m^2}
 \end{equation}
 \\
-The spin down limit for Crab amplitude strain is $h\approx3*10^{-24}$ with
-r-mode frequency around 41Hz.So, the total energy flux radiated by Crab pulsar
+The spin down limit for Crab amplitude strain is $h\approx 3 \times 10^{-24}$
+from
+$r$-mode frequency around 41Hz. So the total energy flux radiated by Crab pulsar
 on earth due its loss of rotational energy will be
-$4.5*10^{-9}\frac{W}{m^2}$. This is small compared to the radiation flux emitted
-by the sun($1400W/m^2$) but the \ac{GW} from the binary black merger will be
-m nearby cluster will be several magnitude greater than the solar flux.
+$4.5\times10^{-9}\frac{W}{m^2}$.
 
 \subsection{Generation of Gravitational Waves}
 
-	The \ac{GW} is quadrupole in nature as the mass(monopole) and
-momentum(dipole) are conserved. On Electromagnetism we can have a dipole
+	The \ac{GW} is quadrupole in nature as the mass( monopole) and
+momentum (dipole) are conserved. In Electromagnetism we can have dipole
 radiation as there can be positive and negative charges.
-The Einstein quadruple formula for \acp{GW} can be written as:
+The Einstein quadrupole formula for \acp{GW} can be written as:
 \begin{equation}
-h_{\mu\nu}= \frac{2}{r}\frac{G}{c^4}I_{\mu\nu}^{TT}
+h_{\mu\nu}= \frac{2}{r}\frac{G}{c^4}\ddot{I}_{\mu\nu}^{TT}
 \end{equation}
-where $I_{\mu\nu}$ is a quadrupole moment.
+where $I_{\mu\nu}$ is the quadrupole moment.
 
 
-Using the Einstein quadruple formula the \ac{GW} luminosity can also be written
+Using the Einstein quadrupole formula the \ac{GW} luminosity can be written
 as:
 \begin{equation}
-\frac{dE}{dt} = -\frac{G}{c^5}<\dddot{I}_{\mu\nu}\dddot{I}_{\mu\nu}>
+\frac{dE}{dt} =
+-\frac{1}{5}\frac{G}{c^5}\left\langle\dddot{I}_{\mu\nu}\dddot{I}_{\mu\nu}\right\rangle
 \end{equation}
-The power radiated by \ac{GW} is similar to the power radiated by the electric
+The expression for power radiated by \ac{GW} is similar to the power radiated by the electric
 dipole, where the expression is written as
-$\frac{dE}{dt}=\frac{\mu_o}{6\pi}<\ddot{p}^2>$, where p is an electric
-dipole.Like, we discussed earlier, in \ac{GW} the first non vanishing term is
-quadrupole whereas in \acl{EM} it is dipole.
+$\frac{dE}{dt}=\frac{\mu_o}{6\pi}\left\langle \ddot{p}^2\right\rangle$, where p is an electric
+dipole. Like we discussed earlier, in \ac{GW} the first non vanishing term is
+the quadrupole whereas in \ac{EM} it is the dipole.
 
 \section{Indirect evidence of Gravitational Waves}
 	
 Gravitational radiation will remove the energy from a binary system or a
 rotating neutron star. Hulse and Taylor cite found a binary system with a
-neutron star and a pulsar named PSR B1913+16 orbital period were decaying which
-can be explained by \acl{GW} emission. Both companion has a mass of $1.4 M_o$
-with a orbital period of 8 hrs, the rate of orbital decay was around $10 \mu s$
-as predicted by General relativity within 0.2\%. The disparity between predicted
+neutron star and a pulsar named PSR B1913+16 whose orbital period was decaying which
+can be explained by \acl{GW} emission. Both companions have a mass of $1.4 M_o$
+with a orbital period of 8 hrs. The rate of orbital decay
+$dP/dt\approx10^{-12}$\,s/s 
+as predicted by General relativity within 0.2\%~\cite{1975ApJ...195L..51H}. The disparity between predicted
 and observed was due to the poor measurement of distance and proper motion of
-pulsar as well as the radius of Sun's galactic orbit cite. This discovery led to
-a 1193 Nobel prize in Physics for Russell Hulse and Joseph Taylor.
+pulsar as well as the radius of Sun's galactic orbit~\cite{Weisberg_2010}. This discovery led to
+the 1993 Nobel prize in Physics for Russell Hulse and Joseph Taylor.
 \begin{figure}[bht!]
 	\includegraphics[width=\textwidth]{figure/pulsar.png}
 	\caption{The orbital decay of binary pulsars $ PSR B1913+16$ due to the
@@ -693,41 +667,42 @@ loss of \ac{GW} energy. The image is from \cite{Weisberg_2010}}
 
 \section{Gravitational Wave Detector}
 The challenge of detecting \ac{GW} is the amplitude of \ac{GW} are really small
- ($\approx10_{-18}m$), so the noises in detector can easily mask the signal.
-Some of the \ac{GW} detectors includes resonant bar, interferometers, pulsar
+ ($\approx10^{-18}$\,m) displacement, so the noise in the detector can easily mask the signal.
+\ac{GW} detectors include resonant bars, interferometers, and pulsar
 timing arrays. 
 
 \subsection{Resonant bars}
 
-The resonant bar works on a simple concept when the frequency of
-\ac{GW} matches the bar, the detector will resonates and ring like a bell. This
-was the first \ac{GW} detector built by Joseph Weber which consists of an
-aluminum bar of 2 meters in length and a pizzo-electric sensors. But the
-noises($10^{-16}$) surpasses the \ac{GW} signals($10^{-21}$) by many order of
-magnitude and the GW frequency should match the resonant bar frequency for
-resonances. He claimed the \ac{GW} detection coming from center of galaxy which
-lead to construction of similar detector by other physicist. But none of the
-other detector saw any signals and the claim might have been a glitch in the
+The resonant bar works on a simple concept. When the frequency of a
+\ac{GW} matches the bar the detector will resonate and ring like a bell. This
+was the first \ac{GW} detector built by Joseph Weber, consisting of an
+aluminum bar of 2 meters, and pizezo-electric sensors. But the
+noises of strain amplitude $10^{-16}$ surpasses the strong \ac{GW}
+signals$10^{-21}$ by many orders of
+magnitude and the GW frequency is only in principle detectable at the resonant
+bar frequency. Weber claimed the detection of \ac{GW} coming from the center of
+ the galaxy, which led to the construction of similar detectors by other physicist. But none of the
+other detectors saw any signals and the claim must likely was a glitch in the
 instrument.
 \subsection{Interferometer}
-The \ac{GW} interferometry works on the simple interferometer principle
-developed by Michelson and Morley which consists of a laser, beam splitter,
+\ac{GW} interferometry works on the simple principle
+developed by Michelson and Morley and consists of a laser, beam splitter,
 mirror and a detector. The laser emits a monochromatic wave towards a beam
-splitter which splits the beam into two perpendicular direction. The beam gets
+splitter which splits the beam into two perpendicular directions. The beam gets
 reflected by the mirrors, passes through the beam splitter and meets at the
 photo-detector. The two waves superimpose at the detector to give constructive or
 destructive interference depending on the phase difference. When \acp{GW} passes
 the interferometer the relative length between two arms oscillates changing the
-intensity of light at photo-detector. Actually, the light reflects several times
-between mirrors before they combine, this makes the effective length of the
+intensity of light at photo-detector. Actually, the light reflects many times
+between mirrors before they combine making the effective length of the
 interferometer more than its physical arm length.
 
-There are two working \ac{LIGO},one at Livingston, Louisiana and Hanford, Washington 
-separated by 3000km apart. Each arm of the interferometer are 4km in length. The
-VIRGO interferometer in Italy and KAGRA(3km arms length) in Japan are also
-operational. It takes at least three detector to known the sky location of 
+There are two working \ac{LIGO}, one at Livingston, Louisiana and Hanford, Washington 
+separated by 3000\,km. Each arm of the interferometers is 4\,km in length. The
+VIRGO interferometer in Italy and KAGRA (3\,km arms length) in Japan are also
+operational. It takes at least three detectors to determine the sky location of 
 \ac{GW} sources, its intrinsic amplitude, polarization angle and the
-distance.~\cite{Schutz_2011}. But for the long living \ac{CW} signals the Doppler effect
+distance.~\cite{Schutz_2011}. But for the long lived \ac{CW} signals the Doppler effect
 due to Earth's orbital and sidereal motion can help to locate the source. The
 network of detector will also build up the signal to noise ratio(SNR) as the
 network SNR is the sum of individual detector SNR~\cite{Schutz_2011}.
@@ -736,53 +711,68 @@ network SNR is the sum of individual detector SNR~\cite{Schutz_2011}.
 \end{equation}
 
 \subsubsection{Principle of Interferometer}
-This section is based on the Sathyaprakash paper ~\cite{Sathyaprakash_2009}. The
-\ac{GW} interferometer is based on the principle the passing of \ac{GW} will
+This section is based on the ~\cite{Sathyaprakash_2009}. The
+\ac{GW} interferometer is based on the principle that passing of \ac{GW} will
 change the length of the arm of the interferometer. If there is a \ac{GW}
-passing then the arrival time of emitted laser will be different than when no
-\ac{GW} passes. Lets assume a photon is emitted at time $t_{start}$ and travels
-in x-direction and returns back time $t_{return}$.
+passing then the arrival time of reflected laser light will be different than when no
+\ac{GW} passes. Lets assume a \ac{GW} is travelling in z-direction with +
+polarization, then the metric can be written as:
 \begin{equation}
-\frac{dt_{return}}{dt}=1+\frac{1}{2}{(1-cos\theta)h_+(t+2L)-(1+cos\theta)h_+(t)
-+ 2cos\theta h_+[t+L(1-cos\theta)]}
+ds^2= -c^2dt^2+[1+h_+(\frac{z}{c}-t)]dx^2+[1-h_+(t-\frac{z}{c})]dx^2+dz^2,
 \end{equation}
-For a small L approximation compare to the wavelength of \ac{GW}.
+Lets assume a photon is emitted at time $t_{start}$ and travels
+in the x-direction of interferometer and returns back time at $t_{return}$. So,
+the photon travels in a null world line with dy=dz=0.
 \begin{equation}
-\frac{dt_{return}}{dt} =1+sin^2\theta L \dot{h}_+ (t)
+\left(\frac{dx}{dt}\right)^2=\frac{c^2}{1+h_+}
 \end{equation}
-Or for x-arm, it can be written as:
+Solving the above equation (for detail \cite{Schutz:1985jx}),
 \begin{equation}
-\left(\frac{dt_{return}}{dt})\right)_{x-arm}=1+L\hat{e}_x.\dot{h}.\hat{e}_x
+\frac{dt_{return}}{dt_{start}}=1+\frac{1}{2}[h_+(t_{start}+2L/c)-h_+(t_{start})],
 \end{equation}
-Similarly for y-arm:
-\begin{equation}                                                                
-\left(\frac{dt_{return}}{dt}\right)_{y-arm}=1+L\hat{e}_y.\dot{h}.\hat{e}_y  
-\end{equation}  
-The difference between the arrival time of photon from two arms is:
-\begin{equation}
-\left(\frac{d\delta t_{return}}{dt}\right)=L(\hat{e}_x\otimes\hat{e}_x-(\hat{e}_y\otimes\hat{e}_y)\dot{h}
-\end{equation}
-Or the path difference between two arms as measured by the central observer's:
-\begin{equation}
-\delta t_{return}(t)=d:h
-\end{equation}
-where $d=L(\hat{e}_x\otimes\hat{e}_x-(\hat{e}_y\otimes\hat{e}_y)$ and 
-$d:h=d_{lm}h_{lm}$
-\\
-This can be written in terms of change in length of two arms:
-\begin{equation}
-\delta L_{return}(t)=\frac{1}{2}d:h 
-\end{equation}
-The $\frac{1}{2}$ is because the light travels back and forth for the
-interferometer arm length change.
-\subsubsection{Interferometer antennae pattern}
+%\begin{equation}
+%\frac{dt_{return}}{dt}=1+\frac{1}{2}{(1-\cos{\theta})h_+(t+2L)-(1+\cos{\theta})h_+(t)
+%+ 2\cos{\theta} h_+[t+L(1-\cos{\theta})]}
+%\end{equation}
+%For a small L approximation compare to the wavelength of \ac{GW}.
+%\begin{equation}
+%\frac{dt_{return}}{dt} =1+\sin{\theta}^2 L \dot{h}_+ (t)
+%\end{equation}
+%Or for the x-arm, it can be written as:
+%\begin{equation}
+%\left(\frac{dt_{return}}{dt})\right)_{x-arm}=1+L\hat{e}_x.\dot{h}.\hat{e}_x
+%\end{equation}
+%Similarly for the y-arm:
+%\begin{equation}                                                                
+%\left(\frac{dt_{return}}{dt}\right)_{y-arm}=1+L\hat{e}_y.\dot{h}.\hat{e}_y  
+%\end{equation}  
+%The difference between the arrivals time of photons from the two arms is:
+%\begin{equation}
+%\left(\frac{d\delta t_{return}}{dt}\right)=L(\hat{e}_x\otimes\hat{e}_x-(\hat{e}_y\otimes\hat{e}_y)\dot{h}
+%\end{equation}
+%Or the path difference between two arms as measured by the central observer's:
+%\begin{equation}
+%\delta t_{return}(t)=d:h
+%\end{equation}
+%where $d=L(\hat{e}_x\otimes\hat{e}_x-(\hat{e}_y\otimes\hat{e}_y)$ and 
+%$d:h=d_{lm}h_{lm}$
+%\\
+%This can be written in terms of the change in length of two arms:
+%\begin{equation}
+%\delta L_{return}(t)=\frac{1}{2}d:h 
+%\end{equation}
+The above expression can be written in terms of interferometer arm. When gravitational wave passes through a detector. The one arm
+of the interferometer gets stretched (lets say x-arm) by
+$\delta x=\frac{1}{2}h_+L$ and the other arm gets squeezed by $\delta y=-\frac{1}{2}h_+L$  
 
-	The \ac{GW} astronomy are done with combinations of detectors around the
-globe. The \ac{GW} polarization might not be same in all detector frame, so it
-is more convenient to choose a polarization tensor in some sky plane with respect
-to \ac{GW} sources. Let $\hat\epsilon_+$ and $\hat\epsilon_\times$ be two polarization
-tensor in sky frame as shown in figure \ref{fig:polarization}. Let $\psi$ be the rotating angle from
-detector frame to the source frame also known as polarization angle.
+\subsubsection{Interferometer antenna pattern}
+\ac{GW} astronomy is done with combinations of detectors around the globe. The
+\ac{GW} polarization might not be same in all detector frames, so it is more
+convenient to choose a polarization tensors in the some sky plane with respect
+to \ac{GW} sources. Let $\hat\epsilon_+$ and $\hat\epsilon_\times$ be two
+polarization tensor in sky frame as shown in figure \ref{fig:polarization}. Let
+$\psi$ be the rotation angle from detector frame to the source frame also known
+as polarization angle.
 \begin{equation}
 \begin{aligned}
 \epsilon_+ = e_+cos2\psi + e_\times sin2\psi, \\
@@ -803,9 +793,9 @@ defined as:
 F_+=d:e_+,  F_\times=d:e_\times
 \end{equation}
 The maximum value of $F_+$ and $F_\times$ is 1. We can define $\theta$ \&
-$\phi$ be a spherical coordinates in a detector reference frame. We can write
-the antennae pattern in detector frame by setting $\psi=0$ and using the
-rotation matrix.
+$\phi$ to be a spherical coordinates in the detector's reference frame. We can write
+the antenna pattern in the detector frame by setting $\psi=0$ and using the
+rotation matrix
 \begin{equation*}                                                               
 R_\beta^\alpha=                                                                  
  \begin{pmatrix}                                                                
@@ -815,7 +805,7 @@ R_\beta^\alpha=
  \end{pmatrix}                                                                  
 \end{equation*}   
 
-For a plus polarization $t_{\alpha\beta}= R^{-1}e_+R$
+For a plus polarization it is useful to define $t_{\alpha\beta}= R^{-1}e_+R$
 
 \begin{equation*}                                                               
 \begin{split}
@@ -845,84 +835,92 @@ t_{\alpha\beta} & =
  \end{pmatrix}     
 \end{split}     
 \end{equation*}   
-So, the antennae pattern for the plus polarization is $F_+=1/2t_{\alpha\beta}S_+$
+So, the antenna pattern for the plus polarization is $F_+$
 \begin{equation}
-F_+ = (1+\cos^2\theta)\cos2\phi
+\begin{split}
+F_+ & ==1/2t_{\alpha\beta}S_+\\
+& = (1+\cos^2\theta)\cos2\phi
+\end{split}
 \end{equation}
-Similarly for cross polarization:
+Similarly for the cross polarization:
 \begin{equation}
 F_\times=\cos\theta\sin2\phi
 \end{equation}
 In the source frame where $\psi\neq0$, the antennae pattern is given by:
 \begin{align}
-F_+=\frac{1}{2}(1+\cos^2\theta)\cos2\phi\cos2\psi-\cos\theta\sin2\phi\sin2\psi\\
-F_\times=\frac{1}{2}(1+\cos^2\theta)\cos2\phi\sin2\psi-\cos\theta\sin2\phi\cos2\psi
+F_+=\frac{1}{2}(1+\cos^2\theta)\cos2\phi\cos2\psi-\cos\theta\sin2\phi\sin2\psi,\\
+F_\times=\frac{1}{2}(1+\cos^2\theta)\cos2\phi\sin2\psi-\cos\theta\sin2\phi\cos2\psi,
 \end{align}
 
 \subsubsection{Noises in Interferometer}
 
-The amplitude strain of the binary black-hole merger few billion light years are
-of $h \approx10^{-21}$. When \ac{GW} passes by, the change in arm length of
-interferometer is thousand times smaller than the diameter of proton. This small
+The amplitudes strain of recently detected binary black-hole mergers are
+of order $h \approx10^{-21}$. When \ac{GW} passes by, the change in arm length of
+interferometer is $10^{-18}$\,m thousands times smaller than the diameter of proton. This small
 change in length due to \acp{GW} can be easily drowned by different sources of
-noises. The LIGO arms consist of a vacuum tubes which is one trillionth of
-atmospheric pressure. This is important as even presence of few molecules will
+noise. The LIGO arms consist of tubes evacuated to one trillionth of
+atmospheric pressure. This is important as even a few molecules of gas will
 scatter the laser beam and the moving air hitting the mirror will change the
-length travelled by the laser beam mimicking as \ac{GW} signal.
- At lower frequencies(below 10 Hz), the seismic noise including earth
-quake and other ground vibrations can move the mirror disturbing the \ac{GW}
-signal. LIGO use both active and passive damping to isolate signal from noise.
-Active damping includes some sensor that tracks ground vibration and moves the
-test mass in out of phase to cancel the noise. The passive damping suspends the
-40kg mirror by a four pendulum to isolate mirror from noise. Other sources of
-noises are thermal noise(internal vibration and heating of mirror due to laser)
-and shot noise(uncertainty in no. of quantized photons). 
+length travelled by the laser beam mimicking \ac{GW} signal.
+ At frequencies (below 10 Hz) the seismic noise including earth
+quake and other ground vibrations can move the mirrors, disturbing the \ac{GW}
+signal. LIGO uses both active and passive damping to isolate signal from noise.
+Active damping includes sensors that track ground vibration and move the
+test mass in and out of phase to cancel the noise. The passive damping suspends the
+40kg mirror by a four pendulum stack to isolate the mirror from noise. Other sources of
+noise are thermal noise (internal vibration and heating of mirrors due to the laser)
+and shot noise (uncertainty in number of quantized photons). 
 Other sources of noise are narrow spectral lines that might imitate as \acp{CW}.
-This will be discuss later in section{}, the lines are produced from power
-lines, blinking LED's, hardware injections, resonance modes of mirror
-suspensions. Some of the instrumental lines are shown in \ref{fig:CWnoise}
+This will be discussed later in chapter~\ref{}. Lines are produced by power
+mains, blinking LEDs, hardware injections and resonance modes of mirror
+suspensions among others. Some of the instrumental lines are shown in \ref{fig:CWnoise}
 \begin{figure}[bht!]
 	\includegraphics[width=\textwidth]{figure/CWnoise.png}
 	\caption{The noise curve for the Livingston, Hanford and Virgo
-interferometer during the \ac{O2} run. The spectral lines are known sources such as
-60 Hz power line, blinking LED, calibration lines, violin modes. Figure from
+interferometer during the \ac{O2} run. The spectral lines include known sources such as
+60 Hz power line, blinking LEDs, calibration lines and violin modes. Figure from
 ~\cite{Abbott_2019} }
 	\label{fig:CWnoise}
 \end{figure}
 
 \section{Sources of Periodic gravitational waves}
-The continuous gravitational waves amplitudes are weaker than the violent black
-hole merger. But the periodic waves lives for a longer time, so a longer
-observational time is possible. The sources of periodic waves includes the
-rotating neutron stars and a neutron star or a white dwarf in a binaries. A
+Continuous gravitational wave amplitudes are weaker than those of violent black
+hole merger. But continuous waves lives for a longer time, so a longer
+observational time is possible. The sources of continuous waves include
+rotating neutron stars. A
 rotating neutron star will emit a gravitational waves due to a deviation from
-axisymmetry(mass quadrupole) or from a fluid oscillation inside neutron
+axisymmetry (mass quadrupole) or from a fluid oscillation inside the neutron
 star (current quadrupole). 
 
 \subsection{Neutron Stars}
 
-Neutron stars are one of the densest object in the universe, comparable of being
-a giant nucleus. The density at the inner core will be around $10^15 g/cm^3$
-which is 3 times the nuclear density to being few $g/cm^3$ at the crust. They
-are formed in a Type II supernovae explosion of massive
-star$(>8M_\odot)$.~\cite{Lattimer_2004}. The explosion happens when the core
-mass exceeds the Chandrasekhar limit$(1.44M_\odot)$ where the electron
-degeneracy pressure cannot withhold the gravitational pressure. The neutron star
-masses range from $(1-2)M_\odot$ and radius of $(10-14)km$ which depends on
-different equation of state. 
+Neutron stars are the densest material objects in the universe. The density in
+the inner core is around $10^{15} g/cm^3$,
+which is 3 times nuclear density. It drops to few $g/cm^3$ at the crust. Neutron
+stars
+are formed in Type II supernova explosions of 
+star above $8M_\odot$.~\cite{Lattimer_2004}. When the remnant core
+mass exceeds the Chandrasekhar limit$(1.44M_\odot)$. Then the electron
+degeneracy pressure cannot withstand the gravitational pressure. Neutron star
+masses range from 1--2\,$M_\odot$ and radius of 10--14\,km which depends on
+the poorly known equation of state of superdense matter. 
 	
-The neutron star structure can be divided into outer,inner crust and outer, inner
+The neutron star structure can be divided into outer and inner crust and outer, inner
 core.(this paragraph will follow cite). The atmosphere of neutron star varies
-from few cm in hot \ac{NS}$(T\sim3\times10^6K)$ to few millimeters in cold one
-$(T\sim3\times10^5K)$. The radiation from atmosphere gives a valuable
-information of \ac{NS} surface temperature, chemical composition, magnetic
-field, mass and radius. The outer crust goes deep into a density of
-$\rho=10^{11g/cm^3}$ and contains non degenerate electron gas. The inner crust
-can be up to a kilometer in depth and density might reach saturation nuclear density$(\rho_o=2.8\times10^{14}g/cm^3)$ and consists of
+from few a cm depth in hot \ac{NS}$(T\sim3\times10^6K)$ to a few millimeters in cold one
+$(T\sim3\times10^5K)$. The radiation from this atmosphere gives valuable
+information on \ac{NS} surface temperature, chemical composition, magnetic
+field, mass and radius. The outer crust goes up to a density of
+$\rho=10^{11}g/cm^3$ and contains neutron with nucleus in non degenerate electron gas. The inner crust
+can be up to a kilometer in depth. Its density might reaches saturation nuclear
+density$(\rho_o=2.8\times10^{14}g/cm^3)$ and it consists of
 electrons, free neutrons and neutron-rich atomic nuclei. The outer core might be
-several kilometer deep and density can reach up to $5\times10^{14}g/cm^3$ and
-primary rich in neutrons.The inner core which density can reach $10\rho_o$ and
-on this extreme matter density, it is hard to predict the composition. 
+several kilometers deep and its density can reach up to $5\times10^{14}g/cm^3$.
+It is
+primarily rich in neutrons. The inner core's density might reach $10\rho_o$ and
+at this extreme matter density it is hard to predict the composition. It might
+still be dominated by neutrons, or it might feature heavier baryons (hyperons)
+or free quarks. 
 
 \subsection{Pulsars}
 Pulsar are the rotating neutron star that produce a narrow \ac{EM} pulse that
@@ -3569,7 +3567,7 @@ physicist too.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Bibliography:  Use BibTeX 							   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibliographystyle{chicago}
+\bibliographystyle{plain}
 \addcontentsline{toc}{chapter}{\textbf{References}}
 \bibliography{thesis}
 
