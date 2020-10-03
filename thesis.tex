@@ -599,7 +599,7 @@ contractions and expansions will oscillate as  gravitational waves pass.
 however we can say a certain amount of energy is contained in a region of
 several wavelength extent. The stress energy of \acp{GW} is given by:
 \begin{equation}
-T_{\mu\nu}^{GW} = \frac{1}{32\pi}\left\rangle
+T_{\mu\nu}^{GW} = \frac{1}{32\pi}\left\langle
 h_{jk,\mu}^{TT}h_{jk,\nu}^{TT}\right\rangle
 \end{equation}
 where <> means averaging over several wavelength and TT means Transverse
@@ -629,7 +629,7 @@ $4.5\times10^{-9}\frac{W}{m^2}$.
 momentum (dipole) are conserved. In Electromagnetism we can have dipole
 radiation as there can be positive and negative charges.
 The Einstein quadrupole formula for \acp{GW} can be written as:
-\begin{equation}
+\begin{equation}\label{eg:strainamplitude}
 h_{\mu\nu}= \frac{2}{r}\frac{G}{c^4}\ddot{I}_{\mu\nu}^{TT}
 \end{equation}
 where $I_{\mu\nu}$ is the quadrupole moment.
@@ -724,7 +724,7 @@ Lets assume a photon is emitted at time $t_{start}$ and travels
 in the x-direction of interferometer and returns back time at $t_{return}$. So,
 the photon travels in a null world line with dy=dz=0.
 \begin{equation}
-\left(\frac{dx}{dt}\right)^2=\frac{c^2}{1+h_+}
+\left(\frac{dx}{dt}\right)^2=\frac{c^2}{1+h_+},
 \end{equation}
 Solving the above equation (for detail \cite{Schutz:1985jx}),
 \begin{equation}
@@ -906,12 +906,13 @@ masses range from 1--2\,$M_\odot$ and radius of 10--14\,km which depends on
 the poorly known equation of state of superdense matter. 
 	
 The neutron star structure can be divided into outer and inner crust and outer, inner
-core.(this paragraph will follow cite). The atmosphere of neutron star varies
+core. The atmosphere of neutron star varies
 from few a cm depth in hot \ac{NS}$(T\sim3\times10^6K)$ to a few millimeters in cold one
-$(T\sim3\times10^5K)$. The radiation from this atmosphere gives valuable
+$(T\sim3\times10^5K)$~\cite{Haensel:2007yy}. The radiation from this atmosphere gives valuable
 information on \ac{NS} surface temperature, chemical composition, magnetic
 field, mass and radius. The outer crust goes up to a density of
-$\rho=10^{11}g/cm^3$ and contains neutron with nucleus in non degenerate electron gas. The inner crust
+$\rho=10^{11}g/cm^3$ and contains neutron with nucleus in non degenerate
+electron gas~\cite{1976ApJ...208..550P}. The inner crust
 can be up to a kilometer in depth. Its density might reaches saturation nuclear
 density$(\rho_o=2.8\times10^{14}g/cm^3)$ and it consists of
 electrons, free neutrons and neutron-rich atomic nuclei. The outer core might be
@@ -944,14 +945,14 @@ and c is the speed of light.
 
 The energy loss of pulsar can be estimated by the slowing down of pulsar
 frequency. The energy of pulsar is written as :$E=\frac{1}{2} I \nu^2$. The
-typical value of moment of inertia(I) of neutron star is $10^{38}kgm^2$. The
+typical value of moment of inertia(I) of neutron star is $10^{38}$\,kg m$^2$. The
 derivative of energy gives the rotational energy loss.
 \begin{equation}
 \frac{dE}{dt}= I\nu\dot{\nu}
 \end{equation}
 
 For a Crab pulsar of $\nu=29.65Hz$ and $\dot{\nu}= -3.68\times10^{-10}Hz/s$, the
-rotational energy loss is $4.33*10^{31}W$. Most of the Crab rotational energy
+rotational energy loss is $4.33\times10^{31}$W. Most of the Crab rotational energy
 are lost in powering Crab nebulae in synchrotron and inverse Compton radiation.
 Only $1\%$ are lost  in the observed pulsation due to electromagnetic radiation.
 The characteristic age of pulsar is given by:
@@ -1033,7 +1034,7 @@ The gravitational wave frequency from non-axisymmetric neutron star will be
 twice the spin frequency as the mass deformation will repeat after half
 revolution.
 
-The amplitude strain of \ac{GW} is given by:
+The amplitude strain of \ac{GW} is given by~\ref{eg:strainamplitude}:
 \begin{equation}
 h_{\mu\nu}=\frac{2G}{c^4d}\ddot{I}_{\mu\nu}
 \end{equation}
@@ -1049,7 +1050,7 @@ h_{\mu\nu}=-\frac{32\pi ^2\omega^2 \epsilon I_{zz}}{d}
 \end{pmatrix}
 \end{equation}
 where i is the inclination angle which is the angle between the spin axis and
-the inertial observer. When $i=90^\circ$,the amplitude strain will be:
+the inertial observer. When $i=90^\circ$, the amplitude strain will be:
 \begin{equation}
 h_0=\frac{4\pi ^2Gf^2 \epsilon I_{zz}}{c^4d}
 \end{equation}
@@ -1068,8 +1069,8 @@ pointing towards earth. The theory of $r$-modes will be discuss in more detain i
 \begin{figure}
 \centering
 	\includegraphics[width=0.4\textwidth]{figure/333.png}
-	\caption{$r$-modes pattern of a oscillating neutron star. Image:Chad
-Hanna}
+	\caption{$r$-modes pattern of a oscillating neutron star. Image: Chad
+Hanna/ Ben Owen}
 \end{figure}
 The \ac{GW} luminosity due to $r$-mode emission can be written in geometrized
 unit(c=G=1) as~\cite{Owen:2010ng}:
@@ -1101,7 +1102,7 @@ Subsituting $K=\dot{\omega}/\omega^7$
 \begin{equation}\label{eq:modebraking}
 \frac{\omega\ddot{\omega}}{\dot{\omega}^2}=7
 \end{equation}
-The equation ~\ref{eq:modebraking} is defined as braking indices(n), and the
+The equation ~\ref{eq:modebraking} is defined as braking indices (n), and the
 braking indices of pulsar emitting $r$-modes is 7. Braking torque generally
 defines the spin down torque due to emission of energy. The braking indices for
 pulsar wind is 1, 3 for magnetic dipole radiation and 5 for gravitational waves 
@@ -1110,7 +1111,7 @@ calculate the braking indices for \ac{GW} due to mountains on neutron star.
 \subsubsection{$r$-mode amplitude}
 The energy of the $r$-mode is proportional to the dimensionless amplitude
 parameter $\alpha$. The amplitude parameter is roughly equal to the ratio of
-velocity perturbation($\delta v$) to the rotational velocity at equator. The
+velocity perturbation ($\delta v$) to the rotational velocity at equator. The
 intrinsic strain amplitude due to $r$-mode \ac{GW} can be written
 as~\cite{Owen:2010ng}:
 \begin{equation*}                                                               
