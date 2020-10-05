@@ -104,7 +104,7 @@ Partial Fulfillment of\\
 the Requirements for\\
 the Degree of\\[15pt]
 Doctor of Philosophy\\[30pt]  %Edit (or Master of YYY)
-Approved\\[15pt]
+%Approved\\[15pt]
 Dr. Benjamin Owen\\
 Chair of Committee\\[15pt] %Edit
 Dr. Joseph D. Romano\\[15pt] %Edit
@@ -146,12 +146,21 @@ December 2020      %Edit
 %I am thankful to my research advisor Professor Benjamin Owen for introducing me
 %to the ground breaking research on Gravitational waves. Although I was stranger
 %to a topics on gravitational waves, your constant support, guidance and
-%encourangement made it possible to to understand the dark side of the universe. 
-%I am also grateful for showing me the Data Analysis which added a different
-%knwoledge in my academic career.
-%I owe a lot to a former Postdoc Ra Inta and Santiago Caride for guiding me
-%during the beginning phase, when I was completely struggling to
-%understand the research. 
+%encourangement made it possible to to understand the dark side of the universe.
+%I would like to thank Prof. Joseph Romano, Prof. Alessandra Corsi and Prof.
+%David Ian Jones for provding their valuable time and being on my Thesis
+%committe. 
+%I will like to thank the former Postdoc Dr. Ra Inta and Dr. Santiago Caride for guiding
+%me at the beginning phase of my research career. I miss all those talks on
+%musical acoustic with Ra Inta. And Santiago Caride, I miss the symphony
+%orchestra concert we used to attend. 
+
+%Thanks to Eric, Giammarco and Deven for being the nicest officemate. We indeed
+%had a memorable conversation touching various subjects. How can I forget our
+%awesome Astronomy friends Manuel, Liliana, Ramiro, Arvind, Paul, Kavitha,
+%Dario, Matteo. I am also grateful for all the hospitality from Houston
+%friends Anuj, Shradha, Niresh, Rajech, Uchita and sepcially Rabin Ghaju
+%whenever I had to escape Lubbock. 
 
  
 
@@ -168,8 +177,9 @@ the capabilities of code that I wrote under the tutelage of Santiago Caride and
 Ra Inta. I wrote most of Chapter 6, with comments and small pieces from
 Professor Owen. It describes data analysis that I performed by myself. I made a
 significant contribution to another paper while I was a member of the LIGO
-Scientific Collaboration (LSC), the first search of O2 data for known pulsars
-[full reference]. I noticed that the Crab, the most important pulsar in that
+Scientific Collaboration (LSC), "Searches for Gravitational Waves from Known
+Pulsars at Two Harmonics in 2015-2017 LIGO Data"~\cite{Abbott1_2019}.
+ I noticed that the Crab, the most important pulsar in that
 paper, had glitched halfway through the observation; and the LSC had to redo the
 analysis and rewrite the paper based on that.
 
@@ -727,7 +737,7 @@ the photon travels in a null world line with dy=dz=0.
 \begin{equation}
 \left(\frac{dx}{dt}\right)^2=\frac{c^2}{1+h_+},
 \end{equation}
-Solving the above equation (for details \cite{Schutz:1985jx}),
+Solving the above equation (for detail calculation see \cite{Schutz:1985jx}),
 \begin{equation}
 \frac{dt_{return}}{dt_{start}}=1+\frac{1}{2}[h_+(t_{start}+2L/c)-h_+(t_{start})],
 \end{equation}
@@ -793,61 +803,63 @@ defined as:
 \begin{equation}
 F_+=d:e_+,  F_\times=d:e_\times
 \end{equation}
+where $d=L(\hat{e}_x\otimes\hat{e}_x-(\hat{e}_y\otimes\hat{e}_y)$\\ 
+
 The maximum value of $F_+$ and $F_\times$ is 1. We can define $\theta$ \&
-$\phi$ to be a spherical coordinates in the detector's reference frame. We can write
-the antenna pattern in the detector frame by setting $\psi=0$ and using the
-rotation matrix
-\begin{equation*}                                                               
-R_\beta^\alpha=                                                                  
- \begin{pmatrix}                                                                
-    \cos\phi & \sin\phi & 0 \\                                                            
-    -\cos\theta \sin\phi & \cos\theta \cos\phi & \sin\theta \\                                                            
-    \sin\theta \sin\phi & -\sin\theta \cos\phi & \cos\theta                                                              
- \end{pmatrix}                                                                  
-\end{equation*}   
-
-For a plus polarization it is useful to define $t_{\alpha\beta}= R^{-1}e_+R$
-
-\begin{equation*}                                                               
-\begin{split}
-t_{\alpha\beta} & =                                                                  
- \begin{pmatrix}                                                                
-    \cos\phi & \sin\phi & 0 \\                                                            
-    -\cos\theta \sin\phi & \cos\theta \cos\phi & \sin\theta \\                                                            
-    \sin\theta \sin\phi & -\sin\theta \cos\phi & \cos\theta                                                              
- \end{pmatrix}^T                                                                  
-\begin{pmatrix}                                                                
-    1 & 0 & 0 \\                                                            
-    0 & -1 & 0 \\                                                            
-    0 & 0 & 0                                                               
- \end{pmatrix}       
- \begin{pmatrix}                                                                
-    \cos\phi & \sin\phi & 0 \\                                                     
-    -\cos\theta \sin\phi & \cos\theta \cos\phi & \sin\theta \\                        
-    \sin\theta \sin\phi & -\sin\theta \cos\phi & \cos\theta                           
- \end{pmatrix}\\  
-            &=
-     \begin{pmatrix}                                                                 
-    \cos^2\phi-\cos^2\theta\sin^2\phi & (1+\cos^2\theta)\sin\phi\cos\phi &
-\sin\theta\cos\theta\sin\phi \\                                                                
-    (1+\cos^2\theta)\sin\phi\cos\phi & \sin^2\phi-\cos^2\theta\cos^2\phi &
--\sin\theta\cos\theta\cos\phi \\                                                               
-    \sin\theta\cos\theta\sin\phi & -\sin\theta\cos\theta\cos\phi & -\sin^2\theta                                                                   
- \end{pmatrix}     
-\end{split}     
-\end{equation*}   
-So, the antenna pattern for the plus polarization is $F_+$
-\begin{equation}
-\begin{split}
-F_+ & ==1/2t_{\alpha\beta}S_+\\
-& = (1+\cos^2\theta)\cos2\phi
-\end{split}
-\end{equation}
-Similarly for the cross polarization:
-\begin{equation}
-F_\times=\cos\theta\sin2\phi
-\end{equation}
-In the source frame where $\psi\neq0$, the antennae pattern is given by:
+$\phi$ to be a spherical coordinates in the detector's reference frame. 
+%We can write the antenna pattern in the detector frame by setting $\psi=0$ and
+%using the rotation matrix
+%\begin{equation*}                                                               
+%R_\beta^\alpha=                                                                  
+% \begin{pmatrix}                                                                
+%    \cos\phi & \sin\phi & 0 \\                                                            
+%    -\cos\theta \sin\phi & \cos\theta \cos\phi & \sin\theta \\                                                            
+%    \sin\theta \sin\phi & -\sin\theta \cos\phi & \cos\theta                                                              
+% \end{pmatrix}                                                                  
+%\end{equation*}   
+%
+%For a plus polarization it is useful to define $t_{\alpha\beta}= R^{-1}e_+R$
+%
+%\begin{equation*}                                                               
+%\begin{split}
+%t_{\alpha\beta} & =                                                                  
+% \begin{pmatrix}                                                                
+%    \cos\phi & \sin\phi & 0 \\                                                            
+%    -\cos\theta \sin\phi & \cos\theta \cos\phi & \sin\theta \\                                                            
+%    \sin\theta \sin\phi & -\sin\theta \cos\phi & \cos\theta                                                              
+% \end{pmatrix}^T                                                                  
+%\begin{pmatrix}                                                                
+%    1 & 0 & 0 \\                                                            
+%    0 & -1 & 0 \\                                                            
+%    0 & 0 & 0                                                               
+% \end{pmatrix}       
+% \begin{pmatrix}                                                                
+%    \cos\phi & \sin\phi & 0 \\                                                     
+%    -\cos\theta \sin\phi & \cos\theta \cos\phi & \sin\theta \\                        
+%    \sin\theta \sin\phi & -\sin\theta \cos\phi & \cos\theta                           
+% \end{pmatrix}\\  
+%            &=
+%     \begin{pmatrix}                                                                 
+%    \cos^2\phi-\cos^2\theta\sin^2\phi & (1+\cos^2\theta)\sin\phi\cos\phi &
+%\sin\theta\cos\theta\sin\phi \\                                                                
+%    (1+\cos^2\theta)\sin\phi\cos\phi & \sin^2\phi-\cos^2\theta\cos^2\phi &
+%-\sin\theta\cos\theta\cos\phi \\                                                               
+%    \sin\theta\cos\theta\sin\phi & -\sin\theta\cos\theta\cos\phi & -\sin^2\theta                                                                   
+% \end{pmatrix}     
+%\end{split}     
+%\end{equation*}   
+%So, the antenna pattern for the plus polarization is $F_+$
+%\begin{equation}
+%\begin{split}
+%F_+ & ==1/2t_{\alpha\beta}S_+\\
+%& = (1+\cos^2\theta)\cos2\phi
+%\end{split}
+%\end{equation}
+%Similarly for the cross polarization:
+%\begin{equation}
+%F_\times=\cos\theta\sin2\phi
+%\end{equation}
+In the source frame, the antennae pattern is given by:
 \begin{align}
 F_+=\frac{1}{2}(1+\cos^2\theta)\cos2\phi\cos2\psi-\cos\theta\sin2\phi\sin2\psi,\\
 F_\times=\frac{1}{2}(1+\cos^2\theta)\cos2\phi\sin2\psi-\cos\theta\sin2\phi\cos2\psi,
@@ -925,68 +937,68 @@ still be dominated by neutrons, or it might feature heavier baryons (hyperons)
 or free quarks. 
 
 \subsection{Pulsars}
-Pulsar are the rotating neutron star that produce a narrow \ac{EM} pulse that
-acts like a lighthouse beam. When the narrow beam sweep to the line of sight of
-the earth, we see the pulsation.  It was discovered by Jocelyn Bell in 1967, she
-was seeing a continuous pulse every time the radio antennae was pointed to the
-line of sight of pulsar. The pulsar are one of the most precise clock in the
+Pulsars are rotating neutron stars that produce a narrow \ac{EM} pulse that
+acts like a lighthouse beam. When the narrow beam sweeps through the line of sight of
+the earth, we see the pulsation. Pulsars were discovered by Jocelyn Bell in 1967
+. Pulsars are some of the most precise clocks in the
 universe. The spin period increases slowly due to the loss of rotational energy
-in powering the nebulae, radiating gravitational waves. 
+in powering the nebulae and other mechanisms including radiating gravitational waves. 
 
-The pulsar magnetic moment are not aligned with the rotational axis, so the
-magnetic moment changes when the pulsar rotates. This time varying magnetic
-moment radiates energy known as magnetic dipole radiation. The power radiated by
-pulsar in magnetic dipole radiation is:
+A pulsar's magnetic moment is not aligned with its rotational axis, so the
+magnetic moment rotates with the pulsar. This time varying magnetic
+moment emits magnetic dipole radiation. The power radiated by
+a pulsar in magnetic dipole radiation is:
 \begin{equation}
 P= \frac{B^2R^6\Omega^4\sin{\alpha}^2}{6c^3}
 \end{equation}
-where, B is a magnetic field, R is the radius, $\Omega$ is a rotational
+where, B is the dipole magnetic field, R is the radius, $\Omega$ is the rotational
 frequency, $\alpha$ is angle between pulsar rotational axis and magnetic axis,
 and c is the speed of light.  
 
 The energy loss of pulsar can be estimated by the slowing down of pulsar
-frequency. The energy of pulsar is written as :$E=\frac{1}{2} I \nu^2$. The
+frequency. The rotational energy of a pulsar is written as $E=\frac{1}{2} I
+\nu^2$. A
 typical value of moment of inertia (I) of neutron star is $10^{38}$\,kg m$^2$. The
-derivative of energy gives the rotational energy loss.
+time derivative of the energy gives the rotational energy loss,
 \begin{equation}
 \frac{dE}{dt}= I\nu\dot{\nu}
 \end{equation}
 
-For a Crab pulsar of $\nu=29.65Hz$ and $\dot{\nu}= -3.68\times10^{-10}Hz/s$, the
-rotational energy loss is $4.33\times10^{31}$W. Most of the Crab rotational energy
-are lost in powering Crab nebulae in synchrotron and inverse Compton radiation.
-Only $1\%$ are lost  in the observed pulsation due to electromagnetic radiation.
-The characteristic age of pulsar is given by:
+For the Crab pulsar of $\nu=29.65Hz$ and $\dot{\nu}= -3.68\times10^{-10}Hz/s$, the
+rotational energy loss is $4.33\times10^{31}$W. Most of the Crab's rotational energy
+is lost in powering the nebula through synchrotron and inverse Compton radiation.
+Only $1\%$ is lost  in the observed pulsations due to electromagnetic radiation.
+The characteristic age of a pulsar is given by:
 \begin{equation}
 t= \frac{1}{n-1}\frac{\nu}{\dot{\nu}}
 \end{equation} 
-The term n is known as braking index given by, $n=\nu\ddot{\nu}/\dot{\nu}^2$. 
+Here $n$ is known as the braking index, given by $n=\nu\ddot{\nu}/\dot{\nu}^2$. 
 The braking index value is n=1 for pulsar wind, n=3 for magnetic dipole
 radiation, n=5 for mass quadrupole \ac{GW} radiation and n=7 for current
 quadrupole radiation.
 
-\section{Gravitational Wave from Neutron Star}
-An individual spinning neutron star can emit a quasi-monochromatic \acp{GW} by
-various mechanism. The signals strength are weak but long lived. The frequency
+\section{Gravitational Waves from Neutron Stars}
+An individual spinning neutron star can emit quasi-monochromatic \acp{GW} by
+various mechanisms. The signals strength are weak but long lived. The frequency
 of continuous \acp{GW} decreases slowly due the loss of rotational energy. The
-detection on continuous \ac{GW} will give a valuable information on neutron star
+detection of continuous \ac{GW} will give valuable information on the neutron star
 equation of state.
 
 \subsection{Mountains on neutron stars}
-A non-axisymmetric rotating star can produce a periodic \ac{GW} due to a time
-varying mass quadrupole. Let us consider a asymmetric neutron star rotating
-around z-axis with a moment of inertia $I_{xx}\neq I_{yy}=I_{zz}$ and
-ellipticity,$\epsilon=(I_{xx}-I_{yy})/I_{zz}$
+A non-axisymmetric rotating star can produce periodic \ac{GW} due to a time
+varying mass quadrupole. Let us consider an asymmetric neutron star rotating
+around its z-axis with a moment of inertia $I_{xx}\neq I_{yy}=I_{zz}$ and
+ellipticity, $\epsilon=(I_{xx}-I_{yy})/I_{zz}$.
 
 \begin{figure}[h!]                                                            
         \includegraphics[width=\textwidth]{figure/CW.png}                 
-        \caption{continuous gravitational wave emission due to mountain in
-neutron star. Image:Ra Inta}
+        \caption{Continuous gravitational wave emission due to a mountain on a
+neutron star. Image: Ra Inta}
         \label{fig:CW}                                                 
 \end{figure}     
 
-The principle of moment of inertia needs to be transform from rotating frame to 
-the inertial frame as \acp{GW} lives in an inertial frame~\cite{PhysRevD.20.351}. 
+The principal moment of inertia needs to be transformed from the rotating frame to 
+the inertial frame as \acp{GW} live in an inertial frame~\cite{PhysRevD.20.351}. 
 We will use a rotation matrix R for transformation.
 $I_{inertial}= R^T I R$
 where, 
@@ -998,95 +1010,105 @@ R=
 0 & 0 & 1
 \end{pmatrix}
 \end{equation}
-
+$\theta=\Omega t$ and $\Omega$ is the rotational velocity od neutron star.
 \begin{equation}
-I_{inertial}=
+\begin{split}
+I_{inertial}&=
 \begin{pmatrix}
-(I_{xx}-I_{yy})(\cos2\theta -1) & \frac{1}{2}\sin2\theta(I_{xx}-I_{yy}) & 0 \\
-\frac{1}{2}\sin2\theta(I_{xx}-I_{yy}) & (I_{xx}-I_{yy})(1-\cos2\theta) & 0  \\
+(I_{xx}-I_{yy})(\cos{2\theta} -1) & \frac{1}{2}\sin{2\theta}(I_{xx}-I_{yy}) & 0 \\
+\frac{1}{2}\sin{2\theta}(I_{xx}-I_{yy}) & (I_{xx}-I_{yy})(1-\cos{2\theta)} & 0  \\
 0 & 0 & I_{zz}
+\end{pmatrix}\\
+&=(I_{xx}-I_{yy})
+\begin{pmatrix}
+(\cos2\theta -1) & \frac{1}{2}\sin{2\theta} & 0 \\
+\frac{1}{2}\sin{2\theta} & (I_{xx}-I_{yy})(1-\cos{2\theta)} & 0  \\
+0 & 0 & \frac{1}{\epsilon}
 \end{pmatrix}
+\end{split}
 \end{equation}
-
+where $I_{inertial}$ is the moment of inertia of the neutron star as seen from
+the inertial frame.\\
 The double derivative of moment of inertia is given by:
 \begin{equation} \label{2ndMI}
-I_{\mu\nu}=-16\pi ^2f^2(I_{xx}-I_{yy})
+\ddot{I}_{\mu\nu}=-16\pi ^2f^2(I_{xx}-I_{yy})
 \begin{pmatrix}
-0 & 0 & 0 & 0 \\
-0 & cos(4\pi\omega t) & 2sin(4\pi\omega t) & 0 \\
-0 & 2sin(4\pi\omega t) & -cos(4\pi\omega t) & 0 \\
-0 & 0 & 0 & 0 \\
+\cos{(4\pi f t)} & 2\sin{(4\pi f t)} & 0 \\
+2\sin{(4\pi f t)} & -\cos{(4\pi f t)} & 0 \\
+0 & 0 & 0 \\
 \end{pmatrix}
 \end{equation}
 
-The gravitational wave luminosity of rotating is:
+The gravitational wave luminosity is:
 \begin{equation}\label{GWLuminosity}
-L= \frac{G}{c^5}<\dddot{I}_{\mu\nu}\dddot{I}^{\mu\nu}>
+L= \frac{G}{5c^5}<\dddot{I}_{\mu\nu}\dddot{I}^{\mu\nu}>,
 \end{equation}
 
 Combining \ref{2ndMI} \& \ref{GWLuminosity}, we get,
 \begin{equation}\label{Lgw}
-L_{grav}= \frac{32}{5}\omega ^6 I_{zz}^2\epsilon ^2
+L_{grav}= \frac{32}{5}\Omega ^6 I_{zz}^2\epsilon ^2,
 \end{equation}
-where, $\epsilon =\frac{I_{xx}-I_{yy}}{I_{zz}}$ is defined as ellipticity. When
+where $\epsilon =\frac{I_{xx}-I_{yy}}{I_{zz}}$ is defined as ellipticity. When
 ellipticity is zero, there will not be any gravitational wave emission as there
 won't be any non-axisymmetric components.
 
-The gravitational wave frequency from non-axisymmetric neutron star will be
-twice the spin frequency as the mass deformation will repeat after half
+The gravitational wave frequency from a non-axisymmetric neutron star will be
+twice the spin frequency as the mass deformation will repeat after half a
 revolution.
 
-The amplitude strain of \ac{GW} is given by~\ref{eg:strainamplitude}:
+The strain amplitude of \ac{GW} is given by~\ref{eg:strainamplitude}:
 \begin{equation}
 h_{\mu\nu}=\frac{2G}{c^4d}\ddot{I}_{\mu\nu}
 \end{equation}
-
+Now, plugging the second time derivative of moment of inertia on above equation
 
 \begin{equation} \label{2ndMI}
-h_{\mu\nu}=-\frac{32\pi ^2\omega^2 \epsilon I_{zz}}{d}
+h_{\mu\nu}=-\frac{32\pi^2f^2 \epsilon I_{zz}G}{dc^4}
 \begin{pmatrix}
-0 & 0 & 0 & 0 \\
-0 & \cos(4\pi \omega t)(1+\cos ^2i) & 2\sin(4\pi \omega t)\cos i & 0 \\
-0 & 2\sin(4\pi\omega t)\cos i & -\cos(4\pi\omega t)(1+\cos ^2i) & 0 \\
-0 & 0 & 0 & 0 
-\end{pmatrix}
+\cos(4\pi f t)(1+\cos^2{i}) & 2\sin{(4\pi f t)}\cos{i} & 0 \\
+2\sin{(4\pi f t)}\cos{i} & -\cos{(4\pi f t)}(1+\cos ^2i) & 0 \\
+0 & 0 & 0 
+\end{pmatrix},
 \end{equation}
-where i is the inclination angle which is the angle between the spin axis and
-the inertial observer. When $i=90^\circ$, the amplitude strain will be:
+where $i$ is the inclination angle between the spin axis and
+the inertial observer. When $i=90^\circ$, the strain amplitude will be:
 \begin{equation}
-h_0=\frac{4\pi ^2Gf^2 \epsilon I_{zz}}{c^4d}
+h_0=\frac{4\pi ^2Gf^2 \epsilon I_{zz}}{c^4d},
 \end{equation}
+
 \subsection{$r$-modes}
 The other kind of \ac{GW} emission is the non-radial oscillation of fluid
-inside neutron star known as $r$-modes. These modes are unstable to
-gravitational radiation so probably lives for a long time in a rotating neutron
-stars. These osillating modes carry away the rotating energy from neutron star
-slowing down its spin frequency. R-modes amplitude grow up to a large value just
+inside a neutron star known as $r$-modes. These modes are unstable to
+gravitational radiation, so they may live for a long time in rapidly rotating neutron
+stars. These osillating modes carry away the rotating energy from the neutron star
+slowing down its spin frequency. The $r$-modes amplitude may grow to a large value just
 after the formation of core collapse neutron star. This might explain the
-slowing down of spin frequency of neutron star that are born in a Keplerian
-limit.The detection of $r$-modes will help to
+slowing down of spin frequency of neutron stars that are born spinning at the Keplerian
+limit. The detection of $r$-modes will help to
 understand the interior and composition of neutron star. It may even give the
 unknown spin frequency of neutron stars where the narrow beam of light is not
-pointing towards earth. The theory of $r$-modes will be discuss in more detain in next chapter.
+pointing towards earth. The theory of $r$-modes will be discussed in detail on
+Chapter 3.
 \begin{figure}
 \centering
 	\includegraphics[width=0.4\textwidth]{figure/333.png}
 	\caption{$r$-modes pattern of a oscillating neutron star. Image: Chad
 Hanna/ Ben Owen}
 \end{figure}
+
 The \ac{GW} luminosity due to $r$-mode emission can be written in geometrized
-unit(c=G=1) as~\cite{Owen:2010ng}:
+unit($c$=$G$=1) as~\cite{Owen:2010ng}:
 \begin{equation}\label{eq:modeenergy}
 \frac{dE}{dt}=\frac{4}{25}M R^3 \alpha \omega^8\tilde{J}
 \end{equation}
 where M, R, $\omega$, are the mass, radius, angular velocity of the neutron
-star.$\alpha$ is the amplitude of $r$-modes. $\tilde{J}=1.635\times10^{-2}$ and
-defined as~\cite{Owen:1998xg}:
+star, $\alpha$ is the amplitude of $r$-modes, $\tilde{J}=1.635\times10^{-2}$ and
+for a typical star defined as~\cite{Owen:1998xg}:
 \begin{equation}
 \tilde{J}=\frac{1}{MR^3}\int_0^R\rho r^6dr.
 \end{equation}
-The rotational kinetic of neutron star can be written as:
-$E=1/2I_{zz}\omega^2$. So, taking the derivative of energy will give:
+The rotational kinetic energy of neutron star can be written as:
+$E=1/2I_{zz}\omega^2$. So, taking the time derivative of energy will give:
 \begin{equation}\label{eq:rotenergy}
 \frac{dE}{dt}= I_{zz}\omega\dot{\omega}
 \end{equation}
@@ -1094,46 +1116,46 @@ Combining Eqn ~\ref{eq:modeenergy} and \ref{eq:rotenergy}.
 \begin{equation}\label{eq:braking}
 \dot{\omega}=\frac{4}{25 I_{zz}}M R^3 \alpha\tilde{J} \omega^7 
 \end{equation}
-Let us define $4/(25 I_{zz})M R^3 \alpha\tilde{J}=K$, so\\
-$\dot{\omega}=K \omega^7$
-Taking derivative of \ref{eq:braking}.
+Let us define $4/(25 I_{zz})M R^3 \alpha\tilde{J}=K$, so $\dot{\omega}=K
+\omega^7$. 
+Taking derivative of \ref{eq:braking},
 \begin{equation}
-\ddot{\omega}= K\omega^6\dot{\omega}
+\ddot{\omega}= 7K\omega^6\dot{\omega},
 \end{equation}
-Subsituting $K=\dot{\omega}/\omega^7$
+Subsituting $K=\dot{\omega}/\omega^7$,
 \begin{equation}\label{eq:modebraking}
 \frac{\omega\ddot{\omega}}{\dot{\omega}^2}=7
 \end{equation}
-The equation ~\ref{eq:modebraking} is defined as braking indices (n), and the
-braking indices of pulsar emitting $r$-modes is 7. Braking torque generally
-defines the spin down torque due to emission of energy. The braking indices for
-pulsar wind is 1, 3 for magnetic dipole radiation and 5 for gravitational waves 
-emission due to mountain on neutron stars. From eqn ~\ref{Lgw} we can easily
-calculate the braking indices for \ac{GW} due to mountains on neutron star.
+The lhs of  ~\ref{eq:modebraking} is defined as the braking index ($n$), and the
+braking index of a pulsar spinning down purely by $r$-modes is 7. 
 \subsubsection{$r$-mode amplitude}
 The energy of the $r$-mode is proportional to the dimensionless amplitude
 parameter $\alpha$. The amplitude parameter is roughly equal to the ratio of
-velocity perturbation ($\delta v$) to the rotational velocity at equator. The
+velocity perturbation ($\delta v$) to the rotational velocity at the
+equator~\cite{Ian}. The
 intrinsic strain amplitude due to $r$-mode \ac{GW} can be written
 as~\cite{Owen:2010ng}:
 \begin{equation*}                                                               
-h_0 =\sqrt{\frac{8\pi}{5}}\frac{G}{c^5}r^{-1}\omega^3 \alpha M R^3 \tilde{J}      
+h_0 =\sqrt{\frac{8\pi}{5}}\frac{G}{c^5}r^{-1}\omega^3 \alpha M R^3 \tilde{J},      
 \end{equation*}                                                                 
 \text{Inverting}                                                                
 \begin{equation*}                                                               
 \alpha = \sqrt{\frac{5}{8\pi}}\frac{c^5}{G} r \frac{1}{\omega^3} h_0 \frac{1}{M   
-R^3 \tilde{J}}                                                                  
-\end{equation*}                                                                 
+R^3 \tilde{J}},                                                                  
+\end{equation*}
+We obtain                                                                 
 \begin{equation*}                                                               
 \alpha=\sqrt{\frac{5}{8\pi}}\frac{c^5}{G}\left(\frac{1}{M                       
 R^3 \tilde{J}}\right)\left(\frac{1kpc\times 10^{-24}}{(2\pi \times
 100)^3}\right)
-\left(\frac{h_o}{10^{-24}}\right)\left(\frac{r}{1kpc}\right)\left(\frac{100Hz}{f}\right)^3
+\left(\frac{h_o}{10^{-24}}\right)\left(\frac{r}{1kpc}\right)\left(\frac{100Hz}{f}\right)^3,
 \end{equation*}                                                                 
-Here we converted $\omega=2\pi f$, and r is the distance of neutron star from
-the gravitational wave detector. \text{$M=1.4M_\odot$, $R=11.7$km \& $\tilde{J}=0.0164$}                         
+Here we converted $\omega=2\pi f$, and $r$ is the distance of neutron star from
+the gravitational wave detector. For fiudicial \text{$M=1.4M_\odot$, $R=11.7$\,km
+\& $\tilde{J}=0.0164$}, we have                         
 \begin{equation} 
-\alpha =0.028\left(\frac{h_o}{10^{-24}}\right)\left(\frac{r}{1kpc}\right)\left(\frac{100Hz}{f}\right)^3
+\alpha
+=0.028\left(\frac{h_o}{10^{-24}}\right)\left(\frac{r}{1kpc}\right)\left(\frac{100Hz}{f}\right)^3,
 \end{equation}           
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1145,25 +1167,24 @@ the gravitational wave detector. \text{$M=1.4M_\odot$, $R=11.7$km \& $\tilde{J}=
 \chapter{\textbf{R-modes}}
 
 \section{Introduction}
-The other continuous gravitational wave emission is the oscillation of fluid
+The other source of  continuous gravitational wave emission is the oscillation of fluid
 inside the neutron star which is the time varying current quadrupole.  R-modes
-have been a subject of interest for many physicist as the oscillation of fluid
-inside the neutron stars  will help in understanding the interior of neutron
-star and its equation of state. R-modes are the current quadrupole  given by
-velocity perturbation in azimuthal direction
+have been a subject of interest for many physicists as the oscillation of fluids
+inside the neutron stars  will help in understanding the interiors of neutrons
+star and their equation of state. In the Newtonian slow approximation $r$-modes are the current quadrupole
 where the restoring force is the Coriolis force. 
 The velocity perturbation is given by~\cite{Owen:1998xg}:
 \begin{equation}
-\delta{\upsilon_j}=\alpha\omega R(r/R)^ l Y_j^{B,l,l}e^{i \omega t}
+\delta{\upsilon_j}=\alpha\Omega R(r/R)^ l Y_j^{B,l,l}e^{i \omega t},
 \end{equation}
-where $\vec{Y}_{lm}^B$ is a magnetic type vector spherical harmonic given by:
+where $\Omega$ is the rotational velocity of the neutron star and $\vec{Y}_{lm}^B$ is a magnetic type vector spherical harmonic given by:
 \begin{equation}
 \vec{Y}_{lm}^B=[l(l+1)]^{-1/2} r \vec{\nabla} \times (r \vec{\nabla}Y_{lm})
 \end{equation}
 It is similar to long
-wavelength Rossby waves in Earth's atmosphere or ocean which are responsible for
-heat circulation. R-modes are the monochromatic wave but the frequency decreases
-slowly due to spinning down of neutron star rotational velocity.  The $l=m=2$.
+wavelength Rossby waves in Earth's atmosphere or oceans which are responsible for
+heat circulation. R-modes are monochromatic wave but the frequency decreases
+slowly due to spinning down of the neutron star. The $l=m=2$.
 modes couples with gravitational radiation, so these are the dominant modes.
 \begin{figure}[h!]
   \centering
@@ -1175,54 +1196,56 @@ modes couples with gravitational radiation, so these are the dominant modes.
     \includegraphics[width=\textwidth]{figure/rmodes1.png}
   \end{minipage}
 \caption{Top figure: Top and side view of $l = m = 2$ $r$-mode oscillation.
-Bottom figure: The four pattern flows backward with angular velocity $-1/3\Omega$. The
+Bottom figure: The four patterns flow backward with angular velocity $-1/3\Omega$. The
 left path shows the motion of individual fluid element that depends on the mode
 amplitude. Figure from ~\cite{lindblom2001neutron}.}
 \end{figure}
  Viscous mechanism dampens the mode but a mechanism known as
-Chandrasekhar-Friedman-Schutz(CFS) instability
-~\cite{PhysRevLett.24.611}\cite{1978ApJ...222..281F} drives the R-modes due to
-gravitational waves emission. CFS instability can be understood as, on a non
-rotating star, gravitational waves releases positive angular momentum from
-forward moving mode and negative angular momentum from backward moving mode
+Chandrasekhar-Friedman-Schutz (CFS) instability
+~\cite{PhysRevLett.24.611}\cite{1978ApJ...222..281F} drives the $r$-modes due to
+gravitational wave emission. The CFS instability can be understood as, on a non
+rotating star, gravitational waves release positive angular momentum from
+a forward moving mode and negative angular momentum from a backward moving mode,
 damping both modes. For a rotating star, backward moving modes are dragged
 forward as viewed from an inertial frame emitting positive angular momentum. But
-on rotating frame, modes has negative angular momentum, so the gravitational
-waves increases the amplitude of modes instead of damping it. This discrepancy
-of modes oscillation between rotating and an inertial frame is known as CFS
+in the rotating frame, $r$-modes have negative angular momentum, so the gravitational
+waves increase the amplitude of the modes instead of damping it. This discrepancy
+of between the rotating and inertial frames is known as the CFS
 instability. This instability causes the amplitude of mode to
 grow.~\cite{Owen_2000} 
 
 \section{Viscous damping}
 The $r$-modes amplitude grow exponentially and spin down the pulsar abruptly
-unless some non-linear mechanism stops the growth~\cite{}. But milliseconds
-pulsar exists, that shows $r$-modes saturates at some amplitudes. So, there
+unless some non-linear mechanism stops the growth~\cite{}. But millisecond
+pulsars exist, and that shows $r$-modes saturates at some amplitude. So there
 needs to be a damping mechanism that saturates the mode amplitude.  The fluid
-inside neutron stars are subject to different viscous mechanism damping the
-$r$-modes. The viscosity mostly depends on the temperature of the stars.
+inside neutron stars is subject to different viscous mechanisms, damping the
+$r$-modes. The viscosity depends on the temperature of the stars.
 
 Shear viscosity has a shorter timescale at lower temperature that can be
 calculated by neutron-neutron scattering cross sections~\cite{Owen_2000}. The dissipation
-of mode energy is determined by momentum transport and neutrons, protons and
-electrons energy present in the neutron star~\cite{1987ApJ...314..234C}. When
-the temperature falls below superfluid temperature, the neutron and proton
-transforms into superfluid states and doesn't contribute dissipation due to
+of mode energy is determined by the transport of momentum and energy due to
+particle scattering in the neutron star~\cite{1987ApJ...314..234C}. When
+the temperature falls below the superfluid transition temperature, the neutrons
+and protons
+transform into superfluid states and don't contribute dissipation due to
 momentum transport~\cite{1987ApJ...314..234C}. So, only electron-electron
-scattering will able to transport momentum during superfluid state. The
+scattering will able to transport momentum in the  superfluid state. The
 dissipation time scale due to shear viscosity from neutron-neutron and
 electron-electron scattering are~\cite{ANDERSSON_2001}:
 \begin{align*}
-t_{sv(nn)}&=\left(\frac{M}{1.4M_\odot}\right)^{-5/4}\left(\frac{R}{10km}\right)^23/4\left(\frac{T}{10^9K}\right)^2\\
-t_{sv(ee)}&=\left(\frac{M}{1.4M_\odot}\right)^{-1}\left(\frac{R}{10km}\right)^5\left(\frac{T}{10^9K}\right)^2
+t_{sv(nn)}&=6.6\times10^7
+\,s\left(\frac{M}{1.4M_\odot}\right)^{-5/4}\left(\frac{R}{10km}\right)^23/4\left(\frac{T}{10^9K}\right)^2,\\
+t_{sv(ee)}&=2.2\times10^7\,s\left(\frac{M}{1.4M_\odot}\right)^{-1}\left(\frac{R}{10km}\right)^5\left(\frac{T}{10^9K}\right)^2,
 \end{align*}
-For $n=1$ polytrope star, $t_{sv(nn)}=6.7\times 10^7 s$ and
-$t_{sv(ee)}=2.2\times 10^7 s$ . So, neutron star are more viscous in superfluid
-state than normal state, which is different from generally known superfluidity
-of $He_4$.~\cite{1987ApJ...314..234C}
+For an $n=1$ polytrope star, $t_{sv(nn)}=6.7\times 10^7 s$ and
+$t_{sv(ee)}=2.2\times 10^7 s$ . So neutron stars are more viscous in the superfluid
+state than the normal fluid state, which is different from the generally known superfluidity
+~\cite{1987ApJ...314..234C}.
 
-Bulk viscosity arises from the compression and rarefaction of the fluid that
-disturbs the beta equilibrium ($p+e^- \leftrightarrow n +
-\nu_e$)~\cite{Owen_2000}. The neutrino carries away the energy from the stars.
+Bulk viscosity arises from the compression and rarefaction of the fluid
+disturbing the beta equilibrium ($p+e^- \leftrightarrow n +
+\nu_e$)~\cite{Owen_2000}. The neutrino carries away energy from the star.
 Bulk viscosity dominates at higher temperature ($T>10^9 K$) but for $T > 10^{12}
 K$, the stars becomes opaque to neutrino. This is because at higher temperature,
 the neutrino mean free path length will be less  than the neutron star
@@ -1231,21 +1254,22 @@ for a new born supernovae and release the rotational energy through
 gravitational radiation. At lower temperature there won't be enough thermally
 excited nucleons to undergo the Urca process.
 
-The bulk viscosity timescale for n = 1 polytrope is~\cite{ANDERSSON_2001}:
+The bulk viscosity timescale for a $n$ = 1 polytrope is~\cite{ANDERSSON_2001}:
 \begin{equation}
-t_{bv}=2.4 \times 10^{10}
+t_{bv}=2.4 \times 10^{10}\,s
 \left(\frac{M}{1.4M_\odot}\right)^{-1}\left(\frac{R}{10km}\right)^5\left(\frac{T}{10^9K}\right)^{-6}\left(\frac{\nu}{1000 Hz}\right)^2
 \end{equation}
-So, we can see from above equation, the shear viscosity dissipation decreases
+So the shear viscosity dissipation decreases
 with temperature while the bulk viscosity increases with temperature.
 
-The gravitational radiation makes the mode unstable in rotating stars while
+Gravitational radiation makes the $r$-mode unstable in rotating stars while
 viscosity damps the mode. The $r$-mode growth time scale needs to be fast enough not to be damped by the
-viscosity. The $l=m=2$ modes has the shortest timescale and higher multipole has
+viscosity. The $l=m=2$ mode has the shortest timescale and higher multipole
+modes have
 significantly weaker instabilities~\cite{ANDERSSON_2001}. The timescale of
 \ac{GW} radiation of $r$-modes is~\cite{ANDERSSON_2001}:
 \begin{equation}
-t_{gw}=-47                                                       
+t_{gw}=-47\,s                                                       
 \left(\frac{M}{1.4M_\odot}\right)^{-1}\left(\frac{R}{10km}\right)^{-4} \left(\frac{T}{10^9K}\right)^{-6}\left(\frac{\nu}{1000
 Hz}\right)^6
 \end{equation}
@@ -1257,27 +1281,24 @@ The dissipative timescales can be written as~\cite{Owen_2000}:
 \frac{1}{t}=-\frac{1}{2E}\frac{dE}{dt}=\frac{1}{t_{gw}}+\sum_v \frac{1}{t_v}
 \end{equation}
 The mode is stable when $t>0$ and unstable when $t<0$. 
-The instability of mode is defined by a critical frequency such that:
+The instability of a mode is defined by a critical frequency such that:
 $\frac{1}{t_{gw}}+\sum_v \frac{1}{t_v}= 0$
-The gravitational radiation timescale depends on the spin frequency and viscous
+The gravitational radiation timescale depends on the spin frequency and the viscous
 timescale depends on temperature. 
 
-The width of instability window increases with spin
-frequency of neutron star\ref{fig:instability}. On new born supernovae remnants
-$r$-modes amplitude grows up exponentially until it reaches a saturation point or
-the waves breaks into daughter modes when non-linear hydrodynamic processes
-comes in effect~\cite{Owen_1998}. Neutron star are born in a Keplerian limit,
-and loose most of the rotational energy due to neutrino cooling.  R-modes might explain the spinning down of old
-neutron star into a present low frequency. The evolution of neutron star also
-depends on the saturation amplitude and spin frequency the r-modes enters
-the instability window~\cite{Alford_2014}. The neutron star with
-saturation amplitude($\alpha$)=1 can spin down in 12.3 years with final
+The width of the instability window increases with the spin
+frequency of the neutron star\ref{fig:instability}. In new born neutron stars a
+$r$-modes amplitude grows exponentially until it reaches a saturation point or
+the wave breaks into daughter modes when non-linear hydrodynamic processes
+comes in effect~\cite{Owen_1998}. R-modes might explain the spinning down of
+some young
+neutron stars into their present low frequency. A neutron star with
+saturation amplitude ($\alpha$)=1 can spin down in 12.3 years with final
 temperature of $12.6 \times 10^8 K$ whereas with $\alpha=10^{-4}$ can spin-down a
 pulsar in $6.11 \times 10^7$ years with temperature of $2 \times 10^8
-K$~\cite{Alford_2014}. Some author claims
-$r$-modes saturation amplitude is well below unity and amplitude greater than
-unity decays into other fluid modes~\cite{Gressman_2002}. The $r$-mode can split
-into daughter mode which amplitude grows exponentially if the parent mode
+K$~\cite{Alford_2014}. Some authors claim  the
+$r$-modes saturation amplitude is well below unity ...decays into other fluid modes~\cite{Gressman_2002}. The $r$-mode can split
+into daughter modes whose amplitude grows exponentially if the parent mode
 exceeds certain threshold, where the daughter mode takes energy from parent mode
 \cite{Arras_2003}.
 \begin{figure}[bht!]                                                            
@@ -1294,136 +1315,122 @@ instability window. The dotted curve shows the instability window. Right figure:
 
 
 \section{R-modes frequency}
-The neutron stars interior are composed of neutron rich ocean. In a rotating
-star, the liquid surface are subject to a Coriolis force similar to the Rossby
-waves. These non-radial oscillation known as $r$-modes are unstable to the
+A neutron stars interior is composed of neutron rich fluid. In a rotating
+star, the liquid surface are subject to the Coriolis force and has modes similar to Rossby
+waves. These non-radial oscillation known as $r$-modes are unstable to
 gravitational radiation. They might live for a long time even in the presence of
 viscosity.
-The harmonic time dependent displacement vector of mode propagating in azimuthal
+The harmonic time dependent Lagrangian displacement vector of a mode propagating
+in the azimuthal
 direction can be written as~\cite{ANDERSSON_2001}:
 \begin{equation}\label{modesvector}
 \vec{\xi}= \vec{\xi} e^{i(m\varphi+\omega_r t)}
 \end{equation}
-where m is the magnetic moment, $\omega_r$ is the oscillation of modes in
-rotating frame.
-The inertial frame are related to rotating frame by the equation:
+where m is the magnetic quantum number, $\omega_r$ is the frequency of modes in
+the rotating frame.
+The inertial frame is related to the rotating frame by the equation:
 \begin{equation}\label{inertialconvt}
 \left(\frac{d}{dt}\right)_i=\left(\frac{\partial}{\partial t}\right)_r+\vec{u}.\nabla=\partial_t+ \Omega
 \partial_\varphi
 \end{equation}
 Plugging \ref{modesvector} in \ref{inertialconvt}, we get,
 \begin{equation}
-\omega_i=\omega_r - m\Omega
+\omega_i=\omega_r - m\Omega,
 \end{equation}
 
-The frequency of modes in rotating frame is:
+The frequency of an $r$-modes in the rotating frame is:
 \begin{equation}\label{rotatingframe}
-\omega_r = \frac{2m\Omega}{l(l+1)}
+\omega_r = \frac{2m\Omega}{l(l+1)},
 \end{equation}
 
-The dominant $r$-mode is with spherical harmonic (l=m=2). The other mode has
-weaker instability, the growth time of instability increases by a magnitude
-with increase of l~\cite{ANDERSSON_2001}.
-So, $\omega=2/3\Omega$, and plugging this into \ref{inertialconvt},
+The dominant $r$-mode is with spherical harmonic (l=m=2). The other modes have
+weaker instability since the growth time of instability increases by an order of magnitude
+for each increase in l~\cite{ANDERSSON_2001}.
+So, $\omega_r=2/3\Omega$, and plugging this into \ref{inertialconvt},
 $\omega_i = -4/3\Omega$
 The negative sign is the discrepancy of mode as seen in the rotating and
 inertial frame and this discrepancy causes the modes amplitude to grow instead
 of damping from gravitational radiation. 
 
 \subsection{Factors affecting $r$-mode frequency}
-The $r$-mode frequency will deviate from the Newtonian case when relativistic
-error are considered. 
+The $r$-mode frequency will deviate from the Newtonian case when correction due
+general relativity, rotation, core-crust coupling are considered. 
 
 
 \subsubsection{General Relativity}
 The $r$-mode frequency are dependent on a compactness of star which is the ratio
 of mass over radius($M/R$).The compactness can be parametrized as:
-\begin{equation}\label{compactness}
-\frac{M}{R}=\left(\frac{M}{1.4M_\odot}\right)\left(\frac{10km}{R}\right)\left(\frac{1.4M_\odot}{10^4m}\right)
-\end{equation} 
-One solar mass in geometrized units(c=G=1) is equal to 1474. So, plugging the
-numbers in \ref{compactness} gives:
+%\begin{equation}\label{compactness}
+%\frac{M}{R}=\left(\frac{M}{1.4M_\odot}\right)\left(\frac{10km}{R}\right)\left(\frac{1.4M_\odot}{10^4m}\right)
+%\end{equation} 
+%One solar mass in geometrized units(c=G=1) is equal to 1474. So, plugging the
+%numbers in \ref{compactness} gives:
 \begin{equation}
 \frac{M}{R}=0.21\left(\frac{M}{1.4M_\odot}\right)\left(\frac{10km}{R}\right)
 \end{equation} 
-The maximum compactness is given by~\cite{LATTIMER_2007}:
-\begin{equation}
-R \geq 2.83GM/c^2
-\end{equation}
-In geometrized units, the above equation will be $M/R \leq 0.35$
-\citet{LATTIMER_2007} gives the probable minimum mass of neutron
-star($1M_\odot$) will have radius of 14.5 km, making $M/R=0.103$.
-\citet{Idrisy_2015} gives a conservative limit of compactness, $0.11 \leq M/R
-\leq 0.31$. They have used the lowest mass as $1.02M_\odot$ and maximum mass of
-neutron star as $2.76M_\odot$. The frequency of $r$-modes in relation to
+%The maximum compactness is given by~\cite{LATTIMER_2007}:
+%\begin{equation}
+%R \geq 2.83GM/c^2
+%\end{equation}
+%In geometrized units, the above equation will be $M/R \leq 0.35$
+%\citet{LATTIMER_2007} gives the probable minimum mass of neutron
+%star($1M_\odot$) will have radius of 14.5 km, making $M/R=0.103$.
+% They have used the lowest mass as $1.02M_\odot$ and maximum mass of
+%neutron star as $2.76M_\odot$. 
+
+\citet{Idrisy_2015} have derived a conservative limit of compactness $0.11 \leq
+M/ \leq 0.31$. The frequency of $r$-modes in relation to
 compactness($M/R$) and spin frequency($\nu$) is~\cite{Idrisy_2015}: 
+
 \begin{equation}
-f=(-1.379 + 0.079(M/R) - 2.25(M/R)^2)*\nu
+f=(-1.379 + 0.079(M/R) - 2.25(M/R)^2)\nu,
 \end{equation}  
-Plugging in the range of compactness (0.11-0.31), the $r$-mode frequency,
+Plugging in the range of compactness (0.11--0.31), the $r$-mode frequency,
 $f=(1.39-1.57)\nu$
-The effect of general relativity will increase the $r$-mode frequency in an
+In other words, the effect of general relativity will increase the $r$-mode frequency in an
 inertial frame by few percentage.
 
-\subsubsection{Rapid rotation}
-The second order correction is important for a rapidly rotating neutron stars.
+\subsubsection{rotation}
+The second order correction is important for a rotating neutron stars for
+finding the range of $r$-mode frequency.
 On, Newtonian star, the second order formula for $r$-mode frequency is given by 
 \cite{Lindblom_1999}.
 \begin{equation}
-f/\nu=\kappa_0 - 2 + \kappa_2 \Omega^2/\pi G \rho_0
+f/\nu=\kappa_0 - 2 + \kappa_2 \Omega^2/\pi G \rho_0,
 \end{equation}
-where $\kappa_0=\sigma_I/\Omega$, $\kappa_2$ is a dimensionless parameter,
-$\rho$ is a average mass density.
+where $\kappa_0=\omega_I/\Omega$, $\kappa_2$ is a dimensionless parameter,
+a $\rho$ is the average mass density of the non-rotating star.
 As $\kappa_0=2/3$, the above equation is:
 \begin{equation}
-f/\nu = -4/3 + \kappa_2 \Omega^2/\pi G \rho_0
+f/\nu = -4/3 + \kappa_2 \Omega^2/\pi G \rho_0,
 \end{equation}
-
+The expansion parameter is
 \begin{equation}
 \frac{\Omega^2}{\pi G \rho_0}=0.145 \left(\frac{\nu}{716 Hz}\right)^2
-\left(\frac{R}{10km}\right)^3 \left(\frac{1.4M_\odot}{M}\right)
+\left(\frac{R}{10km}\right)^3 \left(\frac{1.4M_\odot}{M}\right),
 \end{equation}
 
-For the Crab with spin frequency $29.6 Hz$, taking mass and radius as
-$1.4M_\odot$ and 12.53 km, and $\kappa_2 = 0.29$~\cite{Lindblom_1999} , the
+For the Crab with spin frequency $29.6$\,Hz, taking mass and radius as
+$1.4M_\odot$ and 12.53\,km, and $\kappa_2 = 0.29$~\cite{Lindblom_1999} , the
 rotational correction  will change $r$-mode frequency by 0.01\%. The correction
-will be around 8\% for a fastest rotating neutron star. So, the rapidly rotation
+will be around 8\% for the fastest rotating neutron stars. So, the rapidly rotation
 correction will be less than the general relativity correction but it can be
 significant for a pulsar rotating near mass shedding limit.
 
 \subsubsection{Crust core coupling}
-The crust are formed when neutron star cools off to temperature below
-$10^{10}K$.  The friction between neutron fluids and the solid crust can dampen
-the $r$-mode.  If the $r$-amplitude is high enough it can heat the crust-core
-interface~\cite{Lindblom_2000}. The thermal heating can also lose in thermal
-conduction and neutrino emission on core-crust boundary. The elastic storing
-force on crust is less than the Coriolis force, so for a fast rotating neutron
-star the crust will oscillate like a liquid with low shear
+The solid crust is formed when a neutron star cools off below
+$10^{10}$\,K. The friction between neutron fluid and the solid crust can damp
+the $r$-mode. If the $r$-amplitude is high enough it can heat the crust-core
+interface~\cite{Lindblom_2000}. This heating competes thermal
+conduction and neutrino emission at the core-crust boundary. The elastic restoring
+force on the crust is less than the Coriolis force, so for a fast rotating neutron
+star the crust will oscillate almost like a liquid with low shear
 modulus~\cite{Levin_2001}. When the spin frequency increases, the $r$-mode
-frequency will rise to meet the elastic crust modes causing avoided
-crossing~\cite{Levin_2001}. The departure from the $r$-mode frequency in rotating
-frame ($\omega_r=2/3\Omega$) is significant for spin frequency interval
-$0.05\leq\Omega/\Omega_k\leq0.1$~\cite{Idrisy_2015}. The avoided crossing is
+frequency will rise to meet the elastic crust modes causing an avoided
+crossing~\cite{Levin_2001}. The avoided crossing is
 similar to the mode splitting in coupled pendulum by varying the length of one
 pendulum. 
 
-\subsection{$r$-mode frequency parameter after relativistic correction}
-On \cite{Yoshida:2004gk} , the $r$-mode frequency is written in terms of correction due to the
-compactness and rapid rotation. And, $r$-mode frequency is a decreasing function
-of $T/|W|$, where $T/|W|$ is the ratio of rotational energy to the gravitational
-binding energy. 
-\begin{equation}\label{eq:T/W}
-\frac{f}{\nu}=(1.41 - 1.50) - (1.23-1.95)T/|W|
-\end{equation}	
-The relativistic correction (1.41 - 1.50) are more precisely calculated to (1.39
-- 1.57)~\cite{Idrisy_2015}. For, a mass shedding of 0.1,the equation ~\ref{eq:T/W} can be written as :
-\begin{equation}
-\frac{f}{\nu}=(1.39 - 1.57) - (0-0.195)\frac{\nu}{\nu_k^2}
-\end{equation}	
-where $\nu_k$ is the Keplerian velocity. The lower limit of the second order
-correction of $r$-mode frequency is not known, so we choose it to zero. The
-correct parameter of $r$-mode frequency will be discuss in details in the next
-chapter. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% 							END OF THIRD CHAPTER								  %%%
@@ -2357,6 +2364,7 @@ angle}$\\
 $M_3 \rightarrow \text{from cardinal to detector reference frame}$
 
 \begin{equation}
+\small
 M_1=
 \begin{pmatrix}
 \cos{-\Psi} & \sin{-\Psi}& 0\\
@@ -2374,7 +2382,9 @@ M_1=
 0 & 0 & 1 
 \end{pmatrix}
 \end{equation}
+
 \begin{equation}
+\small
 M_2=
 \begin{pmatrix}
 \sin{\lambda}\cos{(\phi_r+\Omega_rt)} & \sin{\lambda}\sin{(\phi_r+\Omega_rt)} 
@@ -2386,6 +2396,7 @@ M_2=
 \end{equation}
 
 \begin{equation}
+\small
 M_3=
 \begin{pmatrix}
 \cos{(\frac{\pi}{2}+\gamma)} & \sin{(\frac{\pi}{2}+\gamma)} & 0\\
