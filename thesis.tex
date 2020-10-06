@@ -251,6 +251,7 @@ amplitude or two orders of magnitude in luminosity.
 \acro{PSD}{power spectral density}
 \acro{CW}{continuous wave}
 \acro{GR}{General Relativity}
+\acrodef{GWOSC}{Gravitational Wave Open Science Center}
 \end{acronym}
 
 
@@ -2270,38 +2271,25 @@ This paper has been assigned document number LIGO-P1900173.
 
 \chapter{\textbf{Data Analysis}}
 \section{Introduction}
-Rapidly rotating neutron stars emits continuous gravitational waves due to the
-axis asymmetry or oscillation of the fluids. The pulsar are slowly spinning down
-due to loss in rotational energy, so the gravitational waves might not
-necessarily be monochromatic for a long duration. And, the \acp{GW} are also
-Doppler shifted by the daily rotation and orbital motion of the earth. Since,
-the interferometer antennae pattern response to the direction of the sources,
-the signals are also amplitude modulated due to rotation of earth. The
-significant part of the continuous gravitational wave data analysis is to match
-the quasi-monochromatic waves to the theoretical waveform. The observational
-time needs to be long enough  to extract the \ac{GW} signal buried on
-the noisy data. 
-
-The continuous \acp{GW} search can be divided into different categories,
-according to the information of the sources. The pulsar like Crab are routinely
-monitored in radio observation, so we know the spin frequency and sky
-coordinates of Crab pulsar. The neutron star radiates a \ac{GW} twice the spin
-frequency due to the mass quadrupole. So, the search with known waveform of the
-\ac{GW} is known as Targeted search. They are computationally cheaper and more
-sensitive.The $r$-modes frequency deviates from the Newtonian case when
-relativistic correction are considered. 
-Other type of search is Directed search, the sky coordinates are known but not
-the spin frequency. The supernovae remnant like Cassiopeia A are not seen
-emitting the pulses, it's probably because the narrow beam of light doesn't
-sweep towards the earth. So, a large frequency band is required to search
-\ac{GW} from Cassiopeia A which increases the computational cost. The type of
-search for unknown neutron star are known as All sky search. There are around
-$10^8$ neutron star population in Milky way but only 2000 are observed. Some of
-the neutron stars that are not observed in \ac{EM} radiation can be detected in
-\ac{GW}.  One of the all sky
-search was done for the whole sky from 20 to 1922 Hz~\cite{Abbott_2019a}. Due to
-the computational limitation, the all-sky search have short obeservational time
-so they are less sensitive than other type of continuous \ac{GW} searches.
+Searches for continuous \acp{GW} can be divided into different categories,
+according to the information on the sources. Pulsars like the Crab are routinely
+monitored in radio, so we know the spin frequency and sky coordinates. The
+neutron star radiates a \ac{GW} twice the spin frequency due to the mass
+quadrupole. A search with a fully known waveform is known as a targeted search.
+They are computationally cheaper and more sensitive tha others. And other type
+of search is the directed search where the sky coordinates are known but not the
+spin frequency. The $r$-modes frequency are uncertain over a small band when
+relativistic and other corrections are considered. The Supernova remnants like
+Cassiopeia A have neutron stars that are not seen emitting pulses, probably
+because the narrow beam of light doesn't sweep towards the earth. So, a large
+frequency band is required to search for \ac{GW} from Cassiopeia A which
+increases the computational cost. The type of search for unknown neutron stars
+is known as a all sky search. There are around $10^8$ neutron stars in the Milky
+Way but only 2000 are observed. Some of the neutron stars that are not observed
+in \ac{EM} radiation can be detected in \ac{GW}. One of the all sky searches
+was done for the whole sky from 20 to 1922 Hz~\cite{Abbott_2019a}. Due to
+computational limitations, the all-sky search have short observational times so
+they are less sensitive than other types of continuous \ac{GW} searches.
 
 \begin{table}[ht]                                                               
 \centering                                                                                                                                      
@@ -2316,30 +2304,30 @@ All Sky&Unknown&Unknown&\tikzmark{b}{}&\tikzmark{d}{}\\
 \hline                                                                          
 \end{tabular}                                                                   
 \link{a}{b}\link{d}{c}                                                          
-\caption{Different types of continuous gravitational wave search}
+\caption{Different types of continuous gravitational wave search.}
 \label{tab}                                                                    
 \end{table}         
 
- On this chapter we will discuss the construction of a signal in
+In this chapter we will discuss the construction of a signal in
 \acp{CW}, the computational cost of the search by looking at the algorithm to
-generate template bank. We will also talk about how we claim a detection of real
-signals and sensitivity of our search.
+generate a template bank. We will also talk about how we claim a detection of real
+signals and estimate the sensitivity of our search.
 
 \section{Signal Model} 
-We here try to iderive the model of the waveform considering both Doppler and
-amplitude modutlation of the signal. This will be a summary of the data analysis
+We here derive the model of the waveform considering both Doppler and
+amplitude modulation of the signal. This will be a summary of the data analysis
 paper by \cite{Jaranowski_1998}.
 
 If L is the length of the detector and $\lambda$ the wavelength of gravitational
-wave, in long wave approximation $\lambda \gg L$. The time delays of
-wave propagating over the detector are negligible ($\Delta \approx $), so
+wave, in the long wave approximation $\lambda \gg L$. The time delays of
+waves propagating over the detector are negligible, so the
 gravitational wave field can be treated as being uniform all over the detector.
-Let h be the relative change of arm length of detector when gravitational waves
-passes by.
+Let $h$ be the relative change of arm length of detector when a gravitational wave
+passes by. Then
 \begin{equation}
-h(t) = \frac{1}{2} n_1.[\tilde{H}(t)n_1] - \frac{1}{2} n_2. [\tilde{H}(t)n_2]
+h(t) = \frac{1}{2} n_1.[\tilde{H}(t)n_1] - \frac{1}{2} n_2. [\tilde{H}(t)n_2],
 \end{equation}
-where $n_1=(1,0,0)$ and $n_2=(0,1,0)$ denotes a unit vectors parallel to the
+where $n_1=(1,0,0)$ and $n_2=(0,1,0)$ denote unit vectors parallel to the
 detector arm, assuming $n_1 \perp n_2$. And $\tilde{H}$ is defined as:
 \begin{equation}
 \tilde{H}(t) = M(t)H(t)M(t)^T,
@@ -2352,16 +2340,16 @@ h_\times(t) & -h_+(t) & 0\\
 0 & 0 & 0
 \end{pmatrix}
 \end{equation*}
-where, $h_+$ and $h_\times$ are plus and cross polarization of \acp{GW}.
+where, $h_+$ and $h_\times$ are plus and cross polarization of \acp{GW}. Also
 \begin{equation}
-M= M_3 M_2 M_1
+M= M_3 M_2 M_1,
 \end{equation}
-where,
-$M_1 \rightarrow \text{transformation matrix from wave to celestial sphere with
-Euler angle($\alpha,\delta,\Psi$)}$\\
-$M_2 \rightarrow \text{celestial coordinates to cardinal coordinates with Euler
-angle}$\\
-$M_3 \rightarrow \text{from cardinal to detector reference frame}$
+where
+$M_1$ is the transformation matrix from wave to celestial sphere with
+Euler angle ($\alpha,\delta,\Psi$).\\
+$M_2$ is the transformation celestial coordinates to cardinal coordinates with Euler
+angle.\\
+$M_3$ is the transformation from cardinal to detector reference frame.
 
 \begin{equation}
 \small
@@ -2423,39 +2411,40 @@ The response of the interferometer is given by:
 \begin{equation}
 h(t) = F_+(t) h_+(t) + F_\times(t) h_\times(t) 
 \end{equation}
-
-And $F_+$ and $F_\times$ are the antennae pattern. The antennae pattern are periodic
-functions of time, and its period is one day. The antennae pattern are the
+And $F_+$ and $F_\times$ are the antenna patterns. The antenna patterns are periodic
+functions of time with period one day. The antenna patterns are 
 functions of right ascension($\alpha$), declination($\delta$) of the \acp{GW}
 sources and polarization angle($\Psi$). 
 
-The antennae pattern $F_+$ and $F_\times$ can be written as:
+The antenna patterns $F_+$ and $F_\times$ can be written as:
 \begin{align*}
-F_+(t) = a(t)cos(2\Psi) + b(t) sin(2\Psi)\\
-F_\times(t) = b(t)cos(2\Psi) - a(t) sin(2\Psi)
+F_+(t) = a(t)cos(2\Psi) + b(t) sin(2\Psi),\\
+F_\times(t) = b(t)cos(2\Psi) - a(t) sin(2\Psi),
 \end{align*}
-where,
-\begin{align*}\label{a}
+\begin{align}
+\small
+\begin{split}\label{eq:a}
 a(t) &=
 \frac{1}{16}\sin{2\gamma}(3-\cos{2\lambda})(3-\cos{2\delta})\cos{[2(\alpha-\phi_r-\Omega_rt)]}\\
 &-\frac{1}{4}\cos{2\gamma} \sin{\lambda} (3-\cos{2\delta})
-\sin{[2(\alpha-\phi_r-\Omega_rt)]}
-+\frac{1}{4}\sin{2\gamma} \sin{2\lambda} \sin{2\delta}
+\sin{[2(\alpha-\phi_r-\Omega_rt)]}\\
+&+\frac{1}{4}\sin{2\gamma} \sin{2\lambda} \sin{2\delta}
 \cos{[\alpha-\phi_r-\Omega_r t]} \\
 &-\frac{1}{2}\cos{2\gamma} \cos{\lambda} \sin{2\delta}
 \sin{[\alpha-\phi_r-\Omega_r t]}
 +\frac{3}{4} \sin{2\gamma} \cos^2{\lambda} \cos^2{\delta}
-\end{align*}
-\begin{align*}
+\end{split}\\
+\begin{split}\label{eq:b}
 b(t)& =\cos{2\gamma} sin{\lambda} \sin{\delta} \cos{[2(\alpha-\phi_r-\Omega_r
-t)]} +
-\frac{1}{4} \sin{2\gamma} (3-\cos{2\lambda}) \sin{\delta}
+t)]}\\ 
+&+\frac{1}{4} \sin{2\gamma} (3-\cos{2\lambda}) \sin{\delta}
 \sin{[\alpha-\phi_r-\Omega_rt]}\\
-&+ \cos{2\gamma} \cos{\lambda} \cos{\delta} \cos{[\alpha-\phi_r-\Omega_r t]} +
-\frac{1}{2}\sin{2\gamma} \sin{2\lambda} \cos{\delta}
+&+ \cos{2\gamma} \cos{\lambda} \cos{\delta} \cos{[\alpha-\phi_r-\Omega_r t]}\\
+&+\frac{1}{2}\sin{2\gamma} \sin{2\lambda} \cos{\delta}
 \sin{[\alpha-\phi_r-\Omega_rt]}
-\end{align*}
-where,\\
+\end{split}
+\end{align}
+where\\
 $\lambda \rightarrow \text{latitude of detector}$\\
 $\Omega_r \rightarrow \text{rotational angular velocity of earth}$\\
 $\phi_r \rightarrow \text{phase which defines the position of the Earth in its
@@ -2467,17 +2456,17 @@ geographical direction.}$\\
 This is the transformation using the rotation matrix from wave frame to the
 detector frame. 
 
-The gravitational waves signal can be written in terms of Doppler
-parameter($\alpha, \delta, f, f_n $) and amplitude parameter($h_0, \iota, \psi,
+The gravitational wave signal can be written in terms of Doppler
+parameters ($\alpha, \delta, f, f_n $) and amplitude parameters ($h_0, \iota, \psi,
 \phi$):
 \begin{equation}
-h(t) = \sum_{i=1}^{4}A_{1i} h{1i}(t) + \sum_{i=1}^{4} A_{2i} h{2i}(t)
+h(t) = \sum_{i=1}^{4}A_{1i} h_{1i}(t) + \sum_{i=1}^{4} A_{2i} h_{2i}(t)
 \end{equation}
 The amplitudes $A_{1i}$ and $A_{2i}$ are given by:
 \begin{align*}
 A_{11} = h_0 \sin{2\theta}\left[\frac{1}{8} \sin{2\iota}\cos{2\psi}\cos{\phi_0}-
 \frac{1}{4}\sin{\iota} \sin{2\psi}\sin{\psi_0}\right], \\
-A_{12} = h_0 \sin{2\theta}\left[\frac{1}{4} \sin{iota}\cos{2\psi}\sin{\phi_0}+
+A_{12} = h_0 \sin{2\theta}\left[\frac{1}{4} \sin{\iota}\cos{2\psi}\sin{\phi_0}+
 \frac{1}{4}\sin{2\iota} \sin{2\psi}\cos{\psi_0}\right], \\
 A_{13} = h_0 \sin{2\theta}\left[-\frac{1}{8} \sin{2\iota}\cos{2\psi}\sin{\phi_0}
 -\frac{1}{4}\sin{\iota} \sin{2\psi}\cos{\psi_0}\right], \\
@@ -2493,51 +2482,28 @@ A_{24} = h_0 \sin^2{\theta}\left[-\frac{1}{2}
 (1+\cos^2{\iota})\sin{2\psi}\sin{2\phi_0} + \cos{\iota} \cos{2\psi}\cos{2\psi_0}\right], \\
 \end{align*}
 And the dependent Doppler functions $h_{i}$ are:
-\begin{equation}\label{h}
-h_{1}=a(t) \cos{\phi(t)},\quad h_{2}=b(t) \cos{\phi(t)}\\ 
-h_{l3}=a(t) \sin{\phi(t)},\quad h_{4}=b(t) \sin{\phi(t)} 
-\end{equation}
-where, a(t) and b(t) are defined in \ref{a}.
+\begin{align*}\label{h}
+h_{1}=a(t) \cos{\phi(t)},\quad h_{2}=b(t) \cos{\phi(t)},\\ 
+h_{3}=a(t) \sin{\phi(t)},\quad h_{4}=b(t) \sin{\phi(t)}, 
+\end{align*}
+where, a(t) and b(t) are defined in \ref{eq:a} \& \ref{eq:b}.
 
 
 
 \subsection{Maximum Likelihood ratio}
 
-The data from the gravitational waves interferometer are subject to various
-noise sources and the signals($h(t)$) are buried under the noises($n(t)$). The challenging part
-of \ac{GW} astronomy are to extract the weak signals from the random noises,
-most of the computational power are needed to filter out the noises. The
+The data from the gravitational wave interferometers are subject to various
+noise sources and the signals $h(t)$ are buried under the noises $n(t)$. The challenging part
+of \ac{GW} astronomy is to extract the weak signals from the random noises.
+Most of the computational power is needed to filter out the noises. The
 detector data $x(t)$ can be written as :
 \begin{equation}
-x(t) = h(t)+n(t)
+x(t) = h(t)+n(t),
 \end{equation}
 The maximum likelihood ratio can be defined as ratio of the probability density function
-of when signal is present to when signal is absent.
+of when a signal is present to when a signal is absent,
 \begin{equation}\label{eqn:lhood}
 \Lambda = \frac{p(x|h+n)}{p(x|n)}
-\end{equation}
-Assuming the noise is a zero mean, stationary, Gaussian random process and
-variance unity, the probability density function of noise will be:
-\begin{align*}
-p(x|n) & = \mathcal{N}exp(-(x-0)^2/(2*1))\\
-&= \mathcal{N}exp(-\frac{1}{2}(x|x))
-\end{align*}
-Similarly, if the data contains a signal h, now the mean will be h.
-\begin{equation}
-p(x|h+n)= \mathcal{N}exp(-\frac{1}{2}(x-h|x-h))
-\end{equation}
-Now, the likelihood ratio~\ref{eqn:lhood} can be written as:
-\begin{equation}
-\Lambda= \frac{exp(-\frac{1}{2}(x|x)}{exp(-\frac{1}{2}(x-h|x-h))}
-\end{equation}
-Taking, the log of likelihood ratio:
-\begin{align*}
-\ln{\Lambda} & =-\frac{1}{2}(x-h|x-h) + \frac{1}{2}(x|x)\\
-& = \cancel{-\frac{1}{2}(x|x)} +(x|h)-\frac{1}{2}(h|h)+\cancel{\frac{1}{2}(x|x)}
-\end{align*}
-The log likelihood function can be written as:
-\begin{equation}
-\ln{\Lambda}=(x|h)-\frac{1}{2}(h|h)
 \end{equation}
 where the scalar product is defined as:
 \begin{equation}
@@ -2545,8 +2511,33 @@ where the scalar product is defined as:
 \end{equation}
 where, $\tilde{x}$ is the Fourier transform, $^*$ is the complex conjugate and 
 $S_h$ is the power spectral density of the detector noise.
+Assuming the noise is a zero mean, stationary, Gaussian random process of
+variance unity, the probability density function of noise will be:
+\begin{align*}
+p(x|n) & = \frac{1}{2\pi}exp(-(x-0)^2/(2*1))\\
+&= \frac{1}{2\pi} exp(-\frac{1}{2}(x|x))
+\end{align*}
+Similarly, if the data contains a signal h, now the mean will be h.
+\begin{equation}
+p(x|h+n)=\frac{1}{2\pi} exp(-\frac{1}{2}(x-h|x-h)),
+\end{equation}
+Now, the likelihood ratio~\ref{eqn:lhood} can be written as:
+\begin{equation}
+\Lambda= \frac{exp(-\frac{1}{2}(x-h|x-h))}{exp(-\frac{1}{2}(x|x)},
+\end{equation}
+Taking, the log of likelihood ratio:
+\begin{align*}
+\ln{\Lambda} & =-\frac{1}{2}(x-h|x-h) + \frac{1}{2}(x|x)\\
+& = \cancel{-\frac{1}{2}(x|x)}
++(x|h)-\frac{1}{2}(h|h)+\cancel{\frac{1}{2}(x|x)},
+\end{align*}
+The log likelihood function can be written as:
+\begin{equation}
+\ln{\Lambda}=(x|h)-\frac{1}{2}(h|h)
+\end{equation}
 
-The signal $h(t,\vec{A},\vec{\lambda})$ depends linearly on the amplitudes parameter(A)
+The signal $h(t,\vec{A},\vec{\lambda})$ depends linearly on the amplitude
+parameters (A)
 $h_0$, $\theta$, $\psi$, $\iota$ and $\phi$. The maximum value of the likelihood
 function can be found by:
 \begin{equation}
@@ -2554,31 +2545,31 @@ function can be found by:
 \end{equation}
 
 \begin{equation}
-\sum_{j=1}^4M_{ij}A_j =(x||h_i),
+\sum_{j=1}^4M_{ij}A_j =(x|h_i),
 \end{equation}
 where M is a $4 \times 4$ matrix given by:
 \begin{equation}
-M_{ij} = (h_i|h_j)
+M_{ij} = (h_i|h_j),
 \end{equation}
 where,
 \begin{equation}
-(h_i||h_j)=\frac{2}{T_0}\int_{-T_0/2}^{T_0/2}h_i(t)h_j(t)dt, \quad
+(h_i|h_j)=\frac{2}{T_0}\int_{-T_0/2}^{T_0/2}h_i(t)h_j(t)dt, \quad
 T_0 \rightarrow \text{observational time.}
 \end{equation}
 From Eqn.\ref{h} $h_1$ $\&$ $h_2$ $\propto$ $\cos{\phi(t)}$\quad and $h_3$ $\&$ $h_4$
 $\propto$ $\sin{\phi(t)}$, so,
 \begin{equation}
-(h_1||h_3)=0, \quad (h_1||h_4)=0, \quad (h_2||h_3)=0, \quad (h_2||h_4)=0,  
+(h_1|h_3)=0, \quad (h_1|h_4)=0, \quad (h_2|h_3)=0, \quad (h_2|h_4)=0,  
 \end{equation}
 and
 \begin{equation}
 \begin{split}
-(h_1||h_1)=(h_3||h_3)=\frac{1}{2}A,\\
-(h_2||h_2)=(h_4||h_4)=\frac{1}{2}B,\\
-(h_1||h_2)=(h_3||h_4)=\frac{1}{2}C,\\
+(h_1|h_1)=(h_3|h_3)=\frac{1}{2}A,\\
+(h_2|h_2)=(h_4|h_4)=\frac{1}{2}B,\\
+(h_1|h_2)=(h_3|h_4)=\frac{1}{2}C,\\
 \end{split}
 \end{equation}
-where, $A=(a(t)||a(t))$, \quad  $B=(b(t)||b(t))$, \quad  $C=(a(t)||b(t))$ 
+where, $A=(a(t)|a(t))$, \quad  $B=(b(t)|b(t))$, \quad  $C=(a(t)|b(t))$ and 
 \begin{equation*}
 M=\frac{1}{2}
 \begin{pmatrix}
@@ -2588,12 +2579,12 @@ C & B & 0 & 0\\
 0 & 0 & C & B
 \end{pmatrix}
 \end{equation*}
-The $\mathcal{F}$-statistic is the maximization of likelihood function over
-$\vec{A}$. 
+The $\mathcal{F}$-statistic is the maximization of the likelihood function over
+$\vec{A}$, given by 
 \begin{equation}
 2\mathcal{F}(\vec(\lambda))=\sum_{i,j=1}^{4}[M^{-1}]_{ij}(x||h_i)(x||h_j)
 \end{equation}
-where,
+where
 \begin{equation*}                                                               
 M^{-1}=\frac{2}{D}                                                                   
 \begin{pmatrix}                                                                 
@@ -2603,83 +2594,85 @@ B & -C & 0 & 0\\
 0 & 0 & -C & A                                                                   
 \end{pmatrix}                                                                   
 \end{equation*} 
-where, $D=AB-C^2$
+and $D=AB-C^2$. Thus
 \begin{equation}
-2\mathcal{F}=\frac{2}{D}\left[B(x||h_1)^2 + A(x||h_2)^2 -2C(x||h_1)(x||h_2)+
-B(x||h_3)^2 + A(x||h_4)^2 -2C(x||h_3)(x||h_4)\right]
+\small
+2\mathcal{F}=\frac{2}{D}\left[B(x|h_1)^2 + A(x|h_2)^2 -2C(x|h_1)(x||h_2)+
+B(x|h_3)^2 + A(x|h_4)^2 -2C(x||h_3)(x|h_4)\right]
 \end{equation}
 Since the 2$\mathcal{F}$ is maximized over the amplitude parameter, so it is the
-function of remaining Doppler parameter($\vec{\lambda}\rightarrow \alpha,\delta,f^n$). The signal
+function of remaining Doppler parameter ($\vec{\lambda}\rightarrow \alpha,\delta,f^n$). The signal
 template $h(t,\vec{A},\vec{\lambda})$ is not linear function of Doppler
-parameter($\vec{\lambda}$), we need to find maximum 2$\mathcal{F}$ value over
+parameter ($\vec{\lambda}$), we need to find maximum 2$\mathcal{F}$ value over
 $\vec{\lambda}$ analytically. 
 
-First, we need to calculate the probability density of $2\mathcal{F}$ when
-signal is present and when signal is absent. The detection of signal is claimed
-when the $2\mathcal{F}$ beats the certain threshold level with given False Alarm
+First, we need to calculate the probability density of $2\mathcal{F}$ when a
+signal is present and when a signal is absent. The detection of a signal is claimed
+when $2\mathcal{F}$ beats the certain threshold level with a given false alarm
 rate. 
 
 Lets suppose we know $h_i$ i.e. the sky position and spin down parameters. When
-the signals are absent $(x||h_i)$ = 0. To make the calculation easier, lets
-assume the observational time is the integer multiple of one sidereal day, so $C
+the signals are absent $(x|h_i)$ = 0. To make the calculation easier, lets
+assume the observational time is an integer multiple of one sidereal day, so $C
 = 0$~\cite{Jaranowski_2000}. When the signal is present:
+\begin{align*}
+(x|h_1)= \frac{1}{2}AA_1, \quad (x|h_2) = \frac{1}{2}B A_2,\\
+(x|h_3)= \frac{1}{2}AA_3, \quad (x|h_4) = \frac{1}{2}B A_4,
+\end{align*}
+Now, we can write the $\mathcal{F}$-statistic as:
 \begin{equation}
-(x||h_1)= \frac{1}{2}AA_1, \quad (x||h_2) = \frac{1}{2}B A_2\\
-(x||h_3)= \frac{1}{2}AA_3, \quad (x||h_4) = \frac{1}{2}B A_4
-\end{equation}
-Now, we can define $\mathcal{F}$-statistic as:
-\begin{equation}
-\mathcal{F} = \frac{1}{2}(z_1^2+z_2^2+z_3^2+z_4^2)
+\mathcal{F} = \frac{1}{2}(z_1^2+z_2^2+z_3^2+z_4^2),
 \end{equation}
 where,
 \begin{equation}
-z_1=2\sqrt{\frac{T_0}{S_hA}}(x||h_i), \quad i=1,3
+z_i=2\sqrt{\frac{T_0}{S_hA}}(x|h_i), \quad i=1,3,
 \end{equation}
 \begin{equation}
-z_1=2\sqrt{\frac{T_0}{S_hB}}(x||h_i), \quad i=2,4
+z_i=2\sqrt{\frac{T_0}{S_hB}}(x|h_i), \quad i=2,4,
 \end{equation}
-In absence of signal the $2\mathcal{F}$ is chi-squared distribution with four
-degrees of freedom. And, when the signals are present, the $2\mathcal{F}$ is a
-non-central chi-squared distribution with four degrees of freedom and non
-centrality parameter is the optimal signal to noise ratio(d) defined as:
+In the absence of a signal $2\mathcal{F}$ is drawn from a chi-squared distribution with four
+degrees of freedom. And, when the signals are present, the $2\mathcal{F}$ is
+drawn form a
+non-central chi-squared distribution with four degrees of freedom and the non
+centrality parameter is the optimal signal to noise ratio (d) defined as:
 \begin{equation}
 d^2=\frac{2}{S_h(f)}\int_0^{T_0} h^2(t)dt
 \end{equation}
 
-The probability density functions when signal is absent($p_0$)and when signal is
-present($p_1$) is:
+The probability density functions when a signal is absent ($p_0$)and when a signal is
+present ($p_1$) are:
 \begin{equation}
 \begin{split}
 p_0(\mathcal{F})&=\frac{\mathcal{F}^3}{6}exp{-\mathcal{F}},\\
 p_1(d,\mathcal{F})&=\frac{2\mathcal{F}^3/2}{d^3}I_3(d\sqrt{2\mathcal{F}})exp{-\mathcal{F}-\frac{1}{2}d^2},
 \end{split}
 \end{equation}
-where $I_3$ is the modified Bessel function of first kind and order 3.
+where $I_3$ is the modified Bessel function of the first kind and order 3.
 The expectation value of 2$\mathcal{F}$ is 4+$d^2$.
 \begin{figure}[h!]
 	\includegraphics[width=\textwidth]{figure/chi2.png}
-	\caption{In absence of signal the pdf will be $\chi^2$ distribution with
-four degrees of freedom. In presence of signal the pdf will be non central
-$\chi^2$ distribution where the non central parameter is the signal.}
+	\caption{In the absence of signal the pdf will be a $\chi^2$ distribution with
+four degrees of freedom. In the presence of signal the pdf will be a non central
+$\chi^2$ distribution where the non central parameter is the signal to noise
+ratio.}
 \end{figure}
 
 \subsection{Matched Filtering technique}
-Matched filter is a optimal technique of maximizing the signal to noise ratio by
-cotrrelating the detector data with a known waveform~\cite{Sathyaprakash_2009}.
+Matched filtering is an optimal technique of maximizing the signal to noise ratio by
+correlating the detector data with a known waveform~\cite{Sathyaprakash_2009}.
 The detector output x(t) contains a signal h(t) and noise n(t), and let q(t) be
 a template of known shape. Let c be the correlation between the template and
 detector output:
 \begin{equation}\label{eq:matchfil1}
-c(\tau) = \int_{-\infty}^{\infty} x(t)q(t+\tau)dt
+c(\tau) = \int_{-\infty}^{\infty} x(t)q(t+\tau)dt,
 \end{equation}
 where $\tau$ is the time delay between the template and the detector data.
-The time series data can be converted into frequency domain using the Fourier
+The time series data can be converted into the frequency domain using the Fourier
 transform. 
 \begin{equation}\label{eq:matchfil2}
 \begin{split}
-x(t)=\int_{-\infty}^{\infty} x(f)e^{2\pi f t} df
-q(t+\tau)\\
-&=\int_{-\infty}^{\infty} q(f)e^{2\pi\tilde{f}(t+\tau)} d\tilde{f}
+x(t)=\int_{-\infty}^{\infty} x(f)e^{2\pi f t} q(t+\tau)df\\
+&=\int_{-\infty}^{\infty} q(f)e^{2\pi\tilde{f}(t+\tau)} d\tilde{f},
 \end{split}
 \end{equation}
 Substituting equation ~\ref{eq:matchfil2} into \ref{eq:matchfil1},
@@ -2696,12 +2689,13 @@ e^{i 2\pi f^{'}\tau}\\
 \int_{-\infty}^{\infty} df^{'}\delta(f-f^{'})\\
  & = \int_{-\infty}^{\infty}\tilde{x}(f)\tilde{q}(f)e^{i 2\pi f^{'}\tau}
 \end{align*}
-The \ac{SNR} is defined as $\frac{\mu}{\sigma}$, where $\mu=<c>$ is a mean and
-$\sigma$ is a standard deviation of the correlation.
+The \ac{SNR} is defined as $\frac{\mu}{\sigma}$, where $\mu=\langle c \rangle$
+is the mean and
+$\sigma$ is the standard deviation of the correlation.
 
 \begin{align*}\label{eq:sign}
-\mu & = <\int_{-\infty}^{\infty}\tilde{q}^{*}(f)\tilde{x}(f)>\\
-&=\int_{-\infty}^{\infty}\tilde{q}^{*}(f)\tilde{h}(f)
+\mu & = \langle\int_{-\infty}^{\infty}\tilde{q}^{*}(f)\tilde{x}(f)\rangle\\
+&=\int_{-\infty}^{\infty}\tilde{q}^{*}(f)\tilde{h}(f),
 \end{align*}
 
 \begin{equation}\label{eq:noise1}
@@ -2711,17 +2705,18 @@ $\sigma$ is a standard deviation of the correlation.
        &= \int_{-\infty}^{\infty}df|\tilde{q}(f)|^{2}
 \int_{-\infty}^{\infty}\underbrace{\tilde{n}^{*}(f)
 \tilde{n}(f^{'})}_{S_{n}(f)\delta(f - f^{'})}df^{'}\\
-      &=\int_{-\infty}^{\infty}df|\tilde{q}(f)|^{2} S_{n}(f)
+      &=\int_{-\infty}^{\infty}df|\tilde{q}(f)|^{2} S_{n}(f),
 \end{split}
 \end{equation}
-From \ref{eq:sign} and \ref{eq:noise1}, we can get \ac{SNR}.
+From \ref{eq:sign} and \ref{eq:noise1}, we can get the \ac{SNR}.
 \begin{equation}
 \rho=\frac{\int_{-\infty}^{\infty}\tilde{q}^{*}(f)\tilde{h}(f)}{(\int_{-\infty}^{\infty}df|\tilde{q}(f)|^2
-S_{h}(f))^{1/2}}
+S_{n}(f))^{1/2}},
 \end{equation}
 The optimal signal to noise ratio is defined as:
 \begin{equation}
-\rho_{opt}^2 = <h,h> =2\left[\int_{0}^{\infty}\frac{|\tilde{h}(f)|^2}{S_{h}}(f){}df\right]
+\rho_{opt}^2 = \langle h,h \rangle
+=2\left[\int_{0}^{\infty}\frac{|\tilde{h}(f)|^2}{S_{h}}(f){}df\right],
 \end{equation}
 So, the optimal \ac{SNR} is the total energy of the signal weighted down by the
 \ac{PSD} of noise. So, if the \ac{PSD} of noise at some frequency bin is higher,
@@ -2729,169 +2724,137 @@ the \ac{SNR} will be lower.
 
 
 \subsection{Phases of gravitational waves}
-The pulsars are spinning down by the emission of particles, \ac{EM} and \ac{GW}.
-The frequency evolution are given by the Taylor expansion in the form:
+Pulsars are spinning down by the emission of particles, \ac{EM} waves and \ac{GW}.
+The frequency evolution is given by the Taylor expansion in the form:
 \begin{equation}
 f(t) = f_0 + \sum_{n=1}^{N} \frac{f_n}{n!}t^n
 \end{equation}
 where, $f_n$ are the spin down parameter. Usually, for less than one year of
-search we don't need more than two spin down parameter. 
-The frequency($f_0$) of gravitational waves from the source are Doppler modulated due to the
+search we don't need more than two spin down parameters. 
+The frequency($f_0$) of gravitational waves from the source is Doppler modulated due to the
 rotation of earth, so the apparent frequency($f_\prime$) is given by:
 \begin{equation} 
 f^\prime = f_0 \left(1+\frac{\vec{v}.\hat{r}}{c}\right)
 \end{equation}
-where, v is the relative velocity of source with respect to detector, $\hat{r}$
+where v is the relative velocity of source with respect to the detector, $\hat{r}$
 is the unit vector from the detector to the sources and c is the speed of light.
 
-So, the frequency of gravitational waves($f_{gw}$) in Solar System Barycenter
+So, the frequency of gravitational waves($f_{gw}$) in the Solar System Barycenter
 (SSB) frame is~\cite{Krishnan_2004}:
 \begin{equation}
 f_{gw}(t) = f_0 + \sum_{n=1}^{N} \frac{f_n}{n!}\left(t - t_0 + \frac{\Delta
-\vec{r}(t). \vec{n}}{c}\right)^n
+\vec{r}(t). \vec{n}}{c}\right)^n,
 \end{equation}
-where, $t_0$ is a detector time in the start of observation, and we are
+where $t_0$ is detector time in the start of observation, and we are
 neglecting the proper motion of neutron stars. 
 
 \section{Short time baseline Fourier Transforms}
-The pulsars are slowly spinning down, and the frequency of gravitational waves
+Pulsars are slowly spinning down, and the frequency of gravitational waves
 in the interferometer will be Doppler modulated due to the rotation of earth.
-As, the frequency of \ac{GW} modulated, the match filtering the one chunk of
+As, the frequency of \ac{GW} is modulated, the match filtering the one chunk of
 data for the whole observational time will be inconvenient. And, the
-interferometer noises are also non stationary, so the interferometer data are 
+interferometer noise is also non stationary, so the interferometer data is 
 divided into N segments and Fourier transformed. The computational cost of the
 search increases linearly with the number of \acp{SFT} for a fixed observational
-time. There are two main points accounted for making \acp{SFT},(i) the time of the
-\acp{SFT} should be short enough for the detector noises to remain constant, (ii)
-long enough for the signal power to stay within the frequency bin, as the
-frequency change due to Doppler modulation and spin
-down~\cite{Krishnan_2004,Abbott_2007}. 
+time. There are two main points accounted for in making \acp{SFT},(i) the
+duration of the
+\acp{SFT} should be short enough so Doppler and spindown stay in one bin, (ii)
+long enough for the noise to have well averaged floor~\cite{Krishnan_2004,Abbott_2007}. 
 
-We are deriving the maximum \ac{SFT} time such that the signal stays within half
-of the frequency bin as shown in \cite{Krishnan_2004}. The frequency at the detector can be given by the Doppler formula:
+We are derive the maximum \ac{SFT} duration such that the signal stays within half
+a frequency bin as shown in \cite{Krishnan_2004}. The frequency at the detector can be given by the Doppler formula:
 \begin{equation}
 \label{doppler}
-f_d(t) - f_s(t) = f_s(t)\frac{\vec{v}(t).\hat{n}}{c}
+f_d(t) - f_s(t) = f_s(t)\frac{\vec{v}(t).\hat{n}}{c},
 \end{equation}
-where, $f_s$ is the frequency at the Solar System Barycenter(SSB) frame and
+where $f_s$ is the frequency at the Solar System Barycenter (SSB) frame and
 $\vec{v}$ is the velocity of the detector.
-The rate of frequency change due to Doppler effect can calculated by taking
+The rate of frequency change due to the Doppler effect can calculated by taking
 derivative of Eqn \ref{doppler}.
 \begin{equation}
 \dot{f}_= \frac{f_s}{c}\frac{d\vec{v}}{dt}.\hat{n} \leq
 \frac{f_s}{c}\left|\frac{d\vec{v}}{dt}\right|
 \end{equation}
-The term $dv/dt=acceleration$, and it can be written as $a=v^2/R$, where R is
+The term $dv/dt$=acceleration, and it can be written as $a=v^2/R$, where R is
 the radius of earth. And we can also substitute $v=2\pi R/T$ where, T is the time
-period of rotation of earth.
+period of rotation of earth to find
 \begin{equation}\label{sfts1}
-|\dot{f}|_{max}= \frac{4\pi^2R}{T}
+|\dot{f}|_{max}= \frac{4\pi^2R}{T},
 \end{equation}
-For the signal, to stay within the half of the frequency bin, it need to satisfy
-the condition $|\dot{f}|T_{SFTs} < \frac{1}/{2T_{SFTs}}$, or it can be written as:
+For the signal to stay within half of the frequency bin it needs to satisfy
+the condition $|\dot{f}|T_{SFTs} < \frac{1}{2T_{SFTs}}$, or it can be written as:
 \begin{equation}\label{sfts2}
 T_{SFTs}<\sqrt{\frac{1}{2|\dot{f}_{max}|}}
 \end{equation}
-Substituting \ref{sfts1} in \ref{sfts2}, we get,
+Substituting \ref{sfts1} into \ref{sfts2}, we get,
 \begin{equation}
-T_{SFTs} < 18.5 \text{hours}\sqrt{\frac{1}{f_s}}
+T_{SFTs} < 18.5\,hours \sqrt{\frac{1\,Hz}{f_s}}
 \end{equation}
-So, for a pulsar emitting a \ac{GW} of frequency 100 Hz, the time of the
-\ac{SFT} should be less than 1.85 hours. For our search, we are using \acp{SFT} of 30 minutes.
+So for a pulsar emitting a \ac{GW} of frequency 100 Hz, the duration of the
+\ac{SFT} should be less than 1.85 hours. The typical duration of \acp{SFT} in
+\ac{LIGO} search is 30 minutes.
 
 
 \section{Template Spacing}
-In a matched filtering technique the shape of the signal that will the detected
-by gravitational wave interferometer needs to be well known. The shape are
+In matched filtering the shape of the signal needs to be well known. The shape
+is
 determined by the sky location, frequency and the frequency derivatives of the
 sources. The intrinsic strain, polarization amplitude, inclination angle, and
-initial phase of a signal are not known so these parameter are maximized. In a
-directed search, the shape of the known is not well know due to the lack of
-information on spin frequency of the sources. And in $r$-modes \ac{GW} search
-from known pulsar, the spin frequency are known but we don't know the exact
-$r$-mode frequency due to the unknown compactness of neutron stars. When the
-exact waveform is not known, we need a multiple templates that possibly can
-match with a signal. The template spacing should consider both computational
-cost and the loss in signal to noise ratio. If the distance between templates are two far away
-and the signal lies in between templates we will loose the significant amount of
-\ac{SNR}. And, if the templates are too dense we will wasting a computational
-power.  Lets match the signal $h(t,\vec{A},\vec{\lambda})$ with a little offset template
- $h(t,\vec{A},\vec{\lambda}+\Delta\vec{\lambda})$, the match is defined
+initial phase of a signal are not known so these are maximized quickly and
+analytically by the $F$-statistic. In a
+directed search, some parametersare not well known due to the lack of
+information on the spin frequency of the source. And a \ac{GW} search for
+$r$-modes
+from a known pulsar, the spin frequency is known but we don't know the exact
+$r$-mode frequency due to the unknown compactness of the neutron star. When the
+exact waveform is not known, we need multiple templates that possibly can
+match with a signal. The template spacing in parameters should consider both computational
+cost and the loss in signal to noise ratio. If the distance between templates is
+too far away
+and the signal lies in between templates we will lose a significant amount of
+\ac{SNR}. And, if the templates are too dense we will waste computational
+power.  Let's match the signal $h(t,\vec{A},\vec{\lambda})$ with a slightly offset template
+ $h(t,\vec{A},\vec{\lambda}+\Delta\vec{\lambda})$. The match is defined
 as~\cite{Owen_1996}:
 \begin{equation}
 M(\vec{\lambda}+\Delta\vec{\lambda}) =
-max<h(t,\vec{A},\vec{\lambda})|h(t,\vec{A},\vec{\lambda}+\Delta\vec{\lambda})>
+max_{vec{A}}<h(t,\vec{A},\vec{\lambda})|h(t,\vec{A},\vec{\lambda}+\Delta\vec{\lambda})>
 \end{equation}
-This can be expanded in power series about $\Delta\lambda=0$:
+This can be expanded in a power series about $\Delta\lambda=0$:
 \begin{equation}\label{match}
 M(\lambda,\Delta\lambda)\approx
 1+\frac{1}{2}\left(\frac{\partial^2M}{\partial\Delta\lambda_i\partial\Delta\lambda_j}\right)_{\Delta\lambda^k=0}
-\Delta\lambda^i\Delta\lambda^j
+\Delta\lambda^i\Delta\lambda^j,
 \end{equation}
 We can define a metric 
 \begin{equation}
-g_{ij}(\lambda)=-\frac{1}{2}\left(\frac{\partial^2M}{\partial\Delta\lambda_i\partial\Delta\lambda_j}\right)_{\Delta\lambda^k=0}
+g_{ij}(\lambda)=-\frac{1}{2}\left(\frac{\partial^2M}{\partial\Delta\lambda_i\partial\Delta\lambda_j}\right)_{\Delta\lambda^k=0},
 \end{equation}
 Now, Eqn~\ref{match} can be written as:
 \begin{equation}
 1-M=g_{ij} \Delta\lambda^i\Delta\lambda^j
 \end{equation}
-where 1-M is the mismatch between two templates.
+where $1-M$ is the mismatch between two templates.
 
-We define a parameter minimal match($\mu$) as the maximum loss in signal to
+We define the parameter minimal match($\mu$) as the maximum loss in signal to
 noise ratio when the signal lies exactly in between two nearest templates. 
-We can also define $\mu$ as a mismatch between the signal with Doppler
-parameter($\vec{\lambda}$) with
-expectation value $2\mathcal{F}(\vec{\lambda})$ with a template
-$2\mathcal{F}(\vec{\lambda}')$. 
-\begin{equation}
-\mu(\vec{\lambda},\vec{\lambda}')=\frac{2\mathcal{F}(\vec{\lambda})-2\mathcal{F}(\vec{\lambda}')}{2\mathcal{F}(\vec{\lambda})}
-\end{equation}
-
-The template density for a search with known spin frequency(f) and spin
-down($\dot{f},\ddot{f}$)
-parameter of pulsar is given by:
-\begin{equation}
-N=\frac{\sqrt{det|g_{ij}|}}{2(1-\mu)}\int d\dot{f}\ddot{f}
-\end{equation}
-where, the metric($g_{ij}$) over the parameters f, $d\dot{f}$, $\ddot{f}$ is given
-by~\cite{Wette_2008}:
-\begin{equation}                                                                
-g_{ij}=\frac{4\pi^2T^{i+j+2}(i+1)(j+1)}{(i+2)!(j+2)!(i+j+3)}             
-\end{equation}\\                                                                
-                                                                                
-\text{i,j=0 for $f$, 1 for $\dot{f}$ and 2 for $\ddot{f}$}; $T           
-=\text{Time of observation}$                                                              
-\begin{equation} 
-g_{ij} = \pi^2                                                 
-\begin{pmatrix}
-T^2/3 & T^3/6 & T^4/20 \\                                                       
-T^3/6 & 4T^4/45 & T^5/36 \\                                                     
-T^4/20 & T^5/36 & T^6/112                                                       
-\end{pmatrix}
-\end{equation} 
-
-So, the number of templates depends on the duration of the search, and the
-number of spin down parameters. The computational cost for a directed search
-with known sky location but unknown $f,\dot{f},\ddot{f}$ will be $f*T^7$. But,
-the sensitivity of the search only increases by $\sqrt{T}$.
-
 \section{Hypothesis testing}                                                    
         When we analyze a data and claim a detection we need to perform certain
 test on a sample of data. If our experiment results are from purely chance then
-it is defined as Null hypothesis($H_o$) and if the results rejects the null
-hypothesis we define as alternative hypothesis. The alternative hypothesis are
-usually the one researcher looking for.  In our search if signal is absent it is
-called null hypothesis and if signals are present we call it alternative
+it is defined as the null hypothesis ($H_o$) and if the results rejects the null
+hypothesis we define it as the alternative hypothesis. The alternative
+hypothesis is
+usually the one the researcher is looking for.  In our search if a signal is absent it is
+called the null hypothesis and if signals are present we call it the alternative
 hypothesis.
-	In statistical test there are two kind of error in the experimental
-results. The type I error(False alarm probability) is when the experimenter
-chooses $H_a$ when $H_o$ is true.  The type II error (False Dismissal
+	In statistical tests there are two kinds of error in the
+results. A type I error (False alarm probability) is when the experimenter
+chooses $H_a$ when $H_o$ is true. A type II error (False Dismissal
 Probability) is when the researcher chooses $H_o$ when $H_a$ is true.  So, in
-Type I error the test value is greater than the threshold significance level
+a Type I error the test value is greater than the threshold significance level
 when no signal are present. And, in type II error the test value is less than
-the threshold when there are actually signal in the data.
-As shown in figure the probability of False Alarm Rate is defined as:
+the threshold when there are actually signals in the data.
+The probability of False Alarm Rate is defined as:
 \begin{equation}
 P_{FAR}=P(2\mathcal{F}>2\mathcal{F}^*|H_o)=\int_{2\mathcal{F}^*}^\infty
 pdf(2\mathcal{F}|H_o)d2\mathcal{F}
@@ -2906,7 +2869,7 @@ pdf(2\mathcal{F}|H_a)d2\mathcal{F}
 
 \section{Expected value of $2\mathcal{F}$}
 Assuming we have Gaussian noise and no signal, the probability distribution
-(pdf) of a single value of $2\mathcal{F}$ is a chi-square distribution with 4
+(pdf) of a single value of $2\mathcal{F}$ is drawn from a chi-square distribution with 4
 degrees of freedom.  Let's say that out of N templates, we get a largest value
 denoted as $2\mathcal{F}^*$ and the probability of this happening is
 $p(\chi^2_4;2\mathcal{F}^*)$. If $2\mathcal{F}^*$ is the largest value out of N
@@ -2918,8 +2881,8 @@ p(2\mathcal{F}\leq2\mathcal{F}^*)= [cdf(\chi^2_4;2\mathcal{F}^*)]^{N-1}
 
 To get the probability that the value $2\mathcal{F}^*$  is this loudest
 $2\mathcal{F}$ value, we have to multiply by N (because there are N different
-possible orderings any of your N different templates could be the loudest. So,
-probability that $2\mathcal{F}^*$ is the largest value of $2\mathcal{F}$ from a
+possible orderings and any of the N different templates could be the loudest. So,
+the probability that $2\mathcal{F}^*$ is the largest value of $2\mathcal{F}$ from a
 collection of N values of 2F is~\cite{Abadie_2010, Wette:2009uea}:
 \begin{equation}                                                                
 p(N;2\mathcal{F}^*)=
@@ -2933,71 +2896,48 @@ Np(\chi^2_4;2\mathcal{F}^*)[cdf(\chi^2_4;2\mathcal{F}^*)]^{N-1}
                  plot shows clearly the $2\mathcal{F}$ value is a function of number of  templates.}                             
         \label{fig:2F_max}                                                  
 \end{figure} 
-The  $2\mathcal{F}$ at which the probability is highest are the most likely
-values to be the loudest $2\mathcal{F}$. The plot ~\ref{fig:2F_max} shows the
+The plot ~\ref{fig:2F_max} shows the
 $2\mathcal{F}$ values for which the probability is equal to $0.05$ and $0.95$.
 Any $2\mathcal{F}$ below the $0.05$ mark has only a $5\%$ chance of being the
 loudest; same for any $2\mathcal{F}$ above the $0.95$ mark.
 
-These two values then give you a confidence interval we can say that, $95\%$ of
+These two values then give a confidence interval we can say that, $95\%$ of
 the time, the loudest  $2\mathcal{F}$ will lie between these two values. If the
-loudest  $2\mathcal{F}$ from your search is not inside this interval, then it is
+loudest  $2\mathcal{F}$ from the search is not inside this interval, then it is
 very unlikely to be Gaussian noise. That could mean that we found a signal, or
 that we found a source of non-Gaussian noise, like an instrumental line or a
 detector artifact. We would then have to do more detailed follow up on our
 individual outliers to figure out which of those is the case.
 
 \section{Veto process}
-The interferometer data are contaminated from different noise sources. Some of
-the noise sources are the instrument of interferometer(power supply, mirror
-suspension, blinking LEDs, fans..) itself. These noises occurs in a specific
-frequencies and might act as a signal for a continuous gravitational waves or
-they can even mask the signals.  These noises known as instrumental lines need
-to be properly identified and removed from the data searches. We will use a
-Fscan veto to remove the frequency bands with instrumental lines. A Fscan is a
-normalized spectogram form from the SFTs and normalize the SFTs by scaling the
-power to the running median over 50 frequency bins~\cite{Aasi_2015}. If the
-noise is stationary and Gaussian then the power is drawn from a $\chi^2$
-distribution. If the fscan power deviates from the $\chi^2$ distribution, then
+Interferometer data is contaminated by different noise sources. Some of
+the noise sources are the instruments of the interferometer (power supply, mirror
+suspension, blinking LEDs, fans..) itself. These noises occur at specific
+frequencies and might    as a signal of continuous gravitational waves or
+they can even mask the signals. These noises known as instrumental lines need
+to be properly identified and removed from the searches. We use the so called
+Fscan veto to remove candidates in frequency bands with instrumental lines. An Fscan is a
+normalized spectrogram of the SFTs and normalizes the SFTs by scaling the
+power to the running median over 51 frequency bins~\cite{Aasi_2015}. If the
+noise is stationary, Gaussian and smooth then the power is drawn from a $\chi^2$
+distribution. If the Fscan power deviates from the $\chi^2$ distribution, then
 it is a non stationary Gaussian noise, spectral lines or both~\cite{Aasi_2015}.
-It also gives a line width to a frequency of spectral lines depending on the
-power of the lines. It looks for the frequency bins on either side that has
-power less than half of the power of lines, the line width is subtracting the
-below and above frequency vin of central frequency~\cite{Coughlin_2010}.
 
 The other veto process is the interferometer veto. If the $2\mathcal{F}$ value
-of any one of the detector is greater than the joint $2\mathcal{F}$ value of all
-the detector, then such a $2\mathcal{F}$ will be discarded. 
+of any one of the detectors is greater than the joint $2\mathcal{F}$ value of all
+the detectors, then such a $2\mathcal{F}$ will be discarded. 
 
 \section{Upper limit}
-If we didn't detect any signal($2\mathcal{F}<2\mathcal{F}^*$) then we set up an
+If we didn't detect any signal ($2\mathcal{F}<2\mathcal{F}^*$) then we set an
 upper limit on the intrinsic strain($h_0$) of the signal that we are trying to
 detect~\cite{Romano_2017}. To calculate the upper limit, we need the
 $2\mathcal{F}$ value and confidence level of our search on specific templates. 
 So, for a confidence level of $95\%$, we would have detected a signal of
 $2\mathcal{F}<2\mathcal{F}^*$ at least $95\%$ of the time~\cite{Romano_2017}. In
 our pipeline, we calculate the value of $h_0$ such that the false dismissal rate
-is 0.05 as shown in table ~\ref{table:UL}.
-\begin{table*}                                                                  
-\begin{center}                                                                  
-\begin{tabular}{|c|c|}                                                           
-\hline
-\textrm{Intrinsic strain($h_0$)} & \textrm{$FDR$} \\                         
-\hline
-$3.84636\times10^{-25}$ & 0\\
-$9.615891\times10^{-26}$ & 0.21 \\
-$1.14081\times10^{-25}$ & 0.0772\\
-$1.1911\times10^{-25}$ & 0.0528\\
-$1.9795\times10^{-25}$ & 0.0501\\
-$1.19809\times10^{-25}$ & 0.0501\\
-\hline
-\end{tabular}                                                                   
-\end{center}                                                                    
-\caption{Calculation of 95\% confidence level upper limits on the intrinsic strain ($h_o$)}                                                  
-\label{table:UL}                                                        
-\end{table*}                   
-The upper limit on $r$-mode gravitational wave search of Crab pulsar will be
-discussed later in Chapter .
+is 0.05.
+The uppers limit on $r$-mode gravitational waves from the Crab pulsar will be
+discussed later in Chapter 6.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% 							END OF FIFTH CHAPTER									  %%%
@@ -3605,7 +3545,7 @@ physicist too.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Bibliography:  Use BibTeX 							   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibliographystyle{plainnat}
+\bibliographystyle{plain}
 \addcontentsline{toc}{chapter}{\textbf{References}}
 \bibliography{thesis}
 
