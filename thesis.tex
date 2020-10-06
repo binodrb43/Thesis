@@ -23,8 +23,8 @@
 \usepackage{hhline}
 \usepackage{enumitem}
 \usepackage{amsmath,graphicx,bm,mathtools,cancel}
-\usepackage{acronym,setspace,natbib,float,blindtext,hyperref,caption,siunitx,tikz} 
-
+\usepackage{acronym,setspace,float,blindtext,hyperref,caption,siunitx,tikz} 
+\usepackage[square,numbers]{natbib}
 \newcommand{\colvec}[2][.8]{%
   \scalebox{#1}{%
     \renewcommand{\arraystretch}{.8}%
@@ -2482,10 +2482,12 @@ A_{24} = h_0 \sin^2{\theta}\left[-\frac{1}{2}
 (1+\cos^2{\iota})\sin{2\psi}\sin{2\phi_0} + \cos{\iota} \cos{2\psi}\cos{2\psi_0}\right], \\
 \end{align*}
 And the dependent Doppler functions $h_{i}$ are:
-\begin{align*}\label{h}
+\begin{align}
+\begin{split}\label{h}
 h_{1}=a(t) \cos{\phi(t)},\quad h_{2}=b(t) \cos{\phi(t)},\\ 
 h_{3}=a(t) \sin{\phi(t)},\quad h_{4}=b(t) \sin{\phi(t)}, 
-\end{align*}
+\end{split}
+\end{align}
 where, a(t) and b(t) are defined in \ref{eq:a} \& \ref{eq:b}.
 
 
@@ -2556,7 +2558,7 @@ where,
 (h_i|h_j)=\frac{2}{T_0}\int_{-T_0/2}^{T_0/2}h_i(t)h_j(t)dt, \quad
 T_0 \rightarrow \text{observational time.}
 \end{equation}
-From Eqn.\ref{h} $h_1$ $\&$ $h_2$ $\propto$ $\cos{\phi(t)}$\quad and $h_3$ $\&$ $h_4$
+From Eqn.\ref{h}\quad $h_1$ $\&$ $h_2$ $\propto$ $\cos{\phi(t)}$\quad \& \quad $h_3$ $\&$ $h_4$
 $\propto$ $\sin{\phi(t)}$, so,
 \begin{equation}
 (h_1|h_3)=0, \quad (h_1|h_4)=0, \quad (h_2|h_3)=0, \quad (h_2|h_4)=0,  
@@ -3346,18 +3348,18 @@ $p(2\mathcal{F}^*)$ then it is the first step to claim the \ac{GW} signal. None
 of the non-vetoed templates had a $2\mathcal{F}$ value that beat the 95\%
 significance level so no detection was made in all our search.
 
-\section{Upper limit}
-In the absence of a detection, we set an upper limit gravitational wave
-emission. The method is similar to ~\citet{Lindblom_2020}. Upper limit are the
+\section{Upper limits}
+In the absence of a detection, we set upper limits on gravitational wave
+emission. The method is similar to ~\citet{Lindblom_2020}. Upper limits are the
 weakest signal that can be detected from our search with certain probability.
 The frequentist upper limit depends on the observed $2\mathcal{F}$ value and the
 choice of confidence level. For our case, the upper limit is $95\%$ confidence
 level, i.e. for a minimum $h_o$, $2\mathcal{F} > 2\mathcal{F}^*$ $95\%$ of the
 time~\cite{Romano_2017}. This means we set the false dismissal rate to $5\%$,
-and the loudest $2\mathcal{F}$ observed will set the false alrm
+and the loudest $2\mathcal{F}$ observed (even if vetoed) will set the false alarm
 rate~\cite{Aasi_2015}. The upper limit bands are chosen to be small enough for
 the interferometer noise to stay constant. The upper limit band for all the
-searches is 0.1 Hz. 
+searches is 0.1\,Hz. 
 
 First, we use a computationally inexpensive Monte Carlo to determine the loudest
 non-vetoed $2\mathcal{F}$ and find a $95\%$ confidence level intrinsic strain
@@ -3369,58 +3371,35 @@ other unknown parameters are injected in each upper limit band to check the
 validity of $h_o$. The maximum value of $2\mathcal{F}$ obtained from the
 injection is compared to the $2\mathcal{F}^*$ from the search results. If
 $2\mathcal{F}> 2\mathcal{F}^*$ then this $h_o$ will be our upper limit.  The
-upper limit of intrinsic strain and $r$-mode amplitude for our three searches is
+upper limits of intrinsic strain and $r$-mode amplitude for our three searches
+are
 shown in figure ~\ref{fig:UL}.  The best $95\%$ confidence level upper limits on
 intrinsic amplitude strain of our search are $1.61\times 10^{-25}$ (O1),
-$1.45\times 10^{-25}$ (early O2) and $1.20\times 10^{-25}$ (late O2). The upper
-limit for the searches beats the spin down limit by order of magnitude in
-amplitude strain and two orders of magnitude in luminosity. 
+$1.45\times 10^{-25}$ (early O2) and $1.20\times 10^{-25}$ (late O2).
 
 We can also set upper limits on $r$-mode amplitude.  
 The derivation of $r$-mode amplitude ($\alpha$) is shown by \citet{Owen_2010},
-who took the fiducial value of moment of inertia $(I_{zz})=10^{38}kgm^2$
-and typical $M=1.4M_\odot$. We convert the upper limit on
-intrinsic strain ($h_o$) to a r-mode amplitude ($\alpha$).   
+who took the fiducial value of moment of inertia ($I_{zz}$ = $10^{38}$\,kg\,m$^2$)
+and typical $M=1.4\,M_\odot$. We convert the upper limit on
+intrinsic strain ($h_0$) to a r-mode amplitude ($\alpha$).   
 \begin{equation} 
 \alpha
-=0.028\left(\frac{h_o}{10^{-24}}\right)\left(\frac{r}{1kpc}\right)\left(\frac{100Hz}{f}\right)^3
+=0.028\left(\frac{h_o}{10^{-24}}\right)\left(\frac{r}{1\,kpc}\right)\left(\frac{100\,Hz}{f}\right)^3
 \end{equation} 
 
 The best $r$-mode amplitude upper limits for our different searches are $0.0898$
 (O1), $0.082$ (early O2) and $0.067$ (late O2). 
-%The millisecond pulsar will have $\alpha$ from $10^{-6}$
-%- $10^{-4}$, some might have as high as 0.01~\cite{Owen_2010}. The saturation
-%  amplitude of unity spins down the pulsar to a one-tenth of its rotational
-%velocity in a year~\cite{Lindblom_2001}. And neutron star with low saturation
-%amplitude might not be spinning down due to $r$-modes.
-
 
 \begin{figure}[h!] 
 \includegraphics[width=3in]{Crabupper.png}
 \includegraphics[width=3in]{modeamplitude.png}
 
 \caption{Comparison of upper limits on intrinsic strain (left) and $r$-mode
-amplitude (right) for our three searches. The late search is the most sensitive one as it has the more observational
+amplitude (right) for our three searches. The late O2 search is the most
+sensitive one as it has the most observational
 time and detectors were more sensitive later.} 
 \label{fig:UL}
 \end{figure}
-
-%\begin{table*} 
-%\begin{center} 
-%\begin{ruledtabular}
-%\begin{tabular}{ ccc} 
-% \textrm{Search} & \textrm{$h_o$} & \textrm{$\alpha$}\\  
-%\colrule 
-%\ac{O1} & $1.61\times 10^{-25}$ & 0.0898\\ 
-%\ac{O2}(pre-glitch) & $1.45\times 10^{-25}$ & 0.082\\ 
-%\ac{O2}(post-glitch) & $1.20 \times 10^{-25}$ & 0.067\\  
-%\end{tabular} 
-%\end{ruledtabular}
-%\end{center} 
-%\caption{95\% confidence level upper limits on the intrinsic strain ($h_o$) and
-%$r$-mode amplitude ($\alpha$)}
-%\label{table:upperlimit} 
-%\end{table*}
 
 \section{Conclusion} 
 
@@ -3545,7 +3524,7 @@ physicist too.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Bibliography:  Use BibTeX 							   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibliographystyle{plain}
+\bibliographystyle{abbrvnat}
 \addcontentsline{toc}{chapter}{\textbf{References}}
 \bibliography{thesis}
 
